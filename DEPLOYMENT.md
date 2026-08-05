@@ -1,154 +1,174 @@
-# Vercel Deployment Guide
+# Vercel Static Website Deployment Guide
 
-This project has been prepared for deployment on Vercel. Follow these steps to deploy your Web Assets Builder.
+This project is a **static website** built with Vite and React, designed for simple deployment on Vercel. No database or backend server required!
 
-## Prerequisites
+## Quick Start
 
-- Vercel account (https://vercel.com)
-- GitHub repository connected to Vercel
-- PostgreSQL database (for production) or use Vercel Postgres
+1. Go to [vercel.com/new](https://vercel.com/new)
+2. Import your GitHub repository
+3. Click **Deploy**
 
-## Environment Variables
+That's it! Vercel will automatically detect and deploy your static site.
 
-Set these environment variables in your Vercel project settings:
+## Project Overview
 
-### Required Variables
+**Trinity Media** is a modern static website built with:
+- **React 19** - Latest React with new features
+- **Vite** - Fast build tool and dev server
+- **Tailwind CSS 4** - Modern utility-first CSS framework
+- **TypeScript** - Type-safe development
+- **Radix UI** - High-quality accessible UI components
+
+## Environment Variables (Optional)
+
+For a basic static site, you don't need any environment variables. However, you can add these if needed:
+
 ```bash
-# Database
-DATABASE_URL=postgresql://user:password@host:5432/dbname
-
-# Application
+# Optional: Custom configuration
 NODE_ENV=production
 BASE_PATH=/
 ```
 
-### Optional Variables
-```bash
-# API Configuration
-PORT=3000
-API_BASE_URL=https://your-app.vercel.app
+## Development
 
-# Vercel-specific
-VERCEL=true
-VERCEL_ENV=production
-```
-
-## Deployment Steps
-
-### 1. Import Project to Vercel
-
-1. Go to https://vercel.com/new
-2. Import your GitHub repository
-3. Vercel will automatically detect the project configuration
-
-### 2. Configure Environment Variables
-
-In your Vercel project settings:
-1. Go to Settings → Environment Variables
-2. Add the required environment variables listed above
-3. For different environments (Development, Preview, Production), configure accordingly
-
-### 3. Deploy
-
-- **Automatic**: Push to your main branch triggers automatic production deployment
-- **Preview**: Every pull request gets its own preview deployment
-- **Manual**: Use the Vercel CLI or dashboard to deploy manually
-
-## Project Structure
-
-```
-├── artifacts/
-│   ├── api-server/        # Express API backend
-│   ├── mockup-sandbox/    # Vite frontend application
-│   └── trinity-media/     # Main media application
-├── lib/                   # Shared libraries
-├── scripts/              # Build and utility scripts
-├── vercel.json           # Vercel configuration
-└── package.json          # Root package.json
-```
-
-## Build Configuration
-
-The `vercel.json` file handles:
-- **Build Command**: `pnpm run build`
-- **Install Command**: `pnpm install`
-- **API Routes**: Configured for serverless functions
-- **Rewrites**: Proper routing for multi-app setup
-- **CORS Headers**: API CORS configuration
-
-## Local Development
-
-To run the project locally:
+### Local Development
 
 ```bash
 # Install dependencies
 pnpm install
 
-# Run typecheck
-pnpm run typecheck
-
-# Build all packages
-pnpm run build
-
-# Run individual applications
-pnpm --filter @workspace/api-server run dev
+# Run development server
 pnpm --filter @workspace/trinity-media run dev
-pnpm --filter @workspace/mockup-sandbox run dev
+
+# Build for production
+pnpm --filter @workspace/trinity-media run build
+
+# Preview production build
+pnpm --filter @workspace/trinity-media run serve
+```
+
+### Build Output
+
+The production build creates optimized static files in `artifacts/trinity-media/dist/public/`:
+- **HTML**: Pre-rendered HTML files
+- **CSS**: Minified and bundled CSS
+- **JavaScript**: Optimized and code-split JS
+- **Assets**: Images, fonts, and other static assets
+
+## Vercel Configuration
+
+The `vercel.json` file handles:
+- **Build Command**: Builds the static site with Vite
+- **Output Directory**: Points to the built static files
+- **Rewrites**: Ensures client-side routing works properly
+
+## Deployment Features
+
+### Automatic Deployment
+- Push to `main` branch → Production deployment
+- Pull requests → Preview deployments
+- Zero configuration required
+
+### Performance
+- **CDN**: All files served from Vercel's global CDN
+- **Caching**: Automatic asset caching and optimization
+- **Compression**: Brotli and gzip compression
+- **HTTPS**: Automatic SSL certificates
+
+### Custom Domains (Optional)
+1. Go to your project settings in Vercel
+2. Add your custom domain
+3. Update DNS records
+4. Vercel handles SSL automatically
+
+## Project Structure
+
+```
+artifacts/trinity-media/
+├── src/              # Source code
+│   ├── components/   # React components
+│   ├── pages/        # Page components
+│   └── styles/       # Global styles
+├── public/           # Static assets
+├── dist/public/      # Build output (deployed)
+└── vite.config.ts    # Vite configuration
+```
+
+## Adding External Services
+
+Even though this is a static site, you can integrate external services:
+
+### Analytics
+```html
+<!-- Add Google Analytics, Vercel Analytics, etc. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_ID"></script>
+```
+
+### Contact Forms
+Use services like:
+- **Formspree** - Form backend for static sites
+- **Netlify Forms** - Form handling
+- **EmailJS** - Direct email integration
+
+### APIs & External Data
+Fetch data in React components:
+```javascript
+const data = await fetch('https://api.example.com/data');
 ```
 
 ## Troubleshooting
 
 ### Build Errors
+- **Dependencies not found**: Run `pnpm install` locally and push updated `pnpm-lock.yaml`
+- **Type errors**: Run `pnpm run typecheck` locally first
+- **Build timeout**: Optimize images or reduce bundle size
 
-If you encounter build errors:
-1. Check that all environment variables are set
-2. Verify that `DATABASE_URL` is correctly formatted
-3. Ensure the build can access all required dependencies
+### Deployment Issues
+- **404 errors**: Check that `outputDirectory` in `vercel.json` is correct
+- **Routing issues**: The rewrites rule handles client-side routing
+- **Asset loading**: Ensure all assets are in the `public/` folder
 
-### Native Module Issues
+### Performance
+- **Large bundle**: Use dynamic imports for code splitting
+- **Slow images**: Optimize and compress images
+- **Unused CSS**: Review Tailwind CSS usage
 
-The project is configured to support both local development (macOS ARM64) and Vercel deployment (Linux). If you encounter native module issues:
-1. Run `pnpm install` to rebuild native modules
-2. Check `pnpm-workspace.yaml` for platform-specific configurations
+## Cost & Limits
 
-### Database Connection Issues
+**Vercel Free Tier** (perfect for static sites):
+- Unlimited deployments
+- 100GB bandwidth per month
+- Fast global CDN
+- Automatic HTTPS
+- No credit card required
 
-1. Verify your `DATABASE_URL` is correct
-2. Ensure your database allows connections from Vercel's IP ranges
-3. Check database connection limits and pool settings
-
-## Performance Considerations
-
-- **Serverless Functions**: API routes are deployed as serverless functions
-- **Static Assets**: Frontend apps are built and served as static files
-- **Database**: Consider using connection pooling for production
-- **Caching**: Vercel automatically caches static assets
-
-## Monitoring and Analytics
-
-Vercel provides:
-- **Analytics**: Visit the Analytics tab in your dashboard
-- **Logs**: Real-time logs for serverless functions
-- **Performance**: Deployment performance metrics
-- **Error Tracking**: Automatic error tracking
-
-## Scaling
-
-- **Automatic**: Vercel automatically scales based on traffic
-- **Database**: Consider Vercel Postgres for managed database scaling
-- **CDN**: Static assets are automatically served through Vercel's CDN
-
-## Support
-
-For issues specific to:
-- **Vercel**: Check Vercel documentation (https://vercel.com/docs)
-- **Project**: Review this README and project documentation
-- **Database**: Consult your database provider's documentation
+Paid plans only needed for:
+- Custom teams/enterprise features
+- Advanced analytics
+- Edge functions (not needed for static sites)
 
 ## Next Steps
 
-1. Set up your Vercel project
-2. Configure environment variables
-3. Deploy and test your application
-4. Set up custom domains (optional)
-5. Configure analytics and monitoring
+1. **Customize Content**: Edit the React components in `src/`
+2. **Add Pages**: Create new page components
+3. **Styling**: Modify Tailwind CSS classes
+4. **Deploy**: Push to GitHub for automatic deployment
+5. **Custom Domain**: Add your own domain (optional)
+
+## Support & Resources
+
+- **Vercel Docs**: [vercel.com/docs](https://vercel.com/docs)
+- **Vite Guide**: [vitejs.dev](https://vitejs.dev)
+- **React Docs**: [react.dev](https://react.dev)
+- **Tailwind CSS**: [tailwindcss.com](https://tailwindcss.com)
+
+## Migration from Replit
+
+This project was successfully migrated from Replit to Vercel:
+- ✅ Removed all Replit-specific dependencies
+- ✅ Simplified to static website deployment
+- ✅ Optimized for Vercel's CDN
+- ✅ Maintained local development experience
+- ✅ Zero-config deployment
+
+Your static site is ready for professional hosting on Vercel! 🚀

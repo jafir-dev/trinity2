@@ -1,47 +1,13 @@
 {
-  "buildCommand": "pnpm run build",
+  "buildCommand": "pnpm --filter @workspace/trinity-media run build",
+  "outputDirectory": "artifacts/trinity-media/dist/public",
   "installCommand": "pnpm install",
   "framework": null,
-  "functions": {
-    "api/**/*.js": {
-      "runtime": "nodejs20.x"
-    }
-  },
+  "devCommand": "pnpm --filter @workspace/trinity-media run dev",
   "rewrites": [
     {
-      "source": "/api/:path*",
-      "destination": "/api-server/:path*"
-    },
-    {
-      "source": "/trinity-media/:path*",
-      "destination": "/trinity-media/index.html"
-    },
-    {
-      "source": "/mockup-sandbox/:path*",
-      "destination": "/mockup-sandbox/index.html"
-    },
-    {
       "source": "/:path*",
-      "destination": "/trinity-media/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/api/:path*",
-      "headers": [
-        {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
-        },
-        {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET, POST, PUT, DELETE, OPTIONS"
-        },
-        {
-          "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type, Authorization"
-        }
-      ]
+      "destination": "/index.html"
     }
   ]
 }
