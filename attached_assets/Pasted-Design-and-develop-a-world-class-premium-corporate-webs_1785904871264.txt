@@ -1,0 +1,792 @@
+Design and develop a world-class premium corporate website for Trinity Media UAE, a leading branding, fabrication, exhibition, signage, retail display, interior fit-out, and printing company based in Dubai, UAE.
+
+The objective is to completely redesign the existing website into a luxury digital experience that positions Trinity Media alongside top creative production companies and branding agencies in the Middle East.
+
+The website should combine the visual storytelling of Tiron Agency, the cinematic presentation of Four Kings UAE, and the structured service showcase of VAAO Advertising, while creating an entirely unique brand identity centered around Trinity's purple branding.
+
+This is NOT a printing company website.
+
+It is a premium branding, fabrication & experiential marketing company.
+
+Brand Positioning
+
+Headline
+
+Dubai's Premier Branding, Fabrication & Visual Experience Company
+
+Brand Statement
+
+From exhibition stands and retail environments to architectural signage, custom fabrication, and large-format printing, Trinity Media transforms ideas into extraordinary brand experiences across the UAE.
+
+Core Values
+
+Precision
+Creativity
+Innovation
+Engineering Excellence
+Premium Craftsmanship
+Trust
+Quality
+Speed
+Scale
+
+Tone
+
+Confident
+
+Bold
+
+Premium
+
+Elegant
+
+Architectural
+
+Minimal
+
+Innovative
+
+Design Style
+
+Blend the following design philosophies:
+
+Apple
+Pentagram
+Tiron Agency
+Four Kings UAE
+Media.Monks
+Huge Inc.
+Awwwards-winning agency websites
+
+Avoid
+
+Template appearance
+Generic corporate layouts
+Rounded playful cards
+Excessive gradients
+Colorful UI
+Heavy shadows
+Stock photography feeling
+
+The experience should feel like a luxury architecture portfolio mixed with a creative agency website.
+
+Color Palette
+
+Use Trinity Media's logo colors as the primary identity.
+
+Primary Background
+
+#080808
+
+Secondary Background
+
+#121212
+
+Section Background
+
+#181818
+
+Primary Accent
+
+Use Trinity Logo Purple
+
+#7B2D8E
+
+Hover Accent
+
+#A44AC0
+
+Secondary Accent
+
+Silver
+
+#BFBFBF
+
+Primary Text
+
+#FFFFFF
+
+Secondary Text
+
+#C7C7C7
+
+Muted Text
+
+#909090
+
+Borders
+
+#2A2A2A
+
+Success
+
+#35C26B
+Typography
+
+Headings
+
+Bebas Neue
+
+or
+
+Neue Montreal Condensed
+
+Characteristics
+
+Very Large
+
+Bold
+
+Uppercase
+
+Tight Letter Spacing
+
+Editorial Style
+
+Body Font
+
+Inter
+
+Weight
+
+400
+
+500
+
+600
+
+Numbers
+
+Extra Bold
+
+Very Large
+
+Purple Accent
+
+Buttons
+
+Uppercase
+
+Semi Bold
+
+Minimal
+
+Outline
+
+Hover Fill
+
+Layout System
+
+Desktop Width
+
+1440px
+
+Container
+
+1360px
+
+Section Padding
+
+140px
+
+Grid Gap
+
+32px
+
+Card Radius
+
+4px
+
+Maximum White Space
+
+Large Editorial Layouts
+
+No clutter
+
+Navigation
+
+Transparent
+
+Sticky
+
+Glass blur while scrolling
+
+Logo Left
+
+Menu Center
+
+Home
+
+About
+
+Services
+
+Industries
+
+Portfolio
+
+Process
+
+Clients
+
+Insights
+
+Contact
+
+Right Side CTA
+
+GET A PROPOSAL
+
+Purple Outline
+
+Hover Purple Fill
+
+Hero Section
+
+Height
+
+100vh
+
+Background
+
+Autoplay cinematic video.
+
+Video should include:
+
+Exhibition construction
+
+Retail branding
+
+Signage production
+
+LED signage
+
+Printing
+
+Vehicle branding
+
+Fabrication workshop
+
+Installation
+
+Drone shots
+
+Interior fit-outs
+
+Dark cinematic overlay
+
+Large Headline
+
+WE BUILD
+
+BRAND
+
+EXPERIENCES.
+
+Supporting Text
+
+Trinity Media delivers premium branding, exhibition, signage, fabrication and printing solutions across the UAE with engineering precision and creative excellence.
+
+Buttons
+
+Request Proposal
+
+View Portfolio
+
+Bottom
+
+Animated Scroll Indicator
+
+Right Side
+
+Vertical Social Icons
+
+Subtle floating animations
+
+Trusted By
+
+Animated infinite marquee
+
+Display monochrome logos
+
+Luxury Brands
+
+Retail
+
+Government
+
+Healthcare
+
+Hospitality
+
+Construction
+
+Automotive
+
+Education
+
+Technology
+
+Finance
+
+About Trinity
+
+Split Layout
+
+Left
+
+Large cinematic fabrication image
+
+Right
+
+Heading
+
+NOT JUST PRINTING.
+
+WE BUILD BRANDS.
+
+Content
+
+Describe Trinity as a complete branding partner delivering turnkey solutions from concept to installation.
+
+Animated Counters
+
+20+
+
+Years Experience
+
+15000+
+
+Projects
+
+500+
+
+Clients
+
+100000+
+
+Sqft Production
+
+25+
+
+Industries Served
+
+Services
+
+Large editorial section
+
+Background Outline Typography
+
+SERVICES
+
+Foreground Heading
+
+WHAT WE DO
+
+Each service displayed as a premium expandable horizontal accordion.
+
+Include hero image, short description, deliverables and CTA.
+
+Services
+
+01 Exhibition Stand Design & Construction
+
+02 Event Branding & Activation
+
+03 Custom Kiosk Design & Fabrication
+
+04 Retail Display & Point-of-Sale Solutions
+
+05 Interior Fit-Out Solutions
+
+06 Portable Display & Branding Solutions
+
+07 Corrugated Display & Forex Stand Solutions
+
+08 Indoor & Outdoor Signage
+
+09 LED Neon & Illuminated Signage
+
+10 Shell Scheme Booth Rental & Furniture Rental
+
+11 Acrylic Fabrication
+
+12 Large Format & Digital Printing
+
+13 Vehicle Branding & Fleet Graphics
+
+14 Custom Fabric Printing & Branding
+
+15 Canvas Prints, Photo Frames & Wall Décor
+
+16 Kitchen Cabinet Wrapping
+
+17 Decorative Wallpaper Solutions
+
+18 Custom Awards & Recognition Products
+
+19 Commercial Offset Printing
+
+Why Trinity
+
+Editorial Split Layout
+
+Large Typography
+
+WHY
+
+TRINITY
+
+Feature Cards
+
+Creative Strategy
+
+Engineering Precision
+
+Own Manufacturing Facility
+
+Skilled Installation Team
+
+Premium Materials
+
+Fast Turnaround
+
+End-to-End Project Management
+
+Nationwide UAE Coverage
+
+Industries We Serve
+
+Interactive Grid
+
+Retail
+
+Luxury
+
+Healthcare
+
+Education
+
+Government
+
+Corporate
+
+Hospitality
+
+Museums
+
+Real Estate
+
+Events
+
+Construction
+
+Automotive
+
+Portfolio
+
+Large Pinterest Masonry Layout
+
+Inspired by Tiron
+
+Mix
+
+Portrait
+
+Landscape
+
+Square
+
+Hover Reveal
+
+Project Name
+
+Industry
+
+Location
+
+View Project
+
+Project Categories
+
+Exhibitions
+
+Retail
+
+Signage
+
+Printing
+
+Vehicle Branding
+
+Interior
+
+Events
+
+Fabrication
+
+POS Displays
+
+Process
+
+Horizontal Animated Timeline
+
+01 Discover
+
+02 Strategy
+
+03 Design
+
+04 Engineering
+
+05 Fabrication
+
+06 Production
+
+07 Installation
+
+08 Quality Check
+
+09 Support
+
+Each stage should animate on scroll.
+
+Manufacturing Excellence
+
+Large full-width section
+
+Production workshop
+
+Machinery
+
+Fabrication
+
+Laser Cutting
+
+Printing
+
+Installation
+
+Quality Testing
+
+Statistics
+
+Animated Counters
+
+20+
+
+Years
+
+15000+
+
+Projects
+
+500+
+
+Clients
+
+100000+
+
+Sqft Production
+
+50+
+
+Team Members
+
+99%
+
+Client Satisfaction
+
+Testimonials
+
+Editorial Layout
+
+Large quotation marks
+
+Video testimonials
+
+Company logos
+
+Client photos
+
+Brands We Work With
+
+Large monochrome animated logo wall
+
+Hover to full color
+
+Blog
+
+Three premium editorial cards
+
+Category
+
+Date
+
+Title
+
+Read More
+
+FAQ
+
+Elegant accordion
+
+Minimal
+
+Dark Theme
+
+Contact CTA
+
+Full Width Purple Section
+
+Large Typography
+
+LET'S BUILD
+
+YOUR NEXT
+
+BIG IDEA.
+
+Buttons
+
+Get Proposal
+
+Schedule Meeting
+
+Footer
+
+Dark
+
+Minimal
+
+Large spacing
+
+Columns
+
+Company
+
+Services
+
+Industries
+
+Portfolio
+
+Insights
+
+Careers
+
+Contact
+
+Newsletter
+
+Social Icons
+
+Google Maps
+
+Copyright
+
+Micro Animations
+
+GSAP quality
+
+Smooth scrolling
+
+Parallax
+
+Pinned storytelling
+
+Horizontal scrolling typography
+
+Image reveal
+
+Text masking
+
+Fade-up
+
+Counter animations
+
+Hover zoom
+
+Cursor follower
+
+Magnetic buttons
+
+Marquee logos
+
+Lazy loading
+
+Page transitions
+
+Glass morphism where appropriate
+
+Image Placement Instructions
+
+Use ONLY the high-resolution images provided in the uploaded ZIP folder.
+
+Match image placement according to the supplied reference screenshots.
+
+Hero
+
+Use the strongest exhibition, fabrication, retail branding, signage, and installation visuals as a cinematic background video or full-width hero imagery.
+
+About
+
+Use production facility, workshop, fabrication team, and installation photographs.
+
+Services
+
+Assign dedicated images to each service:
+
+Exhibition Stand Design → Exhibition stand projects
+Event Branding → Event setup and activation
+Kiosk Fabrication → Custom kiosk projects
+Retail Displays → POS displays and retail installations
+Interior Fit-Out → Interior execution
+Signage → Indoor & outdoor signage
+LED Signage → Illuminated signs
+Printing → Printing machinery and production
+Vehicle Branding → Fleet graphics and wraps
+Fabric Printing → Fabric branding visuals
+Acrylic Fabrication → Acrylic products
+Wallpaper → Decorative wallpaper installations
+Canvas Prints → Canvas and wall décor
+Awards → Custom awards and recognition products
+Offset Printing → Offset printing machines and outputs
+Portfolio
+
+Arrange all project images in an editorial masonry grid with varying aspect ratios (portrait, landscape, square), matching the premium composition shown in the reference websites.
+
+Manufacturing Section
+
+Use behind-the-scenes production, CNC cutting, printing presses, assembly, quality inspection, and installation images.
+
+Process Section
+
+Use images that visually represent each workflow stage from concept to completion.
+
+Testimonials
+
+Use authentic client headshots and company branding where available.
+
+Blog
+
+Use high-quality editorial cover images.
+
+Client Logos
+
+Display client logos in monochrome within a continuously scrolling marquee and a dedicated "Brands We Work With" section.
+
+Technical Requirements
+Fully responsive (Desktop, Tablet, Mobile)
+SEO optimized
+Accessibility compliant (WCAG)
+Optimized for Core Web Vitals
+Fast-loading images with lazy loading
+Semantic HTML structure
+Modular component architecture
+Smooth scrolling and premium animations
+Dark mode aesthetic with Trinity purple branding
+CMS-ready architecture for future content updates
+Final Goal
+
+Create an award-winning, Awwwards-quality website that elevates Trinity Media UAE from a conventional printing company into a premium branding, fabrication, exhibition, and experiential marketing leader. The website should convey craftsmanship, engineering precision, creativity, trust, and large-scale execution through cinematic visuals, bold editorial typography, immersive storytelling, generous whitespace, and sophisticated interactions while maintaining a consistent Trinity purple brand identity. The final experience should be memorable, conversion-focused, and position Trinity Media as the first choice for businesses seeking world-class branding and fabrication solutions across the UAE.

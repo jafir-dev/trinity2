@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Trinity Media UAE"
+description = "A world-class premium corporate website for Trinity Media UAE — a leading branding, fabrication, exhibition, signage, and experiential marketing company based in Dubai. Features cinematic dark-themed design with Trinity purple branding, full editorial sections, animated counters, masonry portfolio, horizontal process timeline, client marquee, FAQ, contact CTA, and rich micro-animations."
+version = "1.0.0"
+id = "artifacts/trinity-media"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25878
+
+[services.development]
+run = "pnpm --filter @workspace/trinity-media run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/trinity-media", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/trinity-media/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "25878"
+BASE_PATH = "/"
