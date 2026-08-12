@@ -10,7 +10,6 @@ import { Process } from '../components/Process';
 import { Manufacturing } from '../components/Manufacturing';
 import { Testimonials } from '../components/Testimonials';
 import { Brands } from '../components/Brands';
-import { Blog } from '../components/Blog';
 import { FAQ } from '../components/FAQ';
 import { ContactCTA } from '../components/ContactCTA';
 import { Footer } from '../components/Footer';
@@ -34,7 +33,6 @@ export default function Home() {
         <Manufacturing />
         <Testimonials />
         <Brands />
-        <Blog />
         <FAQ />
         <ContactCTA />
       </main>

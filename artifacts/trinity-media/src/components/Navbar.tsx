@@ -11,7 +11,6 @@ const NAV_LINKS = [
   { name: 'Portfolio', href: '#portfolio' },
   { name: 'Process', href: '#process' },
   { name: 'Clients', href: '#clients' },
-  { name: 'Insights', href: '#insights' },
 ];
 
 export function Navbar() {
