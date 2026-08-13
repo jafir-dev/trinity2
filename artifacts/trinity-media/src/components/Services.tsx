@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'wouter';
 import { SERVICES } from '@/data/services';
 
 export function Services() {
@@ -41,13 +42,13 @@ export function Services() {
                 {srv.short}
               </p>
 
-              <a
-                href={`${import.meta.env.BASE_URL}services/${srv.slug}`}
+              <Link
+                to={`/services/${srv.slug}`}
                 className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary hover:text-white transition-colors self-start"
               >
                 Know More
                 <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </a>
+              </Link>
             </motion.div>
           ))}
         </div>
