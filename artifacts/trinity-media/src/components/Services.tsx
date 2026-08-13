@@ -1,15 +1,9 @@
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { useNavigate } from 'wouter';
+import { Link } from 'wouter';
 import { SERVICES } from '@/data/services';
 
 export function Services() {
-  const navigate = useNavigate();
-
-  const handleServiceClick = (slug: string) => {
-    navigate(`/services/${slug}`);
-  };
-
   return (
     <section id="services" className="py-24 md:py-32 bg-[#0C0C0C] relative overflow-hidden">
       {/* Background Typography */}
@@ -27,33 +21,33 @@ export function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/60 border border-border/60 rounded-lg overflow-hidden">
           {SERVICES.map((srv, idx) => (
-            <motion.div
-              key={srv.num}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-60px' }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: (idx % 2) * 0.05 }}
-              className="group relative bg-[#0C0C0C] p-8 md:p-10 flex flex-col transition-colors duration-300 hover:bg-[#121212] h-full cursor-pointer"
-              onClick={() => handleServiceClick(srv.slug)}
-            >
-              <div className="flex items-start gap-5 mb-5">
-                <span className="font-display text-3xl md:text-4xl text-primary leading-none">
-                  {srv.num}
-                </span>
-                <h3 className="font-display tracking-wide text-2xl md:text-3xl text-muted-foreground group-hover:text-white transition-colors leading-tight pt-1">
-                  {srv.title}
-                </h3>
-              </div>
+            <Link key={srv.num} to={`/services/${srv.slug}`} className="block">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: '-60px' }}
+                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: (idx % 2) * 0.05 }}
+                className="group relative bg-[#0C0C0C] p-8 md:p-10 flex flex-col transition-colors duration-300 hover:bg-[#121212] h-full"
+              >
+                <div className="flex items-start gap-5 mb-5">
+                  <span className="font-display text-3xl md:text-4xl text-primary leading-none">
+                    {srv.num}
+                  </span>
+                  <h3 className="font-display tracking-wide text-2xl md:text-3xl text-muted-foreground group-hover:text-white transition-colors leading-tight pt-1">
+                    {srv.title}
+                  </h3>
+                </div>
 
-              <p className="text-secondary text-sm md:text-base leading-relaxed mb-8 flex-1">
-                {srv.short}
-              </p>
+                <p className="text-secondary text-sm md:text-base leading-relaxed mb-8 flex-1">
+                  {srv.short}
+                </p>
 
-              <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary hover:text-white transition-colors self-start">
-                Know More
-                <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
-              </div>
-            </motion.div>
+                <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary hover:text-white transition-colors self-start">
+                  Know More
+                  <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
