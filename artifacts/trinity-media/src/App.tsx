@@ -3,8 +3,14 @@ import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import NotFound from '@/pages/not-found';
 import ServiceDetail from '@/pages/ServiceDetail';
-import { Route, Switch, Router as WouterRouter } from 'wouter';
 import Home from './pages/Home';
+import AboutPage from './pages/AboutPage';
+import JourneyPage from './pages/JourneyPage';
+import WhyChooseUsPage from './pages/WhyChooseUsPage';
+import AwardsPage from './pages/AwardsPage';
+import ContactPage from './pages/ContactPage';
+import FacilitiesPage from './pages/FacilitiesPage';
+import { Route, Switch, Router as WouterRouter } from 'wouter';
 
 const queryClient = new QueryClient();
 
@@ -12,6 +18,12 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/about" component={AboutPage} />
+      <Route path="/our-journey" component={JourneyPage} />
+      <Route path="/why-choose-us" component={WhyChooseUsPage} />
+      <Route path="/awards" component={AwardsPage} />
+      <Route path="/our-facilities" component={FacilitiesPage} />
+      <Route path="/contact" component={ContactPage} />
       <Route path="/services/:slug" component={ServiceDetail} />
       <Route component={NotFound} />
     </Switch>
@@ -32,4 +44,3 @@ function App() {
 }
 
 export default App;
-
