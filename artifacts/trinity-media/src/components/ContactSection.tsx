@@ -336,7 +336,7 @@ export function ContactSection() {
                     className="w-full py-4 bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-wider rounded text-sm transition-all shadow-xl shadow-primary/30 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                   >
                     <Send size={16} />
-                    <span>{isSubmitting ? 'Sending Request...' : 'SEND NOW (VIA WHATSAPP DESK)'}</span>
+                    <span>{isSubmitting ? 'Sending Request...' : 'SEND NOW'}</span>
                   </button>
                 </form>
               )}

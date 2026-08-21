@@ -265,7 +265,7 @@ export function Hero() {
                   className="px-7 py-3.5 bg-green-600 hover:bg-green-500 text-white font-bold uppercase tracking-wider rounded text-xs sm:text-sm flex items-center gap-2.5 transition-all shadow-lg shadow-green-900/30"
                 >
                   <FaWhatsapp size={18} />
-                  <span>WhatsApp Direct</span>
+                  <span>Contact Now</span>
                 </a>
                 <button
                   onClick={() => scrollTo('#services')}
@@ -483,10 +483,10 @@ export function Hero() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 bg-green-600 hover:bg-green-500 text-white font-bold uppercase tracking-wider rounded text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-green-900/40 cursor-pointer disabled:opacity-50"
+                  className="w-full py-3.5 bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-wider rounded text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/40 cursor-pointer disabled:opacity-50"
                 >
-                  <FaWhatsapp size={18} />
-                  <span>{isSubmitting ? 'Opening WhatsApp...' : 'SEND TO WHATSAPP API (+971 52 693 5456)'}</span>
+                  <Send size={16} />
+                  <span>{isSubmitting ? 'Submitting Quote...' : 'REQUEST A QUOTE'}</span>
                 </button>
               </form>
             )}

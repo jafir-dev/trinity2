@@ -108,7 +108,7 @@ export function Navbar() {
               className="flex items-center gap-1 text-pink-200 hover:text-white transition-colors font-semibold"
             >
               <MessageCircle size={13} />
-              <span>WhatsApp Direct</span>
+              <span>Contact Now</span>
             </a>
           </div>
         </div>
