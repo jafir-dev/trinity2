@@ -1,5 +1,6 @@
 import { Navbar } from '../components/Navbar';
 import { About } from '../components/About';
+import { CeoMessage } from '../components/CeoMessage';
 import { Footer } from '../components/Footer';
 import { CustomCursor } from '../components/CustomCursor';
 import { Link } from 'wouter';
@@ -29,6 +30,7 @@ export default function AboutPage() {
 
       <main>
         <About />
+        <CeoMessage />
       </main>
 
       <Footer />

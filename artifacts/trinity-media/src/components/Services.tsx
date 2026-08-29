@@ -3,6 +3,24 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'wouter';
 import { SERVICES } from '@/data/services';
 
+const imageMap: Record<string, string> = {
+  'exhibition_1.jpg': new URL('@assets/generated_images/exhibition_1.jpg', import.meta.url).href,
+  'event_branding_1.jpg': new URL('@assets/generated_images/event_branding_1.jpg', import.meta.url).href,
+  'kiosk_1.jpg': new URL('@assets/generated_images/kiosk_1.jpg', import.meta.url).href,
+  'service_retail_display.jpg': new URL('@assets/generated_images/service_retail_display.jpg', import.meta.url).href,
+  'service_interior_fitout.jpg': new URL('@assets/generated_images/service_interior_fitout.jpg', import.meta.url).href,
+  'service_portable_display.jpg': new URL('@assets/generated_images/service_portable_display.jpg', import.meta.url).href,
+  'service_signage.jpg': new URL('@assets/generated_images/service_signage.jpg', import.meta.url).href,
+  'service_led_signage.jpg': new URL('@assets/generated_images/service_led_signage.jpg', import.meta.url).href,
+  'service_vehicle_branding.jpg': new URL('@assets/generated_images/service_vehicle_branding.jpg', import.meta.url).href,
+};
+const fallbackImg = new URL('@assets/generated_images/services.jpg', import.meta.url).href;
+
+function getImg(filename?: string): string {
+  if (!filename) return fallbackImg;
+  return imageMap[filename] ?? fallbackImg;
+}
+
 export function Services() {
   return (
     <section id="services" className="py-24 md:py-32 bg-[#0C0C0C] relative overflow-hidden">
@@ -27,24 +45,41 @@ export function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: (idx % 2) * 0.05 }}
-                className="group relative bg-[#0C0C0C] p-8 md:p-10 flex flex-col transition-colors duration-300 hover:bg-[#121212] h-full"
+                className="group relative bg-[#0C0C0C] flex flex-col transition-colors duration-300 hover:bg-[#121212] h-full"
               >
-                <div className="flex items-start gap-5 mb-5">
-                  <span className="font-display text-3xl md:text-4xl text-primary leading-none">
+                {/* Image */}
+                <div className="relative h-52 overflow-hidden">
+                  <img
+                    src={getImg(srv.image)}
+                    alt={srv.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0C0C0C] via-[#0C0C0C]/20 to-transparent" />
+                  {/* Big Number overlay bottom-right */}
+                  <span className="absolute bottom-0 right-4 font-display text-[7rem] leading-none text-white/10 select-none pointer-events-none">
                     {srv.num}
                   </span>
-                  <h3 className="font-display tracking-wide text-2xl md:text-3xl text-muted-foreground group-hover:text-white transition-colors leading-tight pt-1">
-                    {srv.title}
-                  </h3>
                 </div>
 
-                <p className="text-secondary text-sm md:text-base leading-relaxed mb-8 flex-1">
-                  {srv.short}
-                </p>
+                {/* Content */}
+                <div className="p-8 md:p-10 flex flex-col flex-1">
+                  <div className="flex items-start gap-5 mb-5">
+                    <span className="font-display text-5xl md:text-6xl text-primary leading-none shrink-0">
+                      {srv.num}
+                    </span>
+                    <h3 className="font-display tracking-wide text-2xl md:text-3xl text-muted-foreground group-hover:text-white transition-colors leading-tight pt-2">
+                      {srv.title}
+                    </h3>
+                  </div>
 
-                <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary hover:text-white transition-colors self-start">
-                  Know More
-                  <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                  <p className="text-secondary text-sm md:text-base leading-relaxed mb-8 flex-1">
+                    {srv.short}
+                  </p>
+
+                  <div className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-primary hover:text-white transition-colors self-start">
+                    Know More
+                    <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                  </div>
                 </div>
               </motion.div>
             </Link>

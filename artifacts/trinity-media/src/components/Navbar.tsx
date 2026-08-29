@@ -124,7 +124,7 @@ export function Navbar() {
       >
         <div className="max-w-[1360px] mx-auto px-4 md:px-8 flex items-center justify-between">
           <Link href="/" className="block">
-            <img src={trinityLogo} alt="Trinity Media UAE" className="h-10 md:h-12 w-auto object-contain cursor-pointer" />
+            <img src={trinityLogo} alt="Trinity Media UAE" className="h-10 md:h-12 w-auto object-contain cursor-pointer brightness-0 invert" />
           </Link>
 
           {/* Desktop Nav Items */}

@@ -18,7 +18,7 @@ export function Footer() {
           {/* Col 1: About Us & Socials */}
           <div className="lg:col-span-4 flex flex-col">
             <Link href="/">
-              <img src={trinityLogo} alt="Trinity Media UAE" className="h-11 w-auto mb-6 self-start cursor-pointer" />
+              <img src={trinityLogo} alt="Trinity Media UAE" className="h-11 w-auto mb-6 self-start cursor-pointer brightness-0 invert" />
             </Link>
             
             <h4 className="text-white font-bold tracking-wider uppercase text-xs mb-3 text-primary">About Us</h4>
