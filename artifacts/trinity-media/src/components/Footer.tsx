@@ -164,7 +164,7 @@ export function Footer() {
         {/* Bottom Bar: Copyright and Back to top */}
         <div className="border-t border-white/10 pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400">
           <p>
-            Copyrights © 2026 <strong className="text-white font-normal">Trinity Media LLC</strong>. Designed by CEZCON | <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
+            Copyrights © 2026 <strong className="text-white font-normal">Trinity Media LLC</strong>. Designed by CEZCON | <Link href="/contact" className="hover:text-primary transition-colors">Privacy & Contact</Link>
           </p>
           <button
             onClick={scrollToTop}
