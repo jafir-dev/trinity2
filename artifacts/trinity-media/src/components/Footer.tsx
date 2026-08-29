@@ -58,38 +58,38 @@ export function Footer() {
             </h4>
             <ul className="space-y-2.5 text-xs sm:text-sm text-gray-400">
               <li>
-                <Link href="/services/large-format-printing" className="hover:text-primary transition-colors flex items-center gap-1.5">
+                <Link href="/services/exhibition-stand-design-construction" className="hover:text-primary transition-colors flex items-center gap-1.5">
+                  <span className="text-primary text-xs">›</span> Exhibition Stand & Construction
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/event-branding-activation" className="hover:text-primary transition-colors flex items-center gap-1.5">
+                  <span className="text-primary text-xs">›</span> Event Branding & Activation
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/custom-kiosk-design-fabrication" className="hover:text-primary transition-colors flex items-center gap-1.5">
+                  <span className="text-primary text-xs">›</span> Custom Kiosk Fabrication
+                </Link>
+              </li>
+              <li>
+                <Link href="/services/large-format-digital-printing" className="hover:text-primary transition-colors flex items-center gap-1.5">
                   <span className="text-primary text-xs">›</span> Large Format Digital Printing
                 </Link>
               </li>
               <li>
-                <Link href="/services/exhibition-stands" className="hover:text-primary transition-colors flex items-center gap-1.5">
-                  <span className="text-primary text-xs">›</span> Exhibition Stands & Display Unit
+                <Link href="/services/indoor-outdoor-signage" className="hover:text-primary transition-colors flex items-center gap-1.5">
+                  <span className="text-primary text-xs">›</span> Indoor & Outdoor Signage
                 </Link>
               </li>
               <li>
-                <Link href="/services/signage-acrylic" className="hover:text-primary transition-colors flex items-center gap-1.5">
-                  <span className="text-primary text-xs">›</span> Signage & Acrylic
+                <Link href="/services/acrylic-fabrication" className="hover:text-primary transition-colors flex items-center gap-1.5">
+                  <span className="text-primary text-xs">›</span> Acrylic Fabrication
                 </Link>
               </li>
               <li>
-                <Link href="/services/wallpaper-printing" className="hover:text-primary transition-colors flex items-center gap-1.5">
-                  <span className="text-primary text-xs">›</span> Wallpaper Printing
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/canvas-printing" className="hover:text-primary transition-colors flex items-center gap-1.5">
-                  <span className="text-primary text-xs">›</span> Canvas Printing
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/flag-printing" className="hover:text-primary transition-colors flex items-center gap-1.5">
-                  <span className="text-primary text-xs">›</span> Flag Printing
-                </Link>
-              </li>
-              <li>
-                <Link href="/services/uv-printing" className="hover:text-primary transition-colors flex items-center gap-1.5">
-                  <span className="text-primary text-xs">›</span> UV Printing Service
+                <Link href="/services/vehicle-branding-fleet-graphics" className="hover:text-primary transition-colors flex items-center gap-1.5">
+                  <span className="text-primary text-xs">›</span> Vehicle Branding & Fleet
                 </Link>
               </li>
             </ul>

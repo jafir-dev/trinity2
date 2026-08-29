@@ -39,7 +39,7 @@ export function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/60 border border-border/60 rounded-lg overflow-hidden">
           {SERVICES.map((srv, idx) => (
-            <Link key={srv.num} to={`/services/${srv.slug}`} className="block">
+            <Link key={srv.num} href={`/services/${srv.slug}`} className="block">
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}

@@ -3,17 +3,19 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Menu, X, Phone, Mail, ChevronDown, 
   MapPin, MessageCircle, Clock, Award, Users, 
-  Sparkles, Layers, ShieldCheck 
+  Sparkles, Layers, ShieldCheck, ArrowRight 
 } from 'lucide-react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 import { Link, useLocation } from 'wouter';
 import trinityLogo from "@assets/image_1785904865497.png";
+import { SERVICES } from '@/data/services';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [location, setLocation] = useLocation();
 
   useEffect(() => {
@@ -23,89 +25,61 @@ export function Navbar() {
   }, []);
 
   const navigateTo = (href: string) => {
+    setLocation(href);
     setMobileOpen(false);
     setAboutDropdownOpen(false);
     setServicesDropdownOpen(false);
-    
-    if (href.startsWith('/#') || href.startsWith('#')) {
-      const id = href.replace('/#', '').replace('#', '');
-      if (location === '/') {
-        const el = document.getElementById(id);
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-          return;
-        }
-      } else {
-        setLocation('/');
-        setTimeout(() => {
-          const el = document.getElementById(id);
-          if (el) el.scrollIntoView({ behavior: 'smooth' });
-        }, 150);
-        return;
-      }
-    }
-    
-    setLocation(href);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Top Info Bar */}
-      <div className="bg-[#5c1c69] text-white text-xs py-2 px-4 border-b border-white/10 hidden md:block">
+    <header className="fixed top-0 left-0 right-0 z-50 font-sans">
+      {/* Top Notification & Contact Bar */}
+      <div className="bg-[#050505] text-gray-300 text-[11px] md:text-xs py-2 px-4 md:px-8 border-b border-border/60 hidden sm:block">
         <div className="max-w-[1360px] mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-6">
-            <span className="font-medium tracking-wide flex items-center gap-1.5 text-white/90">
-              <Sparkles size={13} className="text-pink-300" />
-              Welcome to Trinity Group
-            </span>
-            <a 
-              href="tel:+971526935456" 
-              className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors"
-            >
-              <Phone size={12} className="text-pink-300" />
-              <span>+971 52 693 5456</span>
-            </a>
-            <a 
-              href="tel:+97143409377" 
-              className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors"
-            >
-              <Phone size={12} className="text-pink-300" />
-              <span>+971 4 340 9377</span>
-            </a>
-            <a 
-              href="mailto:inquiry@trinitymediauae.com" 
-              className="flex items-center gap-1.5 text-white/80 hover:text-white transition-colors"
-            >
-              <Mail size={12} className="text-pink-300" />
-              <span>inquiry@trinitymediauae.com</span>
-            </a>
+            <div className="flex items-center gap-1.5">
+              <MapPin size={13} className="text-primary" />
+              <span>DIP-1, Dubai, UAE</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Mail size={13} className="text-primary" />
+              <a href="mailto:inquiry@trinitymediauae.com" className="hover:text-primary transition-colors">
+                inquiry@trinitymediauae.com
+              </a>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <Clock size={13} className="text-primary" />
+              <span>Mon - Sat: 8:00 AM - 7:00 PM</span>
+            </div>
           </div>
 
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-3 text-white/80">
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="Facebook">
+            <div className="flex items-center space-x-3 text-gray-400">
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
                 <FaFacebookF size={12} />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="Twitter">
+              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
                 <FaTwitter size={12} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="Instagram">
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
                 <FaInstagram size={12} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="LinkedIn">
+              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
                 <FaLinkedinIn size={12} />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="YouTube">
+              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
                 <FaYoutube size={12} />
               </a>
             </div>
-            <span className="text-white/30">|</span>
-            <a
-              href="https://wa.me/971526935456?text=Hi%20Trinity%20Media%2C%20I%20would%20like%20to%20inquire%20about%20your%20printing%20and%20branding%20services."
-              target="_blank"
+
+            <span className="text-border">|</span>
+
+            <a 
+              href="https://wa.me/971526935456" 
+              target="_blank" 
               rel="noreferrer"
-              className="flex items-center gap-1 text-pink-200 hover:text-white transition-colors font-semibold"
+              className="flex items-center gap-1.5 text-primary hover:text-white transition-colors font-semibold uppercase tracking-wider"
             >
               <MessageCircle size={13} />
               <span>Contact Now</span>
@@ -192,13 +166,13 @@ export function Navbar() {
                       </div>
                     </button>
                     <button
-                      onClick={() => navigateTo('/our-journey#ceo-message')}
+                      onClick={() => navigateTo('/about#ceo-message')}
                       className="w-full text-left px-3 py-2.5 rounded-md text-sm text-gray-200 hover:bg-primary/20 hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
                     >
                       <Users size={16} className="text-primary" />
                       <div>
                         <div className="font-semibold">CEO's Message</div>
-                        <div className="text-xs text-muted-foreground">Leadership vision & commitment</div>
+                        <div className="text-xs text-muted-foreground">Mr. Suraj Walter leadership vision</div>
                       </div>
                     </button>
                     <button
@@ -216,9 +190,9 @@ export function Navbar() {
               </AnimatePresence>
             </div>
 
-            {/* Services Dropdown */}
+            {/* Services 19-Service Mega Menu */}
             <div 
-              className="relative group"
+              className="relative"
               onMouseEnter={() => setServicesDropdownOpen(true)}
               onMouseLeave={() => setServicesDropdownOpen(false)}
             >
@@ -227,35 +201,52 @@ export function Navbar() {
                 className="flex items-center gap-1 text-sm font-medium text-gray-200 hover:text-primary transition-colors py-2 cursor-pointer"
               >
                 <span>Services</span>
+                <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-primary/20 text-pink-300 font-bold border border-primary/40">19</span>
                 <ChevronDown size={14} className={`transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180 text-primary' : ''}`} />
               </button>
 
               <AnimatePresence>
                 {servicesDropdownOpen && (
                   <motion.div
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                    initial={{ opacity: 0, y: 12, scale: 0.98 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                    transition={{ duration: 0.18 }}
-                    className="absolute top-full left-0 w-72 bg-[#141414] border border-border/80 rounded-lg shadow-2xl p-2 z-50 backdrop-blur-xl"
+                    exit={{ opacity: 0, y: 8, scale: 0.98 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-[-320px] w-[1080px] max-w-[90vw] bg-[#0e0e0e]/98 border border-border/90 rounded-2xl shadow-2xl p-6 z-50 backdrop-blur-2xl"
                   >
-                    {[
-                      { name: 'Large Format Digital Printing', slug: 'large-format-printing' },
-                      { name: 'Exhibition Stands & Display Unit', slug: 'exhibition-stands' },
-                      { name: 'Signage & Acrylic Works', slug: 'signage-acrylic' },
-                      { name: 'Wallpaper Printing', slug: 'wallpaper-printing' },
-                      { name: 'Canvas & Fine Art Printing', slug: 'canvas-printing' },
-                      { name: 'Flag & Fabric Printing', slug: 'flag-printing' },
-                      { name: 'Flatbed UV Printing Service', slug: 'uv-printing' },
-                    ].map((item) => (
-                      <button
-                        key={item.slug}
-                        onClick={() => navigateTo(`/services/${item.slug}`)}
-                        className="w-full text-left px-3 py-2 rounded text-xs md:text-sm text-gray-300 hover:bg-primary/20 hover:text-white transition-colors block cursor-pointer"
+                    <div className="flex items-center justify-between pb-4 mb-4 border-b border-border/80">
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+                        <span className="font-display text-lg text-white uppercase tracking-wide">
+                          All 19 Specialised Services
+                        </span>
+                      </div>
+                      <Link
+                        href="/#services"
+                        onClick={() => setServicesDropdownOpen(false)}
+                        className="text-xs font-bold uppercase tracking-wider text-primary hover:text-white transition-colors flex items-center gap-1.5"
                       >
-                        {item.name}
-                      </button>
-                    ))}
+                        Explore Services Section <ArrowRight size={13} />
+                      </Link>
+                    </div>
+
+                    {/* 4-Column Grid for All 19 Services */}
+                    <div className="grid grid-cols-4 gap-4">
+                      {SERVICES.map((srv) => (
+                        <button
+                          key={srv.slug}
+                          onClick={() => navigateTo(`/services/${srv.slug}`)}
+                          className="text-left p-2.5 rounded-lg bg-[#141414]/70 hover:bg-primary/20 border border-transparent hover:border-primary/40 transition-all duration-200 flex items-start gap-2.5 group cursor-pointer"
+                        >
+                          <span className="font-display text-sm text-primary group-hover:text-pink-300 font-bold shrink-0 mt-0.5">
+                            {srv.num}
+                          </span>
+                          <span className="text-xs text-gray-300 group-hover:text-white font-medium leading-snug">
+                            {srv.title}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -296,7 +287,7 @@ export function Navbar() {
             </button>
           </div>
 
-          {/* Action CTA Button */}
+          {/* Quick CTA Button */}
           <div className="hidden lg:flex items-center space-x-4">
             <button
               onClick={() => navigateTo('/contact')}
@@ -342,7 +333,13 @@ export function Navbar() {
                   onClick={() => navigateTo('/our-journey')}
                   className="text-left text-lg font-display tracking-wider text-white hover:text-primary transition-colors pl-4 text-gray-400"
                 >
-                  • Our Journey & CEO Message
+                  • Our Journey
+                </button>
+                <button
+                  onClick={() => navigateTo('/about#ceo-message')}
+                  className="text-left text-lg font-display tracking-wider text-white hover:text-primary transition-colors pl-4 text-gray-400"
+                >
+                  • CEO's Message
                 </button>
                 <button
                   onClick={() => navigateTo('/why-choose-us')}
@@ -350,12 +347,32 @@ export function Navbar() {
                 >
                   • Why Choose Us
                 </button>
-                <button
-                  onClick={() => navigateTo('/#services')}
-                  className="text-left text-lg font-display tracking-wider text-white hover:text-primary transition-colors"
-                >
-                  Services
-                </button>
+
+                {/* Mobile Services Accordion */}
+                <div>
+                  <button
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className="w-full flex items-center justify-between text-left text-lg font-display tracking-wider text-white hover:text-primary transition-colors"
+                  >
+                    <span>Services (19)</span>
+                    <ChevronDown size={16} className={`transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180 text-primary' : ''}`} />
+                  </button>
+                  {mobileServicesOpen && (
+                    <div className="mt-3 pl-3 space-y-2 border-l border-primary/40">
+                      {SERVICES.map((s) => (
+                        <button
+                          key={s.slug}
+                          onClick={() => navigateTo(`/services/${s.slug}`)}
+                          className="w-full text-left text-xs text-gray-300 hover:text-primary py-1 flex items-center gap-2"
+                        >
+                          <span className="text-primary font-bold">{s.num}</span>
+                          <span>{s.title}</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
                 <button
                   onClick={() => navigateTo('/our-facilities')}
                   className="text-left text-lg font-display tracking-wider text-white hover:text-primary transition-colors"
@@ -402,7 +419,7 @@ export function Navbar() {
               <div className="pt-2">
                 <button
                   onClick={() => navigateTo('/contact')}
-                  className="w-full py-3.5 rounded bg-primary text-white font-bold uppercase tracking-wider text-center"
+                  className="w-full py-3.5 rounded bg-primary text-white font-bold uppercase tracking-wider text-center cursor-pointer"
                 >
                   GET IN TOUCH / REQUEST QUOTE
                 </button>
