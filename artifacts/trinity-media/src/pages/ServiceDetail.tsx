@@ -39,8 +39,10 @@ const fallbackImg = new URL('@assets/generated_images/services.jpg', import.meta
 
 function resolveImg(filename?: string): string {
   if (!filename) return fallbackImg;
+  if (filename.startsWith('/') || filename.startsWith('http')) return filename;
   return imageMap[filename] ?? fallbackImg;
 }
+
 
 // ─── Fullscreen Lightbox ─────────────────────────────────────────────────────
 function Lightbox({

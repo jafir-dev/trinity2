@@ -26,7 +26,7 @@ interface SlideData {
 const SLIDES: SlideData[] = [
   {
     id: 1,
-    image: heroImg,
+    image: '/images/hero/hero-slide-1.jpg',
     badge: "DUBAI'S PREMIER DIGITAL PRINTING PRESS",
     titleTop: "WE BUILD",
     titleHighlight: "BRAND",
@@ -37,7 +37,7 @@ const SLIDES: SlideData[] = [
   },
   {
     id: 2,
-    image: manufacturingImg,
+    image: '/images/hero/hero-slide-2.jpg',
     badge: "18,000 SQFT PRODUCTION FACILITY IN DIP-1",
     titleTop: "PRECISION",
     titleHighlight: "UV FLATBED",
@@ -48,7 +48,7 @@ const SLIDES: SlideData[] = [
   },
   {
     id: 3,
-    image: servicesImg,
+    image: '/images/hero/hero-slide-3.jpg',
     badge: "EXHIBITIONS • RETAIL • CORPORATE BRANDING",
     titleTop: "CREATIVE",
     titleHighlight: "LARGE FORMAT",
@@ -58,6 +58,7 @@ const SLIDES: SlideData[] = [
     highlightLabel: "Client Satisfaction"
   }
 ];
+
 
 const SERVICES_OPTIONS = [
   "Large Format Digital Printing",

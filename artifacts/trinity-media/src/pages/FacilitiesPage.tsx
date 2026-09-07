@@ -41,7 +41,7 @@ export default function FacilitiesPage() {
       <Navbar />
 
       {/* Subheader */}
-      <div className="relative pt-40 pb-20 bg-cover bg-center overflow-hidden" style={{ backgroundImage: `url(${manufacturingImg})` }}>
+      <div className="relative pt-40 pb-20 bg-cover bg-center overflow-hidden" style={{ backgroundImage: `url('/images/services/large-format-digital-printing/01.jpg')` }}>
         <div className="absolute inset-0 bg-black/85 backdrop-blur-sm" />
         <div className="relative z-10 max-w-[1360px] mx-auto px-4 md:px-8 text-center">
           <h1 className="font-display text-5xl sm:text-7xl md:text-8xl text-white uppercase tracking-tight">
@@ -86,13 +86,14 @@ export default function FacilitiesPage() {
 
           <div className="lg:col-span-6 grid grid-cols-2 gap-4">
             <div className="rounded-xl overflow-hidden border border-border h-64 sm:h-72">
-              <img src={aboutImg} alt="Trinity Workshop" className="w-full h-full object-cover" />
+              <img src="/images/services/acrylic-fabrication/01.jpg" alt="Trinity Workshop" className="w-full h-full object-cover" />
             </div>
             <div className="rounded-xl overflow-hidden border border-border h-64 sm:h-72 mt-6">
-              <img src={servicesImg} alt="Printing Press" className="w-full h-full object-cover" />
+              <img src="/images/services/large-format-digital-printing/02.jpg" alt="Printing Press" className="w-full h-full object-cover" />
             </div>
           </div>
         </div>
+
 
         {/* Machinery Specs Grid */}
         <div className="mb-20">

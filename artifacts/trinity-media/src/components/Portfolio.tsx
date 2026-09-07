@@ -1,18 +1,16 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import port1 from '@assets/generated_images/portfolio1.jpg';
-import port2 from '@assets/generated_images/portfolio2.jpg';
-import port3 from '@assets/generated_images/portfolio3.jpg';
-import port4 from '@assets/generated_images/portfolio4.jpg';
-
-const FILTERS = ['All', 'Exhibitions', 'Retail', 'Signage', 'Fabrication'];
+const FILTERS = ['All', 'Exhibitions', 'Retail', 'Signage', 'Fabrication', 'Events', 'Vehicles'];
 
 const PROJECTS = [
-  { id: 1, title: 'Luxury Tech Pavilion', category: 'Exhibitions', image: port1, location: 'Dubai World Trade Centre', span: 'col-span-1 md:col-span-2 row-span-2' },
-  { id: 2, title: 'Flagship Store Concept', category: 'Retail', image: port2, location: 'Dubai Mall', span: 'col-span-1 row-span-1' },
-  { id: 3, title: 'Skyline LED Network', category: 'Signage', image: port3, location: 'Sheikh Zayed Road', span: 'col-span-1 row-span-1' },
-  { id: 4, title: 'Bespoke Info Kiosks', category: 'Fabrication', image: port4, location: 'Abu Dhabi Airport', span: 'col-span-1 md:col-span-2 row-span-1' },
+  { id: 1, title: 'Bespoke Exhibition Stand', category: 'Exhibitions', image: '/images/portfolio/exhibition-stand.jpg', location: 'Dubai World Trade Centre (DWTC)', span: 'col-span-1 md:col-span-2 row-span-2' },
+  { id: 2, title: 'Luxury Retail Display & POSM', category: 'Retail', image: '/images/portfolio/retail-display.jpg', location: 'The Dubai Mall', span: 'col-span-1 row-span-1' },
+  { id: 3, title: 'Architectural Illuminated Neon Signage', category: 'Signage', image: '/images/portfolio/led-neon.jpg', location: 'Downtown Dubai', span: 'col-span-1 row-span-1' },
+  { id: 4, title: 'Custom Interactive Mall Kiosk', category: 'Fabrication', image: '/images/portfolio/kiosk-fabrication.jpg', location: 'Mall of the Emirates', span: 'col-span-1 md:col-span-2 row-span-1' },
+  { id: 5, title: 'Corporate Event Stage & Activation', category: 'Events', image: '/images/portfolio/event-activation.jpg', location: 'Madinat Jumeirah, Dubai', span: 'col-span-1 row-span-1' },
+  { id: 6, title: 'Commercial Fleet Vehicle Branding', category: 'Vehicles', image: '/images/portfolio/vehicle-branding.jpg', location: 'Dubai Investment Park (DIP)', span: 'col-span-1 row-span-1' },
 ];
+
 
 export function Portfolio() {
   const [filter, setFilter] = useState('All');

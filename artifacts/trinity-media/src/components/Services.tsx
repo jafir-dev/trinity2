@@ -18,8 +18,10 @@ const fallbackImg = new URL('@assets/generated_images/services.jpg', import.meta
 
 function getImg(filename?: string): string {
   if (!filename) return fallbackImg;
+  if (filename.startsWith('/') || filename.startsWith('http')) return filename;
   return imageMap[filename] ?? fallbackImg;
 }
+
 
 export function Services() {
   return (
