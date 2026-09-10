@@ -11,21 +11,17 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
+  // Defaults to light mode, while allowing user to toggle to dark mode
   const [theme, setThemeState] = useState<Theme>(() => {
-    if (typeof window !== 'undefined') {
-      const stored = localStorage.getItem('trinity-theme') as Theme | null;
-      if (stored === 'light' || stored === 'dark') return stored;
-      // Default to dark for this brand
-      return 'dark';
-    }
-    return 'dark';
+    const saved = localStorage.getItem('trinity-theme') as Theme | null;
+    return saved === 'dark' || saved === 'light' ? saved : 'light';
   });
 
   useEffect(() => {
     const root = document.documentElement;
     if (theme === 'dark') {
-      root.classList.add('dark');
       root.classList.remove('light');
+      root.classList.add('dark');
     } else {
       root.classList.remove('dark');
       root.classList.add('light');
@@ -34,7 +30,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, [theme]);
 
   const toggleTheme = () => {
-    setThemeState((prev) => (prev === 'dark' ? 'light' : 'dark'));
+    setThemeState(prev => (prev === 'light' ? 'dark' : 'light'));
   };
 
   const setTheme = (t: Theme) => {

@@ -15,7 +15,6 @@ import { useTheme } from '@/components/ThemeProvider';
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [location, setLocation] = useLocation();
@@ -30,7 +29,6 @@ export function Navbar() {
   const navigateTo = (href: string) => {
     setLocation(href);
     setMobileOpen(false);
-    setAboutDropdownOpen(false);
     setServicesDropdownOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -104,9 +102,7 @@ export function Navbar() {
             <img 
               src={trinityLogo} 
               alt="Trinity Media UAE" 
-              className={`h-10 md:h-12 w-auto object-contain cursor-pointer transition-all ${
-                theme === 'dark' ? 'brightness-0 invert' : ''
-              }`} 
+              className="h-10 md:h-12 w-auto object-contain cursor-pointer transition-all"
             />
           </Link>
 
@@ -121,83 +117,14 @@ export function Navbar() {
               Home
             </button>
 
-            {/* About Us Dropdown */}
-            <div 
-              className="relative group"
-              onMouseEnter={() => setAboutDropdownOpen(true)}
-              onMouseLeave={() => setAboutDropdownOpen(false)}
+            <button
+              onClick={() => navigateTo('/about')}
+              className={`text-sm font-medium transition-colors cursor-pointer ${
+                location === '/about' ? 'text-primary font-semibold' : 'text-foreground/85 hover:text-primary'
+              }`}
             >
-              <button
-                onClick={() => navigateTo('/about')}
-                className="flex items-center gap-1 text-sm font-medium text-foreground/85 hover:text-primary transition-colors py-2 cursor-pointer"
-              >
-                <span>About Us</span>
-                <ChevronDown size={14} className={`transition-transform duration-200 ${aboutDropdownOpen ? 'rotate-180 text-primary' : ''}`} />
-              </button>
-
-              <AnimatePresence>
-                {aboutDropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                    transition={{ duration: 0.18 }}
-                    className="absolute top-full left-0 w-64 bg-card border border-border/80 rounded-lg shadow-2xl p-2 z-50 backdrop-blur-xl"
-                  >
-                    <button
-                      onClick={() => navigateTo('/about')}
-                      className="w-full text-left px-3 py-2.5 rounded-md text-sm text-foreground/85 hover:bg-primary/15 hover:text-primary transition-colors flex items-center gap-2.5 cursor-pointer"
-                    >
-                      <Sparkles size={16} className="text-primary" />
-                      <div>
-                        <div className="font-semibold">About Trinity</div>
-                        <div className="text-xs text-muted-foreground">Company overview & ISO standards</div>
-                      </div>
-                    </button>
-                    <button
-                      onClick={() => navigateTo('/our-journey')}
-                      className="w-full text-left px-3 py-2.5 rounded-md text-sm text-foreground/85 hover:bg-primary/15 hover:text-primary transition-colors flex items-center gap-2.5 cursor-pointer"
-                    >
-                      <Clock size={16} className="text-primary" />
-                      <div>
-                        <div className="font-semibold">Our Journey</div>
-                        <div className="text-xs text-muted-foreground">Timeline from 2010 to present</div>
-                      </div>
-                    </button>
-                    <button
-                      onClick={() => navigateTo('/why-choose-us')}
-                      className="w-full text-left px-3 py-2.5 rounded-md text-sm text-foreground/85 hover:bg-primary/15 hover:text-primary transition-colors flex items-center gap-2.5 cursor-pointer"
-                    >
-                      <ShieldCheck size={16} className="text-primary" />
-                      <div>
-                        <div className="font-semibold">Why Choose Us</div>
-                        <div className="text-xs text-muted-foreground">7 trust pillars & machinery</div>
-                      </div>
-                    </button>
-                    <button
-                      onClick={() => navigateTo('/about#ceo-message')}
-                      className="w-full text-left px-3 py-2.5 rounded-md text-sm text-foreground/85 hover:bg-primary/15 hover:text-primary transition-colors flex items-center gap-2.5 cursor-pointer"
-                    >
-                      <Users size={16} className="text-primary" />
-                      <div>
-                        <div className="font-semibold">CEO's Message</div>
-                        <div className="text-xs text-muted-foreground">Mr. Suraj Walter leadership vision</div>
-                      </div>
-                    </button>
-                    <button
-                      onClick={() => navigateTo('/awards')}
-                      className="w-full text-left px-3 py-2.5 rounded-md text-sm text-foreground/85 hover:bg-primary/15 hover:text-primary transition-colors flex items-center gap-2.5 cursor-pointer"
-                    >
-                      <Award size={16} className="text-primary" />
-                      <div>
-                        <div className="font-semibold">Awards & Sponsorships</div>
-                        <div className="text-xs text-muted-foreground">Industry recognition & EDP awards</div>
-                      </div>
-                    </button>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              About Us
+            </button>
 
             {/* Services 19-Service Mega Menu */}
             <div 
@@ -280,13 +207,6 @@ export function Navbar() {
             </button>
 
             <button
-              onClick={() => navigateTo('/#portfolio')}
-              className="text-sm font-medium text-foreground/85 hover:text-primary transition-colors cursor-pointer"
-            >
-              Portfolio
-            </button>
-
-            <button
               onClick={() => navigateTo('/contact')}
               className={`text-sm font-medium transition-colors cursor-pointer ${
                 location === '/contact' ? 'text-primary font-semibold' : 'text-foreground/85 hover:text-primary'
@@ -296,18 +216,18 @@ export function Navbar() {
             </button>
           </div>
 
-          {/* Theme Toggle & Quick CTA Button */}
+          {/* Quick CTA Button & Theme Toggle */}
           <div className="hidden lg:flex items-center space-x-3">
             <button
               onClick={toggleTheme}
-              aria-label="Toggle dark and light mode"
-              className="p-2.5 rounded-full border border-border hover:border-primary/50 bg-background/80 hover:bg-primary/10 text-foreground transition-all duration-200 cursor-pointer flex items-center justify-center shadow-sm"
+              className="p-2.5 rounded-lg border border-border/80 bg-muted/40 hover:bg-muted text-foreground transition-all duration-200 cursor-pointer flex items-center justify-center"
               title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              aria-label="Toggle light and dark mode"
             >
               {theme === 'dark' ? (
-                <Sun size={18} className="text-amber-400 hover:rotate-45 transition-transform" />
+                <Sun size={18} className="text-amber-400" />
               ) : (
-                <Moon size={18} className="text-primary hover:-rotate-12 transition-transform" />
+                <Moon size={18} className="text-foreground" />
               )}
             </button>
 
@@ -319,15 +239,21 @@ export function Navbar() {
             </button>
           </div>
 
-          {/* Mobile menu trigger */}
+          {/* Mobile menu trigger & Theme Toggle */}
           <div className="xl:hidden flex items-center space-x-2">
             <button
               onClick={toggleTheme}
-              aria-label="Toggle dark and light mode"
-              className="p-2 rounded-full border border-border bg-background/80 text-foreground"
+              className="p-2 rounded-lg border border-border/80 bg-muted/40 text-foreground cursor-pointer"
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+              aria-label="Toggle light and dark mode"
             >
-              {theme === 'dark' ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-primary" />}
+              {theme === 'dark' ? (
+                <Sun size={20} className="text-amber-400" />
+              ) : (
+                <Moon size={20} className="text-foreground" />
+              )}
             </button>
+
             <button 
               className="text-foreground p-2"
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -347,26 +273,6 @@ export function Navbar() {
               exit={{ opacity: 0, height: 0 }}
               className="xl:hidden fixed top-[60px] left-0 right-0 bg-card/98 backdrop-blur-2xl z-40 overflow-y-auto px-6 py-8 flex flex-col space-y-6"
             >
-              {/* Mobile Theme Toggle Banner */}
-              <div className="flex items-center justify-between pb-3 border-b border-border">
-                <span className="text-sm font-medium text-foreground">Color Mode</span>
-                <button
-                  onClick={toggleTheme}
-                  className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-muted/60 text-xs font-semibold text-foreground cursor-pointer"
-                >
-                  {theme === 'dark' ? (
-                    <>
-                      <Sun size={14} className="text-amber-400" />
-                      <span>Switch to Light</span>
-                    </>
-                  ) : (
-                    <>
-                      <Moon size={14} className="text-primary" />
-                      <span>Switch to Dark</span>
-                    </>
-                  )}
-                </button>
-              </div>
 
               <div className="flex flex-col space-y-4 border-b border-border pb-6">
                 <button
@@ -380,24 +286,6 @@ export function Navbar() {
                   className="text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
                 >
                   About Us
-                </button>
-                <button
-                  onClick={() => navigateTo('/our-journey')}
-                  className="text-left text-lg font-display tracking-wider text-muted-foreground hover:text-primary transition-colors pl-4"
-                >
-                  • Our Journey
-                </button>
-                <button
-                  onClick={() => navigateTo('/about#ceo-message')}
-                  className="text-left text-lg font-display tracking-wider text-muted-foreground hover:text-primary transition-colors pl-4"
-                >
-                  • CEO's Message
-                </button>
-                <button
-                  onClick={() => navigateTo('/why-choose-us')}
-                  className="text-left text-lg font-display tracking-wider text-muted-foreground hover:text-primary transition-colors pl-4"
-                >
-                  • Why Choose Us
                 </button>
 
                 {/* Mobile Services Accordion */}
@@ -436,12 +324,6 @@ export function Navbar() {
                   className="text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
                 >
                   Awards & Sponsorships
-                </button>
-                <button
-                  onClick={() => navigateTo('/#portfolio')}
-                  className="text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
-                >
-                  Portfolio
                 </button>
                 <button
                   onClick={() => navigateTo('/contact')}

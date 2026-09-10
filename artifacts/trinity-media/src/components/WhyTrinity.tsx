@@ -1,121 +1,121 @@
 import { motion } from 'framer-motion';
-import { 
-  Cpu, Users, DollarSign, Clock, 
-  Smile, ShieldCheck, ThumbsUp, Phone, 
-  MessageSquare, Sparkles, CheckCircle2 
-} from 'lucide-react';
+import { Phone, Sparkles, CheckCircle2 } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
-import manufacturingImg from '@assets/generated_images/manufacturing.jpg';
-import servicesImg from '@assets/generated_images/services.jpg';
 
 const STATS = [
-  { value: "11+", label: "Years of Experience", sub: "Since 2011 in UAE" },
-  { value: "2000+", label: "Completed Projects", sub: "Delivered on schedule" },
-  { value: "250+", label: "Happy Corporate Clients", sub: "Across all 7 Emirates" },
-  { value: "18,000", label: "Sqft Production Area", sub: "In Dubai Investment Park 1" },
+  { value: "11+", label: "Years in UAE", sub: "Since 2011" },
+  { value: "2,000+", label: "Projects Delivered", sub: "On schedule" },
+  { value: "250+", label: "Corporate Clients", sub: "Across all 7 Emirates" },
+  { value: "18,000", label: "Sqft Production", sub: "DIP-1 Dubai" },
+];
+
+// Image bento cells — all real photos from the public folder
+const BENTO = [
+  {
+    img: '/images/why-choose-us/exhibition.jpg',
+    label: 'EXHIBITION STANDS',
+    sub: 'World-class bespoke booths for DWTC',
+    span: 'md:col-span-2 md:row-span-2',
+    badge: '2,000+ builds',
+  },
+  {
+    img: '/images/why-choose-us/retail.jpg',
+    label: 'RETAIL & MALL SIGNAGE',
+    sub: 'Backlit acrylic, LED & POSM displays',
+    span: 'md:col-span-1 md:row-span-1',
+    badge: '250+ brands',
+  },
+  {
+    img: '/images/why-choose-us/vehicle.jpg',
+    label: 'VEHICLE BRANDING',
+    sub: 'Full fleet wraps & partial graphics',
+    span: 'md:col-span-1 md:row-span-1',
+    badge: 'Dubai based',
+  },
+  {
+    img: '/images/manufacturing/facility.jpg',
+    label: '18,000 SQFT FACILITY',
+    sub: 'UV flatbed, HP Latex & CNC in-house',
+    span: 'md:col-span-2 md:row-span-1',
+    badge: 'ISO Certified',
+  },
 ];
 
 const TRUST_FACTORS = [
-  {
-    icon: Cpu,
-    title: "Best Machinery",
-    desc: "State-of-the-art Flatbed UV printers, HP Latex, and precision CNC cutters delivering uncompromising sharpness."
-  },
-  {
-    icon: Users,
-    title: "Expert Team",
-    desc: "Highly skilled fabrication engineers, graphic artisans, and print specialists dedicated to flawless execution."
-  },
-  {
-    icon: DollarSign,
-    title: "Competitive Pricing",
-    desc: "Direct in-house manufacturing rates without intermediary markups, offering unmatched value for premium quality."
-  },
-  {
-    icon: Clock,
-    title: "On Time Delivery",
-    desc: "24/7 production scheduling ensuring prompt turnaround for high-stakes corporate deadlines and event dates."
-  },
-  {
-    icon: Smile,
-    title: "Friendly Service",
-    desc: "Dedicated project managers providing transparent communication, updates, and end-to-end support."
-  },
-  {
-    icon: ShieldCheck,
-    title: "High Quality Products",
-    desc: "ISO certified quality assurance with premium inks, European substrates, and rigorous inspection standards."
-  },
-  {
-    icon: ThumbsUp,
-    title: "Customer Satisfaction",
-    desc: "100% committed to exceeding client expectations from initial concept to on-site handover."
-  }
+  { icon: '🖨️', title: 'Best Machinery', desc: 'UV Flatbed, HP Latex & CNC cutters' },
+  { icon: '👷', title: 'Expert Team', desc: 'Skilled fabrication engineers & artisans' },
+  { icon: '💰', title: 'Competitive Pricing', desc: 'Direct in-house, no middleman markup' },
+  { icon: '⚡', title: 'On-Time Delivery', desc: '24/7 production, strict deadlines met' },
+  { icon: '😊', title: 'Friendly Service', desc: 'Dedicated project managers, end-to-end' },
+  { icon: '🛡️', title: 'ISO Certified Quality', desc: 'Premium inks, European substrates' },
+  { icon: '👍', title: '100% Satisfaction', desc: 'From concept to on-site handover' },
 ];
 
 export function WhyTrinity() {
   return (
     <section id="why-us" className="py-20 md:py-32 bg-background relative overflow-hidden">
       <div className="max-w-[1360px] mx-auto px-4 md:px-8">
-        
-        {/* Header & Overview Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
-          
-          <div className="lg:col-span-7 flex flex-col">
-            <div className="inline-flex items-center gap-2 text-primary font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-3">
-              <Sparkles size={16} />
+
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+          <div>
+            <div className="inline-flex items-center gap-2 text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3">
+              <Sparkles size={15} />
               <span>Printing simplified since 2011</span>
             </div>
-
-            <h2 className="font-display text-4xl sm:text-6xl md:text-7xl uppercase tracking-tight mb-6 text-foreground">
+            <h2 className="font-display text-4xl sm:text-6xl md:text-7xl uppercase tracking-tight text-foreground">
               WHY CHOOSE <span className="text-primary">TRINITY MEDIA</span>
             </h2>
-
-            <p className="text-foreground/80 text-base sm:text-lg leading-relaxed mb-6">
-              Devoted to brilliance, Trinity Media assures that every product is printed with perfection. When words fail, we speak through our quality. We are committed to exceeding your expectations round the clock.
-            </p>
-
-            <div className="flex flex-wrap gap-4 pt-2">
-              <a
-                href="#contact"
-                className="px-7 py-3 bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-wider text-xs sm:text-sm rounded transition-all shadow-lg shadow-primary/30"
-              >
-                Inquire For Your Project
-              </a>
-              <a
-                href="https://wa.me/971526935456?text=Hi%20Trinity%20Media%2C%20I%20have%20a%20question%20regarding%20your%20printing%20services."
-                target="_blank"
-                rel="noreferrer"
-                className="px-7 py-3 bg-green-600 hover:bg-green-500 text-white font-bold uppercase tracking-wider text-xs sm:text-sm rounded flex items-center gap-2 transition-all shadow-lg shadow-green-900/30"
-              >
-                <FaWhatsapp size={16} />
-                <span>Talk to Expert Now</span>
-              </a>
-            </div>
           </div>
-
-          {/* Right: Visual Showcase */}
-          <div className="lg:col-span-5 grid grid-cols-2 gap-4">
-            <div className="relative rounded-xl overflow-hidden border border-border h-64 sm:h-72 shadow-md">
-              <img src={manufacturingImg} alt="Machinery & Printing Press" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-              <span className="absolute bottom-3 left-3 text-xs font-bold text-white uppercase tracking-wider">
-                18,000 SQFT PRESS
-              </span>
-            </div>
-            <div className="relative rounded-xl overflow-hidden border border-border h-64 sm:h-72 mt-6 shadow-md">
-              <img src={servicesImg} alt="Quality Signage & Printing" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-              <span className="absolute bottom-3 left-3 text-xs font-bold text-white uppercase tracking-wider">
-                2000+ PROJECTS
-              </span>
-            </div>
-          </div>
-
+          <p className="text-foreground/70 text-base max-w-sm leading-relaxed md:text-right">
+            Devoted to brilliance. Every product printed with perfection — quality that speaks when words fail.
+          </p>
         </div>
 
-        {/* 4 Stats Cards Bar */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-24">
+        {/* ── BENTO IMAGE MOSAIC ── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 auto-rows-[260px] gap-4 mb-16">
+          {BENTO.map((cell, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, delay: i * 0.1 }}
+              className={`relative group overflow-hidden rounded-2xl border border-border shadow-md ${cell.span}`}
+            >
+              <img
+                src={cell.img}
+                alt={cell.label}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+              />
+              {/* Always-visible gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+              {/* Badge pill top-left */}
+              <div className="absolute top-4 left-4 bg-primary/90 text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full backdrop-blur-sm">
+                {cell.badge}
+              </div>
+
+              {/* Label bottom */}
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <div className="flex items-end justify-between">
+                  <div>
+                    <h4 className="font-display text-xl text-white tracking-wide leading-tight">
+                      {cell.label}
+                    </h4>
+                    <p className="text-xs text-white/75 mt-0.5">{cell.sub}</p>
+                  </div>
+                  <div className="w-9 h-9 rounded-full bg-white/15 backdrop-blur border border-white/30 flex items-center justify-center text-white group-hover:bg-primary group-hover:border-primary transition-colors flex-shrink-0">
+                    <CheckCircle2 size={16} />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* ── STATS BAR ── */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
           {STATS.map((stat, i) => (
             <motion.div
               key={i}
@@ -123,61 +123,51 @@ export function WhyTrinity() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-card border border-primary/30 rounded-xl p-6 text-center hover:border-primary transition-all shadow-md group"
+              className="bg-card border border-primary/25 rounded-xl p-6 text-center hover:border-primary transition-all shadow-sm group"
             >
-              <div className="font-display text-4xl sm:text-5xl md:text-6xl text-primary group-hover:scale-105 transition-transform">
+              <div className="font-display text-4xl sm:text-5xl text-primary group-hover:scale-105 transition-transform">
                 {stat.value}
               </div>
-              <div className="font-display text-lg text-foreground uppercase mt-1">
+              <div className="font-display text-base text-foreground uppercase mt-1 tracking-wide">
                 {stat.label}
               </div>
-              <div className="text-xs text-muted-foreground mt-0.5">
-                {stat.sub}
-              </div>
+              <div className="text-xs text-muted-foreground mt-0.5">{stat.sub}</div>
             </motion.div>
           ))}
         </div>
 
-        {/* Expertise You Can Trust (7 Factors) */}
+        {/* ── TRUST FACTORS — icon + short text, horizontal scroll on mobile ── */}
         <div className="mb-20">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs uppercase tracking-widest text-primary font-bold">Choose the right partner for you</span>
-            <h3 className="font-display text-3xl sm:text-5xl text-foreground uppercase mt-1">
+          <div className="text-center mb-10">
+            <span className="text-xs uppercase tracking-widest text-primary font-bold">Choose the right partner</span>
+            <h3 className="font-display text-3xl sm:text-4xl text-foreground uppercase mt-1">
               EXPERTISE YOU CAN TRUST
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7 gap-4">
             {TRUST_FACTORS.map((feat, idx) => (
               <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.08 }}
-                className="p-6 bg-card border border-border rounded-xl hover:border-primary/60 transition-all group flex flex-col justify-between shadow-sm"
+                transition={{ delay: idx * 0.06 }}
+                className="p-4 bg-card border border-border rounded-xl hover:border-primary/60 transition-all group text-center shadow-sm"
               >
-                <div>
-                  <div className="w-12 h-12 rounded-lg bg-primary/15 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
-                    <feat.icon size={24} />
-                  </div>
-                  <h4 className="font-display text-xl text-foreground uppercase tracking-wide mb-2">
-                    {feat.title}
-                  </h4>
-                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
-                    {feat.desc}
-                  </p>
-                </div>
-                <div className="mt-4 pt-3 border-t border-border flex items-center gap-1.5 text-[11px] text-primary font-semibold uppercase tracking-wider">
-                  <CheckCircle2 size={13} />
-                  <span>Guaranteed Standard</span>
-                </div>
+                <div className="text-3xl mb-3">{feat.icon}</div>
+                <h4 className="font-bold text-sm text-foreground uppercase tracking-wide mb-1">
+                  {feat.title}
+                </h4>
+                <p className="text-[11px] text-muted-foreground leading-relaxed">
+                  {feat.desc}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Have a Question Banner */}
+        {/* ── CTA BANNER ── */}
         <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-[#4d195a] via-[#35103f] to-[#200727] p-8 sm:p-12 border border-primary/50 shadow-2xl">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="max-w-xl">

@@ -94,13 +94,12 @@ export function About() {
             className="lg:col-span-6 relative"
           >
             <div className="relative rounded-2xl overflow-hidden border border-border group shadow-2xl">
-              <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500 z-10" />
               <img 
-                src={aboutImg} 
+                src="/images/about/facility_real.jpg" 
                 alt="Trinity Media Workshop Dubai" 
                 className="w-full h-[460px] sm:h-[540px] object-cover scale-105 group-hover:scale-100 transition-transform duration-1000"
               />
-              <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/90 to-transparent z-10" />
+              <div className="absolute bottom-0 left-0 w-full h-1/3 bg-gradient-to-t from-black/80 to-transparent z-10" />
               
               {/* Floating Tag */}
               <div className="absolute bottom-6 left-6 z-20 bg-primary/95 backdrop-blur-md px-5 py-3 rounded-lg border border-white/20 shadow-xl">

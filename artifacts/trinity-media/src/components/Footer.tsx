@@ -2,10 +2,8 @@ import { Phone, Mail, MapPin, MessageCircle, Heart, ArrowUp } from 'lucide-react
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { Link } from 'wouter';
 import trinityLogo from "@assets/trinity-logo-original.png";
-import { useTheme } from '@/components/ThemeProvider';
 
 export function Footer() {
-  const { theme } = useTheme();
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -23,9 +21,7 @@ export function Footer() {
               <img 
                 src={trinityLogo} 
                 alt="Trinity Media UAE" 
-                className={`h-11 w-auto mb-6 self-start cursor-pointer transition-all ${
-                  theme === 'dark' ? 'brightness-0 invert' : ''
-                }`} 
+              className="h-11 w-auto mb-6 self-start cursor-pointer transition-all" 
               />
             </Link>
             
