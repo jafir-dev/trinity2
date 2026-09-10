@@ -54,25 +54,25 @@ const VISUAL_CAPABILITIES = [
   {
     title: "Exhibition Stand Fabrication",
     tag: "Custom Builds",
-    image: exhibitionImg,
+    image: "/images/capabilities/exhibition.jpg",
     caption: "Bespoke double-decker & custom pavilions"
   },
   {
     title: "UV Flatbed Rigid Printing",
     tag: "Wood, Acrylic & Metal",
-    image: manufacturingImg,
+    image: "/images/capabilities/uv_flatbed.jpg",
     caption: "Direct substrate precision printing up to 1440 DPI"
   },
   {
     title: "Retail Displays & POSM",
     tag: "Mall Activations",
-    image: retailImg,
+    image: "/images/capabilities/retail.jpg",
     caption: "Turnkey luxury brand display units across UAE"
   },
   {
     title: "Illuminated 3D Signage",
     tag: "Architectural Works",
-    image: signageImg,
+    image: "/images/capabilities/signage.jpg",
     caption: "Precision CNC acrylic & architectural signage"
   }
 ];

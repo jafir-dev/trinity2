@@ -30,7 +30,7 @@ function Counter({ end, suffix = "", duration = 2 }: { end: number, suffix?: str
   }, [inView, end, duration]);
 
   return (
-    <div ref={ref} className="font-display text-4xl md:text-5xl text-primary mb-1">
+    <div ref={ref} className="font-display text-4xl md:text-5xl text-white font-black tracking-tight mb-1 drop-shadow-md">
       {count.toLocaleString()}{suffix}
     </div>
   );
@@ -98,7 +98,7 @@ export function Manufacturing() {
               {STATS.map((stat, i) => (
                 <div key={i} className="text-center">
                   <Counter end={stat.val} suffix={stat.suffix} />
-                  <p className="text-[10px] font-bold uppercase tracking-wider text-white/60">{stat.label}</p>
+                  <p className="text-xs font-bold uppercase tracking-wider text-white/95 drop-shadow-sm">{stat.label}</p>
                 </div>
               ))}
             </div>
