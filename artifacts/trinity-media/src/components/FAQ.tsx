@@ -29,27 +29,27 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 md:py-32 bg-[#0C0C0C] border-t border-border">
+    <section className="py-24 md:py-32 bg-muted/20 border-t border-border">
       <div className="max-w-[800px] mx-auto px-6 md:px-8">
         
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl text-white uppercase tracking-tight">FREQUENTLY ASKED QUESTIONS</h2>
+          <h2 className="font-display text-4xl md:text-5xl text-foreground uppercase tracking-tight">FREQUENTLY ASKED QUESTIONS</h2>
         </div>
 
         <div className="space-y-4">
           {FAQS.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <div key={idx} className="border border-border bg-background rounded overflow-hidden">
+              <div key={idx} className="border border-border bg-card rounded-xl overflow-hidden shadow-sm">
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
                   className="w-full p-6 text-left flex items-center justify-between group"
                 >
-                  <span className={`font-bold text-lg transition-colors ${isOpen ? 'text-primary' : 'text-white group-hover:text-primary'}`}>
+                  <span className={`font-bold text-lg transition-colors ${isOpen ? 'text-primary' : 'text-foreground group-hover:text-primary'}`}>
                     {faq.q}
                   </span>
                   <div className="text-muted-foreground flex-shrink-0 ml-4">
-                    {isOpen ? <Minus size={20} /> : <Plus size={20} />}
+                    {isOpen ? <Minus size={20} className="text-primary" /> : <Plus size={20} />}
                   </div>
                 </button>
                 
@@ -61,7 +61,7 @@ export function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="px-6 pb-6 text-secondary leading-relaxed border-t border-border/50 pt-4">
+                      <div className="px-6 pb-6 text-muted-foreground leading-relaxed border-t border-border/50 pt-4 text-sm sm:text-base">
                         {faq.a}
                       </div>
                     </motion.div>

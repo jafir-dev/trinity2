@@ -24,7 +24,7 @@ export function TrustedBy() {
             {[...CLIENTS, ...CLIENTS].map((client, i) => (
               <div 
                 key={i} 
-                className="font-display text-2xl md:text-3xl lg:text-4xl text-muted-foreground/40 uppercase whitespace-nowrap tracking-wider hover:text-white transition-colors duration-300"
+                className="font-display text-2xl md:text-3xl lg:text-4xl text-muted-foreground/40 uppercase whitespace-nowrap tracking-wider hover:text-foreground transition-colors duration-300"
               >
                 {client}
               </div>

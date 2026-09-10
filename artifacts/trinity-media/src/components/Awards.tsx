@@ -36,7 +36,7 @@ const AWARDS_LIST = [
 
 export function Awards() {
   return (
-    <section id="awards" className="py-20 md:py-32 bg-[#090909] relative overflow-hidden border-b border-border/80">
+    <section id="awards" className="py-20 md:py-32 bg-background relative overflow-hidden border-b border-border transition-colors">
       <div className="max-w-[1360px] mx-auto px-4 md:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-16">
@@ -53,7 +53,7 @@ export function Awards() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-4xl sm:text-6xl md:text-7xl text-white uppercase tracking-tight"
+            className="font-display text-4xl sm:text-6xl md:text-7xl text-foreground uppercase tracking-tight"
           >
             AWARDS & <span className="text-primary">SPONSORSHIPS</span>
           </motion.h2>
@@ -77,16 +77,16 @@ export function Awards() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15 }}
-              className="bg-[#121212] border border-border/80 rounded-2xl overflow-hidden hover:border-primary/60 transition-all flex flex-col justify-between shadow-xl group"
+              className="bg-card border border-border rounded-2xl overflow-hidden hover:border-primary/60 transition-all flex flex-col justify-between shadow-lg group"
             >
               {/* Award Visual Showcase */}
-              <div className="relative h-64 overflow-hidden bg-black/40">
+              <div className="relative h-64 overflow-hidden bg-neutral-900">
                 <img 
                   src={award.image} 
                   alt={award.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-black/60" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/50" />
                 
                 <div className="absolute top-4 right-4 bg-primary/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold text-white uppercase tracking-wider flex items-center gap-1.5 shadow-lg">
                   <Trophy size={13} className="text-yellow-300" />
@@ -94,7 +94,7 @@ export function Awards() {
                 </div>
 
                 <div className="absolute bottom-4 left-4 right-4">
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-pink-300 bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded inline-block">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-pink-200 bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded inline-block">
                     {award.category}
                   </span>
                 </div>
@@ -103,19 +103,19 @@ export function Awards() {
               {/* Award Details */}
               <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
                 <div>
-                  <h3 className="font-display text-2xl text-white uppercase tracking-wide group-hover:text-primary transition-colors mb-2">
+                  <h3 className="font-display text-2xl text-foreground uppercase tracking-wide group-hover:text-primary transition-colors mb-2">
                     {award.title}
                   </h3>
-                  <div className="text-xs text-pink-300 font-semibold mb-4">
+                  <div className="text-xs text-primary font-semibold mb-4">
                     {award.subtitle}
                   </div>
-                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                     {award.desc}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-muted-foreground">
-                  <div className="flex items-center gap-1.5 text-pink-300">
+                <div className="mt-6 pt-4 border-t border-border flex items-center justify-between text-xs text-muted-foreground">
+                  <div className="flex items-center gap-1.5 text-primary">
                     <Star size={13} />
                     <span className="font-semibold">Winner Distinction</span>
                   </div>

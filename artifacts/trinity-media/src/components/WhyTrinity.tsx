@@ -67,12 +67,12 @@ export function WhyTrinity() {
               <span>Printing simplified since 2011</span>
             </div>
 
-            <h2 className="font-display text-4xl sm:text-6xl md:text-7xl uppercase tracking-tight mb-6">
+            <h2 className="font-display text-4xl sm:text-6xl md:text-7xl uppercase tracking-tight mb-6 text-foreground">
               WHY CHOOSE <span className="text-primary">TRINITY MEDIA</span>
             </h2>
 
-            <p className="text-gray-300 text-base sm:text-lg leading-relaxed mb-6">
-              Devoted to brilliance, Trinity Media, the best printing company in Dubai, assures that every product of ours is printed with perfection. When words fail, we speak through our quality. We are committed to our customers' satisfaction round the clock. For all true printing solutions come and visit us. The whole Trinity team is awaiting you.
+            <p className="text-foreground/80 text-base sm:text-lg leading-relaxed mb-6">
+              Devoted to brilliance, Trinity Media assures that every product is printed with perfection. When words fail, we speak through our quality. We are committed to exceeding your expectations round the clock.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-2">
@@ -96,14 +96,14 @@ export function WhyTrinity() {
 
           {/* Right: Visual Showcase */}
           <div className="lg:col-span-5 grid grid-cols-2 gap-4">
-            <div className="relative rounded-xl overflow-hidden border border-border/80 h-64 sm:h-72">
+            <div className="relative rounded-xl overflow-hidden border border-border h-64 sm:h-72 shadow-md">
               <img src={manufacturingImg} alt="Machinery & Printing Press" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               <span className="absolute bottom-3 left-3 text-xs font-bold text-white uppercase tracking-wider">
                 18,000 SQFT PRESS
               </span>
             </div>
-            <div className="relative rounded-xl overflow-hidden border border-border/80 h-64 sm:h-72 mt-6">
+            <div className="relative rounded-xl overflow-hidden border border-border h-64 sm:h-72 mt-6 shadow-md">
               <img src={servicesImg} alt="Quality Signage & Printing" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
               <span className="absolute bottom-3 left-3 text-xs font-bold text-white uppercase tracking-wider">
@@ -123,12 +123,12 @@ export function WhyTrinity() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-[#120914] border border-primary/40 rounded-xl p-6 text-center hover:border-primary transition-all shadow-xl group"
+              className="bg-card border border-primary/30 rounded-xl p-6 text-center hover:border-primary transition-all shadow-md group"
             >
-              <div className="font-display text-4xl sm:text-5xl md:text-6xl text-pink-400 group-hover:scale-105 transition-transform">
+              <div className="font-display text-4xl sm:text-5xl md:text-6xl text-primary group-hover:scale-105 transition-transform">
                 {stat.value}
               </div>
-              <div className="font-display text-lg text-white uppercase mt-1">
+              <div className="font-display text-lg text-foreground uppercase mt-1">
                 {stat.label}
               </div>
               <div className="text-xs text-muted-foreground mt-0.5">
@@ -141,8 +141,8 @@ export function WhyTrinity() {
         {/* Expertise You Can Trust (7 Factors) */}
         <div className="mb-20">
           <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs uppercase tracking-widest text-primary font-bold">Choose the right ink for you</span>
-            <h3 className="font-display text-3xl sm:text-5xl text-white uppercase mt-1">
+            <span className="text-xs uppercase tracking-widest text-primary font-bold">Choose the right partner for you</span>
+            <h3 className="font-display text-3xl sm:text-5xl text-foreground uppercase mt-1">
               EXPERTISE YOU CAN TRUST
             </h3>
           </div>
@@ -155,20 +155,20 @@ export function WhyTrinity() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.08 }}
-                className="p-6 bg-[#0f0f0f] border border-border/80 rounded-xl hover:border-primary/60 transition-all group flex flex-col justify-between shadow-lg"
+                className="p-6 bg-card border border-border rounded-xl hover:border-primary/60 transition-all group flex flex-col justify-between shadow-sm"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-lg bg-primary/20 text-pink-300 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
+                  <div className="w-12 h-12 rounded-lg bg-primary/15 text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
                     <feat.icon size={24} />
                   </div>
-                  <h4 className="font-display text-xl text-white uppercase tracking-wide mb-2">
+                  <h4 className="font-display text-xl text-foreground uppercase tracking-wide mb-2">
                     {feat.title}
                   </h4>
-                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
                     {feat.desc}
                   </p>
                 </div>
-                <div className="mt-4 pt-3 border-t border-white/5 flex items-center gap-1.5 text-[11px] text-pink-300 font-semibold uppercase tracking-wider">
+                <div className="mt-4 pt-3 border-t border-border flex items-center gap-1.5 text-[11px] text-primary font-semibold uppercase tracking-wider">
                   <CheckCircle2 size={13} />
                   <span>Guaranteed Standard</span>
                 </div>

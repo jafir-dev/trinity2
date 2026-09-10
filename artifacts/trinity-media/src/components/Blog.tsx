@@ -25,8 +25,8 @@ export function Blog() {
       <div className="max-w-[1360px] mx-auto px-6 md:px-8">
         
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
-          <h2 className="font-display text-5xl md:text-6xl text-white uppercase tracking-tight">INSIGHTS</h2>
-          <button className="self-start md:self-auto px-6 py-2 border border-border text-white font-bold uppercase tracking-wider rounded text-sm hover:border-primary hover:text-primary transition-colors">
+          <h2 className="font-display text-5xl md:text-6xl text-foreground uppercase tracking-tight">INSIGHTS</h2>
+          <button className="self-start md:self-auto px-6 py-2 border border-border text-foreground font-bold uppercase tracking-wider rounded text-sm hover:border-primary hover:text-primary transition-colors">
             View All Articles
           </button>
         </div>
@@ -55,12 +55,12 @@ export function Blog() {
                 <span className="text-muted-foreground text-xs tracking-widest uppercase">{article.date}</span>
               </div>
               
-              <h3 className="text-2xl font-display tracking-wide text-white mb-4 group-hover:text-primary transition-colors">
+              <h3 className="text-2xl font-display tracking-wide text-foreground mb-4 group-hover:text-primary transition-colors">
                 {article.title}
               </h3>
               
               <div className="mt-auto">
-                <span className="uppercase tracking-wider text-xs font-bold text-muted-foreground border-b border-muted-foreground group-hover:border-primary group-hover:text-white pb-1 transition-all">
+                <span className="uppercase tracking-wider text-xs font-bold text-muted-foreground border-b border-muted-foreground group-hover:border-primary group-hover:text-foreground pb-1 transition-all">
                   Read More →
                 </span>
               </div>

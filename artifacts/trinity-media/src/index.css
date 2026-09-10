@@ -58,9 +58,81 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* Theme-aware surface colors */
+  --color-surface: hsl(var(--surface));
+  --color-surface-alt: hsl(var(--surface-alt));
+  --color-surface-elevated: hsl(var(--surface-elevated));
+  --color-on-surface: hsl(var(--on-surface));
+  --color-on-surface-muted: hsl(var(--on-surface-muted));
+  --color-nav-bg: var(--nav-bg);
+  --color-nav-bg-scrolled: var(--nav-bg-scrolled);
 }
 
-:root, .dark {
+/* ═══════════════════════════════════════════════════════════════
+   LIGHT MODE — Logo-derived colors (Purple #7B2D8E + Silver-Gray)
+   ═══════════════════════════════════════════════════════════════ */
+:root {
+  --background: 0 0% 98%;
+  --foreground: 0 0% 10%;
+  --border: 0 0% 88%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
+  --card-border: 0 0% 90%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+  --popover-border: 0 0% 90%;
+
+  --primary: 289 54% 36%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 0 0% 40%;
+  --secondary-foreground: 0 0% 10%;
+
+  --muted: 0 0% 93%;
+  --muted-foreground: 0 0% 45%;
+
+  --accent: 289 54% 36%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+
+  --input: 0 0% 88%;
+  --ring: 289 54% 36%;
+
+  --chart-1: 289 54% 36%;
+  --chart-2: 0 0% 75%;
+  --chart-3: 0 0% 56%;
+  --chart-4: 0 0% 16%;
+  --chart-5: 0 0% 9%;
+
+  --sidebar: 0 0% 97%;
+  --sidebar-foreground: 0 0% 10%;
+  --sidebar-border: 0 0% 88%;
+  --sidebar-primary: 289 54% 36%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 289 54% 36%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-ring: 289 54% 36%;
+
+  --radius: 0.25rem;
+
+  /* Theme surfaces */
+  --surface: 0 0% 100%;
+  --surface-alt: 0 0% 96%;
+  --surface-elevated: 0 0% 100%;
+  --on-surface: 0 0% 10%;
+  --on-surface-muted: 0 0% 50%;
+  --nav-bg: rgba(255, 255, 255, 0.85);
+  --nav-bg-scrolled: rgba(255, 255, 255, 0.95);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DARK MODE — Original Trinity Media dark theme
+   ═══════════════════════════════════════════════════════════════ */
+.dark {
   --background: 3 3% 3%;
   --foreground: 0 0% 100%;
   --border: 0 0% 16%;
@@ -106,6 +178,15 @@
   --sidebar-ring: 289 54% 36%;
 
   --radius: 0.25rem;
+
+  /* Theme surfaces */
+  --surface: 0 0% 5%;
+  --surface-alt: 0 0% 7%;
+  --surface-elevated: 0 0% 9%;
+  --on-surface: 0 0% 100%;
+  --on-surface-muted: 0 0% 60%;
+  --nav-bg: rgba(8, 8, 8, 0.8);
+  --nav-bg-scrolled: rgba(10, 10, 10, 0.95);
 }
 
 @layer base {
@@ -242,4 +323,15 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   Theme-Aware Utility Classes
+   ═══════════════════════════════════════════════════════════════ */
+/* Light mode Google Maps - remove dark invert filter */
+:root iframe[title*="Location"],
+:root iframe[title*="location"],
+.light iframe[title*="Location"],
+.light iframe[title*="location"] {
+  filter: none !important;
 }

@@ -64,11 +64,11 @@ export default function FacilitiesPage() {
               <Sparkles size={16} />
               <span>DIP-1 Manufacturing Powerhouse</span>
             </div>
-            <h2 className="font-display text-4xl sm:text-6xl text-white uppercase mb-6">
+            <h2 className="font-display text-4xl sm:text-6xl text-foreground uppercase mb-6">
               18,000 SQFT OF ADVANCED PRINTING & FABRICATION
             </h2>
-            <p className="text-gray-300 text-sm sm:text-base leading-relaxed mb-6">
-              Delivering the best printing solutions in and around Dubai, Trinity Media operates a modern manufacturing facility in <strong className="text-white">Warehouse No. 4, Plot 194-0, Dubai Investment Park 1</strong>.
+            <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-6">
+              Delivering the best printing solutions in and around Dubai, Trinity Media operates a modern manufacturing facility in <strong className="text-foreground">Warehouse No. 4, Plot 194-0, Dubai Investment Park 1</strong>.
             </p>
             <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-8">
               We provide flex printing services, digital flex design, picture printing, fabric printing, canvas printing, roll up banners, car stickers, vehicle printing, digital textile printing, glass printing, material printing, car branding stickers, vinyl printing, vehicle branding, canvas digital printing, large scale vinyl cutting, banner printing, pull up stand banners, and custom POSM displays.
@@ -99,27 +99,27 @@ export default function FacilitiesPage() {
         <div className="mb-20">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <span className="text-xs uppercase tracking-widest text-primary font-bold">Cutting-Edge Infrastructure</span>
-            <h3 className="font-display text-3xl sm:text-5xl text-white uppercase mt-1">
+            <h3 className="font-display text-3xl sm:text-5xl text-foreground uppercase mt-1">
               PRODUCTION CAPABILITIES & MACHINERY
             </h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {EQUIPMENT.map((item, idx) => (
-              <div key={idx} className="p-8 bg-[#111111] border border-border/80 rounded-2xl flex flex-col justify-between shadow-xl">
+              <div key={idx} className="p-8 bg-card border border-border rounded-2xl flex flex-col justify-between shadow-xl">
                 <div>
                   <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-primary/20 text-pink-300 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-primary/20 text-primary flex items-center justify-center">
                       <Cpu size={22} />
                     </div>
-                    <h4 className="font-display text-2xl text-white uppercase">{item.category}</h4>
+                    <h4 className="font-display text-2xl text-foreground uppercase">{item.category}</h4>
                   </div>
-                  <p className="text-sm text-gray-300 leading-relaxed mb-6">{item.desc}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-6">{item.desc}</p>
                 </div>
 
-                <div className="border-t border-white/5 pt-4 space-y-2">
+                <div className="border-t border-border pt-4 space-y-2">
                   {item.specs.map((spec, sIdx) => (
-                    <div key={sIdx} className="flex items-center gap-2 text-xs text-pink-300">
+                    <div key={sIdx} className="flex items-center gap-2 text-xs text-primary font-medium">
                       <CheckCircle2 size={13} className="shrink-0" />
                       <span>{spec}</span>
                     </div>

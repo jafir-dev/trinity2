@@ -60,11 +60,12 @@ export function Manufacturing() {
 
       <div className="max-w-[1360px] mx-auto px-6 md:px-8 relative z-20">
         <div className="text-center mb-16">
+          <div className="text-xs uppercase tracking-widest text-primary font-bold mb-2">Facility & Capacity</div>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-5xl md:text-7xl text-white uppercase tracking-tight"
+            className="font-display text-5xl md:text-7xl text-foreground uppercase tracking-tight"
           >
             Manufacturing Excellence
           </motion.h2>
@@ -73,13 +74,13 @@ export function Manufacturing() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-secondary max-w-2xl mx-auto mt-4"
+            className="text-muted-foreground max-w-2xl mx-auto mt-4 text-base"
           >
             Our in-house fabrication facility ensures absolute control over quality, timelines, and execution.
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 text-center">
           {STATS.map((stat, i) => (
             <motion.div
               key={i}
@@ -87,7 +88,7 @@ export function Manufacturing() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-6 border border-border/50 bg-black/40 backdrop-blur-sm rounded hover:border-primary/50 transition-colors"
+              className="p-6 border border-border bg-card/80 backdrop-blur-sm rounded-xl hover:border-primary/50 transition-colors shadow-sm"
             >
               <Counter end={stat.val} suffix={stat.suffix} />
               <p className="text-xs font-bold uppercase tracking-wider text-muted-foreground">{stat.label}</p>

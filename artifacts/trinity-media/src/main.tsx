@@ -4,7 +4,6 @@ import App from './App';
 
 import './index.css';
 
-// Force dark mode globally — this site is dark-only
-document.documentElement.classList.add('dark');
+// Theme is managed by ThemeProvider — no hardcoded dark class
 
 createRoot(document.getElementById('root')!).render(<App />);

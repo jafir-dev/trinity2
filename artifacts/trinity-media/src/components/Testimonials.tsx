@@ -24,11 +24,11 @@ const TESTIMONIALS = [
 
 export function Testimonials() {
   return (
-    <section id="clients" className="py-24 md:py-32 bg-[#0C0C0C]">
+    <section id="clients" className="py-24 md:py-32 bg-background border-t border-border">
       <div className="max-w-[1360px] mx-auto px-6 md:px-8">
         
         <div className="mb-16">
-          <h2 className="font-display text-5xl md:text-6xl text-white uppercase tracking-tight">WHAT CLIENTS SAY</h2>
+          <h2 className="font-display text-5xl md:text-6xl text-foreground uppercase tracking-tight">WHAT CLIENTS SAY</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -39,18 +39,18 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="p-8 md:p-10 border border-border bg-[#121212] rounded flex flex-col justify-between group hover:border-primary/50 transition-colors"
+              className="p-8 md:p-10 border border-border bg-card rounded-xl flex flex-col justify-between group hover:border-primary/50 transition-colors shadow-sm"
             >
               <div>
-                <Quote size={40} className="text-primary/20 mb-6 group-hover:text-primary/50 transition-colors" />
-                <p className="text-secondary text-lg leading-relaxed mb-8 italic">
+                <Quote size={40} className="text-primary/30 mb-6 group-hover:text-primary/60 transition-colors" />
+                <p className="text-foreground/90 text-lg leading-relaxed mb-8 italic font-serif">
                   "{test.quote}"
                 </p>
               </div>
               
               <div>
-                <h4 className="font-bold text-white uppercase tracking-wider text-sm mb-1">{test.name}</h4>
-                <p className="text-primary text-xs font-medium uppercase tracking-widest">{test.role}</p>
+                <h4 className="font-bold text-foreground uppercase tracking-wider text-sm mb-1">{test.name}</h4>
+                <p className="text-primary text-xs font-semibold uppercase tracking-widest">{test.role}</p>
                 <p className="text-muted-foreground text-xs uppercase tracking-widest mt-1">{test.company}</p>
               </div>
             </motion.div>

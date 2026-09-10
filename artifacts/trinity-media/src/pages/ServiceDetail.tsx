@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useParams } from 'wouter';
 import { 
   ArrowRight, ArrowLeft, Check, ChevronLeft, ChevronRight, 
-  X, Maximize2, Sparkles, Phone, MessageCircle 
+  X, Maximize2, Sparkles, Phone, MessageCircle, ExternalLink 
 } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
@@ -43,7 +43,6 @@ function resolveImg(filename?: string): string {
   return imageMap[filename] ?? fallbackImg;
 }
 
-
 // ─── Fullscreen Lightbox ─────────────────────────────────────────────────────
 function Lightbox({
   images,
@@ -80,14 +79,14 @@ function Lightbox({
       {/* Close Button */}
       <button
         onClick={onClose}
-        className="absolute top-6 right-6 w-11 h-11 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-colors z-20 cursor-pointer"
+        className="absolute top-6 right-6 w-11 h-11 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-colors z-20 cursor-pointer text-white"
         aria-label="Close image viewer"
       >
-        <X size={22} className="text-white" />
+        <X size={22} />
       </button>
 
       {/* Counter */}
-      <div className="absolute top-6 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-sm text-white/80 font-mono">
+      <div className="absolute top-6 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-sm text-white/90 font-mono">
         {idx + 1} / {images.length}
       </div>
 
@@ -109,17 +108,17 @@ function Lightbox({
         <>
           <button
             onClick={(e) => { e.stopPropagation(); prev(); }}
-            className="absolute left-6 w-12 h-12 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-colors cursor-pointer z-10"
+            className="absolute left-6 w-12 h-12 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-colors cursor-pointer z-10 text-white"
             aria-label="Previous image"
           >
-            <ChevronLeft size={24} className="text-white" />
+            <ChevronLeft size={24} />
           </button>
           <button
             onClick={(e) => { e.stopPropagation(); next(); }}
-            className="absolute right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-colors cursor-pointer z-10"
+            className="absolute right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-primary flex items-center justify-center transition-colors cursor-pointer z-10 text-white"
             aria-label="Next image"
           >
-            <ChevronRight size={24} className="text-white" />
+            <ChevronRight size={24} />
           </button>
         </>
       )}
@@ -127,131 +126,13 @@ function Lightbox({
   );
 }
 
-// ─── Hero Visual Showcase Component ──────────────────────────────────────────
-function ServiceHeroShowcase({ 
-  filenames, 
-  title 
-}: { 
-  filenames: string[]; 
-  title: string; 
-}) {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [lightboxOpen, setLightboxOpen] = useState(false);
-  const urls = filenames.map(resolveImg);
-
-  if (urls.length === 0) return null;
-
-  const prev = () => setActiveIdx((i) => (i - 1 + urls.length) % urls.length);
-  const next = () => setActiveIdx((i) => (i + 1) % urls.length);
-
-  return (
-    <>
-      <div className="w-full mb-12">
-        {/* Main Showcase Frame */}
-        <div className="relative rounded-2xl overflow-hidden border border-border/80 bg-[#0c0c0c] shadow-2xl group">
-          <div className="relative h-[360px] sm:h-[480px] md:h-[540px] w-full overflow-hidden flex items-center justify-center bg-black">
-            <motion.img
-              key={activeIdx}
-              src={urls[activeIdx]}
-              alt={`${title} showcase ${activeIdx + 1}`}
-              initial={{ opacity: 0.7, scale: 1.02 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.4 }}
-              className="w-full h-full object-cover object-center group-hover:scale-102 transition-transform duration-700 cursor-zoom-in"
-              onClick={() => setLightboxOpen(true)}
-            />
-
-            {/* Dark Gradient Overlay for atmospheric depth */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/30 pointer-events-none" />
-
-            {/* Top Right Zoom Button */}
-            <button
-              onClick={() => setLightboxOpen(true)}
-              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-primary transition-colors cursor-pointer"
-              title="Click to view full screen"
-            >
-              <Maximize2 size={16} />
-            </button>
-
-            {/* Bottom Caption & Counter */}
-            <div className="absolute bottom-4 left-6 right-6 z-10 flex items-center justify-between pointer-events-none">
-              <div className="text-xs uppercase tracking-widest text-white/80 font-bold bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-md border border-white/10">
-                {title} • Portfolio Preview
-              </div>
-              {urls.length > 1 && (
-                <div className="text-xs text-white/90 font-mono bg-primary/80 backdrop-blur-md px-3 py-1.5 rounded-md font-bold shadow-lg">
-                  {activeIdx + 1} of {urls.length}
-                </div>
-              )}
-            </div>
-
-            {/* Arrows for multi-image showcase */}
-            {urls.length > 1 && (
-              <>
-                <button
-                  onClick={prev}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-primary hover:border-primary transition-all cursor-pointer shadow-xl opacity-90 hover:opacity-100"
-                  aria-label="Previous image"
-                >
-                  <ChevronLeft size={22} />
-                </button>
-                <button
-                  onClick={next}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-11 h-11 rounded-full bg-black/70 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-primary hover:border-primary transition-all cursor-pointer shadow-xl opacity-90 hover:opacity-100"
-                  aria-label="Next image"
-                >
-                  <ChevronRight size={22} />
-                </button>
-              </>
-            )}
-          </div>
-        </div>
-
-        {/* Thumbnail Strip (only for multi-image) */}
-        {urls.length > 1 && (
-          <div className="flex items-center gap-3 mt-4 overflow-x-auto pb-2 scrollbar-thin">
-            {urls.map((thumbUrl, idx) => (
-              <button
-                key={idx}
-                onClick={() => setActiveIdx(idx)}
-                className={`relative h-20 w-28 sm:h-24 sm:w-36 rounded-lg overflow-hidden shrink-0 border-2 transition-all duration-200 cursor-pointer ${
-                  activeIdx === idx 
-                    ? 'border-primary ring-2 ring-primary/40 scale-102 shadow-lg shadow-primary/20' 
-                    : 'border-white/15 opacity-60 hover:opacity-100 hover:border-white/40'
-                }`}
-              >
-                <img 
-                  src={thumbUrl} 
-                  alt={`Thumbnail ${idx + 1}`} 
-                  className="w-full h-full object-cover" 
-                />
-                {activeIdx === idx && (
-                  <div className="absolute inset-0 bg-primary/20 pointer-events-none" />
-                )}
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
-
-      {/* Lightbox Modal */}
-      <AnimatePresence>
-        {lightboxOpen && (
-          <Lightbox 
-            images={urls} 
-            startIndex={activeIdx} 
-            onClose={() => setLightboxOpen(false)} 
-          />
-        )}
-      </AnimatePresence>
-    </>
-  );
-}
-
 // ─── Main Service Detail Page ────────────────────────────────────────────────
 export default function ServiceDetail() {
   const { slug } = useParams<{ slug: string }>();
   const service = getServiceBySlug(slug);
+
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxStartIndex, setLightboxStartIndex] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -267,7 +148,7 @@ export default function ServiceDetail() {
           <h1 className="font-display text-4xl md:text-5xl uppercase tracking-tight mb-6">
             Service Not Found
           </h1>
-          <p className="text-secondary mb-10 max-w-md mx-auto">
+          <p className="text-muted-foreground mb-10 max-w-md mx-auto">
             We couldn't find the service you're looking for.
           </p>
           <Link
@@ -285,55 +166,57 @@ export default function ServiceDetail() {
   const others = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 4);
 
   // Gallery files: multi-image array or fallback to single image
-  const galleryFiles: string[] =
+  const rawGalleryFiles: string[] =
     service.images && service.images.length > 0
       ? service.images
       : service.image
       ? [service.image]
       : [];
 
+  const allImageUrls = rawGalleryFiles.map(resolveImg);
+  const heroImageUrl = allImageUrls[0] || fallbackImg;
+  const remainingImages = allImageUrls.slice(1);
+
+  const openLightbox = (index: number) => {
+    setLightboxStartIndex(index);
+    setLightboxOpen(true);
+  };
+
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans relative">
+    <div className="min-h-screen bg-background text-foreground font-sans relative transition-colors">
       <CustomCursor />
       <Navbar />
 
       <main>
-        {/* Compact Hero Section */}
-        <section className="pt-32 pb-8 md:pt-36 md:pb-12 bg-gradient-to-b from-[#100a14] via-[#090909] to-background relative overflow-hidden border-b border-border/60">
-          {/* Subtle Background Watermark */}
-          <div className="absolute top-0 right-0 overflow-hidden flex justify-end pointer-events-none opacity-5 -z-0">
-            <h2 className="font-display text-[12rem] md:text-[18rem] leading-none whitespace-nowrap text-white">
-              {service.num}
-            </h2>
-          </div>
-
-          <div className="max-w-[1360px] mx-auto px-4 md:px-8 relative z-10">
+        {/* Compact Top Header & Breadcrumbs */}
+        <section className="pt-32 pb-8 md:pt-36 md:pb-10 bg-background border-b border-border/60">
+          <div className="max-w-[1360px] mx-auto px-4 md:px-8">
             {/* Breadcrumb Navigation */}
-            <div className="flex items-center gap-2 text-xs sm:text-sm uppercase tracking-widest text-muted-foreground mb-8">
+            <div className="flex items-center gap-2 text-xs sm:text-sm uppercase tracking-widest text-muted-foreground mb-6">
               <Link href="/" className="hover:text-primary transition-colors">Home</Link>
               <span className="text-primary">•</span>
               <Link href="/#services" className="hover:text-primary transition-colors">Services</Link>
               <span className="text-primary">•</span>
-              <span className="text-pink-300 font-semibold truncate max-w-[200px] sm:max-w-none">
+              <span className="text-primary font-semibold truncate max-w-[200px] sm:max-w-none">
                 {service.title}
               </span>
             </div>
 
-            {/* Title & Header */}
-            <div className="max-w-4xl mb-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded bg-primary/15 border border-primary/30 text-primary text-xs font-bold uppercase tracking-widest mb-4">
+            {/* Title & Quick Summary */}
+            <div className="max-w-4xl mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/15 border border-primary/30 text-primary text-xs font-bold uppercase tracking-widest mb-3">
                 <Sparkles size={14} />
                 <span>Service {service.num}</span>
               </div>
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="font-display text-4xl sm:text-6xl md:text-7xl uppercase tracking-tight leading-[0.95] text-white mb-6"
+                transition={{ duration: 0.4 }}
+                className="font-display text-4xl sm:text-6xl md:text-7xl uppercase tracking-tight leading-[0.95] text-foreground mb-4"
               >
                 {service.title}
               </motion.h1>
-              <p className="text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed">
+              <p className="text-foreground/80 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl">
                 {service.short}
               </p>
             </div>
@@ -342,7 +225,7 @@ export default function ServiceDetail() {
             <div className="flex flex-wrap items-center gap-4">
               <a
                 href="#contact"
-                className="px-6 py-3 rounded bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-wider text-xs sm:text-sm transition-all duration-200 shadow-lg shadow-primary/30"
+                className="px-6 py-3 rounded bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-wider text-xs sm:text-sm transition-all duration-200 shadow-lg shadow-primary/25"
               >
                 Inquire For This Service
               </a>
@@ -350,48 +233,73 @@ export default function ServiceDetail() {
                 href="https://wa.me/971526935456"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded bg-[#151515] border border-border hover:border-primary text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-200"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded bg-card border border-border hover:border-primary text-foreground text-xs sm:text-sm font-bold uppercase tracking-wider transition-all duration-200 shadow-sm"
               >
-                <MessageCircle size={16} className="text-green-400" />
-                WhatsApp
+                <MessageCircle size={16} className="text-green-500" />
+                WhatsApp Consultation
               </a>
             </div>
           </div>
         </section>
 
-        {/* Visual Showcase + Overview & Capabilities Content */}
-        <section className="py-12 md:py-16">
+        {/* ── Single Hero Image (Replaces Slider) ── */}
+        <section className="pt-8 pb-12">
           <div className="max-w-[1360px] mx-auto px-4 md:px-8">
-            
-            {/* ── Visual Showcase Banner / Gallery ── */}
-            {galleryFiles.length > 0 && (
-              <ServiceHeroShowcase filenames={galleryFiles} title={service.title} />
-            )}
+            <div className="relative rounded-2xl overflow-hidden border border-border shadow-2xl group">
+              <div className="relative h-[360px] sm:h-[480px] md:h-[580px] w-full overflow-hidden bg-neutral-900">
+                <img
+                  src={heroImageUrl}
+                  alt={`${service.title} Hero Showcase`}
+                  className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700 cursor-zoom-in"
+                  onClick={() => openLightbox(0)}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
 
-            {/* ── Content Grid: Overview & Capabilities ── */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start mt-6">
+                {/* Top Right Zoom Fullscreen button */}
+                <button
+                  onClick={() => openLightbox(0)}
+                  className="absolute top-4 right-4 z-10 w-11 h-11 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-primary transition-colors cursor-pointer shadow-lg"
+                  title="View Fullscreen"
+                >
+                  <Maximize2 size={18} />
+                </button>
+
+                {/* Bottom Overlay Label */}
+                <div className="absolute bottom-6 left-6 right-6 z-10 flex items-center justify-between pointer-events-none">
+                  <div className="px-4 py-2 rounded-lg bg-black/70 backdrop-blur-md border border-white/15 text-white font-display text-lg sm:text-xl tracking-wide uppercase shadow-lg">
+                    {service.title} • Featured Build
+                  </div>
+                  <div className="px-3.5 py-1.5 rounded-md bg-primary text-white text-xs font-bold uppercase tracking-wider shadow-lg">
+                    Click to enlarge
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ── Overview & Capabilities Content Grid ── */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start mt-12">
               
               {/* Left Column: Overview Details */}
               <div className="lg:col-span-7 space-y-8">
                 <div>
                   <span className="text-xs uppercase tracking-widest text-primary font-bold block mb-2">
-                    Service Scope & Delivery
+                    Service Scope & Engineering
                   </span>
-                  <h2 className="font-display text-3xl sm:text-4xl uppercase tracking-tight text-white mb-6">
+                  <h2 className="font-display text-3xl sm:text-4xl uppercase tracking-tight text-foreground mb-6">
                     OVERVIEW
                   </h2>
-                  <div className="text-gray-300 text-sm sm:text-base leading-relaxed space-y-4 whitespace-pre-line">
+                  <div className="text-foreground/85 text-sm sm:text-base leading-relaxed space-y-4 whitespace-pre-line">
                     {service.overview}
                   </div>
                 </div>
 
                 {/* Highlight Callout Box */}
-                <div className="p-6 rounded-xl bg-gradient-to-r from-[#180e1c] to-[#0f0f0f] border border-primary/30 shadow-xl">
-                  <h3 className="font-display text-xl text-white uppercase mb-2">
+                <div className="p-6 rounded-xl bg-card border border-primary/30 shadow-md">
+                  <h3 className="font-display text-xl text-foreground uppercase mb-2">
                     Why Choose Trinity Media For {service.title}?
                   </h3>
-                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-                    With our state-of-the-art 18,000 sq.ft press at Dubai Investment Park-1, premium materials, and experienced technical teams, we guarantee fast turnaround, strict ISO quality control, and flawless execution.
+                  <p className="text-xs sm:text-sm text-muted-foreground leading-relaxed">
+                    With our state-of-the-art 18,000 sq.ft facility at Dubai Investment Park-1, premium materials, and experienced production engineers, we guarantee fast turnaround, strict ISO quality control, and flawless on-site installation.
                   </p>
                 </div>
               </div>
@@ -400,16 +308,16 @@ export default function ServiceDetail() {
               <div className="lg:col-span-5 space-y-6">
                 
                 {/* Capabilities Card */}
-                <div className="border border-border/80 rounded-2xl p-6 sm:p-8 bg-[#0c0c0c] shadow-xl">
+                <div className="border border-border rounded-2xl p-6 sm:p-8 bg-card shadow-md">
                   <div className="flex items-center gap-2 mb-6">
                     <span className="w-2.5 h-2.5 rounded-full bg-primary" />
-                    <h3 className="font-display text-2xl uppercase tracking-wide text-white">
+                    <h3 className="font-display text-2xl uppercase tracking-wide text-foreground">
                       Capabilities
                     </h3>
                   </div>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
                     {service.capabilities.map((item) => (
-                      <li key={item} className="text-gray-300 text-xs sm:text-sm flex items-start gap-2.5">
+                      <li key={item} className="text-foreground/80 text-xs sm:text-sm flex items-start gap-2.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 shrink-0" />
                         <span>{item}</span>
                       </li>
@@ -418,16 +326,16 @@ export default function ServiceDetail() {
                 </div>
 
                 {/* Deliverables Card */}
-                <div className="border border-border/80 rounded-2xl p-6 sm:p-8 bg-[#0c0c0c] shadow-xl">
+                <div className="border border-border rounded-2xl p-6 sm:p-8 bg-card shadow-md">
                   <div className="flex items-center gap-2 mb-6">
                     <Check size={20} className="text-primary" />
-                    <h3 className="font-display text-2xl uppercase tracking-wide text-white">
+                    <h3 className="font-display text-2xl uppercase tracking-wide text-foreground">
                       Deliverables
                     </h3>
                   </div>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-3">
                     {service.deliverables.map((item) => (
-                      <li key={item} className="text-gray-300 text-xs sm:text-sm flex items-start gap-2.5">
+                      <li key={item} className="text-foreground/80 text-xs sm:text-sm flex items-start gap-2.5">
                         <Check size={15} className="text-primary shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
@@ -436,12 +344,12 @@ export default function ServiceDetail() {
                 </div>
 
                 {/* Quick Contact Card */}
-                <div className="p-6 rounded-2xl bg-[#111111] border border-border/80 text-center">
-                  <h4 className="font-display text-lg text-white uppercase mb-2">Need a Custom Quote?</h4>
+                <div className="p-6 rounded-2xl bg-muted/40 border border-border text-center shadow-sm">
+                  <h4 className="font-display text-lg text-foreground uppercase mb-2">Need a Custom Quote?</h4>
                   <p className="text-xs text-muted-foreground mb-4">Our project managers are ready to assist with sizing, materials and budget estimates.</p>
                   <a
                     href="tel:+971526935456"
-                    className="inline-flex items-center justify-center gap-2 w-full py-3 rounded bg-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-primary/90 transition-colors"
+                    className="inline-flex items-center justify-center gap-2 w-full py-3 rounded bg-primary text-white text-xs font-bold uppercase tracking-wider hover:bg-primary/90 transition-colors shadow-sm"
                   >
                     <Phone size={14} /> Call +971 52 693 5456
                   </a>
@@ -450,24 +358,99 @@ export default function ServiceDetail() {
               </div>
 
             </div>
+
+            {/* ── Remaining Project Images Cards Grid (Below Description) ── */}
+            {remainingImages.length > 0 && (
+              <div className="mt-20 pt-12 border-t border-border">
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+                  <div>
+                    <span className="text-xs uppercase tracking-widest text-primary font-bold block mb-1">
+                      Project Portfolio & Gallery
+                    </span>
+                    <h3 className="font-display text-3xl sm:text-5xl uppercase tracking-tight text-foreground">
+                      {service.title} Gallery
+                    </h3>
+                  </div>
+                  <p className="text-xs text-muted-foreground max-w-md">
+                    Explore high-resolution fabrication photos from our Dubai projects. Click any card to inspect full-screen detail.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {remainingImages.map((imgUrl, index) => {
+                    const fullIndex = index + 1; // since hero is index 0
+                    return (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: (index % 3) * 0.08 }}
+                        className="group relative rounded-xl overflow-hidden border border-border bg-card shadow-md hover:border-primary/60 hover:shadow-2xl transition-all duration-300 cursor-pointer flex flex-col"
+                        onClick={() => openLightbox(fullIndex)}
+                      >
+                        <div className="relative h-64 sm:h-72 w-full overflow-hidden bg-neutral-900">
+                          <img
+                            src={imgUrl}
+                            alt={`${service.title} project view ${fullIndex}`}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent group-hover:via-black/10 transition-colors" />
+                          
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              openLightbox(fullIndex);
+                            }}
+                            className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-primary transition-all duration-200"
+                            title="View Fullscreen"
+                          >
+                            <Maximize2 size={15} />
+                          </button>
+
+                          <div className="absolute bottom-3 left-3 right-3 text-white">
+                            <span className="text-[10px] uppercase font-bold tracking-widest text-pink-200 block">
+                              Project {fullIndex} of {allImageUrls.length}
+                            </span>
+                            <span className="font-display text-lg tracking-wide uppercase block">
+                              {service.title}
+                            </span>
+                          </div>
+                        </div>
+
+                        <div className="p-4 flex items-center justify-between border-t border-border/50 bg-card">
+                          <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                            Inspect Project
+                          </span>
+                          <span className="text-xs font-bold text-primary inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                            Full View <ArrowRight size={13} />
+                          </span>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
           </div>
         </section>
 
         {/* Other Services Grid */}
-        <section className="py-20 bg-[#080808] border-t border-border/80">
+        <section className="py-20 bg-muted/30 border-t border-border">
           <div className="max-w-[1360px] mx-auto px-4 md:px-8">
             <div className="flex items-center justify-between mb-10">
               <div>
                 <span className="text-xs uppercase tracking-widest text-primary font-bold block mb-1">
                   Explore More Solutions
                 </span>
-                <h2 className="font-display text-3xl sm:text-4xl uppercase tracking-tight text-white">
+                <h2 className="font-display text-3xl sm:text-4xl uppercase tracking-tight text-foreground">
                   OTHER SERVICES
                 </h2>
               </div>
               <Link
                 href="/#services"
-                className="hidden sm:inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary hover:text-white transition-colors"
+                className="hidden sm:inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-primary hover:text-primary/80 transition-colors"
               >
                 View All 19 Services <ArrowRight size={14} />
               </Link>
@@ -478,10 +461,10 @@ export default function ServiceDetail() {
                 <Link
                   key={s.slug}
                   href={`/services/${s.slug}`}
-                  className="group p-6 rounded-xl border border-border/80 bg-[#0e0e0e] hover:border-primary/50 transition-all duration-300 flex flex-col shadow-lg"
+                  className="group p-6 rounded-xl border border-border bg-card hover:border-primary/50 transition-all duration-300 flex flex-col shadow-sm"
                 >
                   <span className="font-display text-2xl text-primary mb-2">{s.num}</span>
-                  <h3 className="font-display text-xl tracking-wide text-gray-200 group-hover:text-white transition-colors mb-3 leading-tight">
+                  <h3 className="font-display text-xl tracking-wide text-foreground group-hover:text-primary transition-colors mb-3 leading-tight">
                     {s.title}
                   </h3>
                   <p className="text-xs text-muted-foreground line-clamp-2 mb-4 leading-relaxed flex-1">
@@ -500,6 +483,17 @@ export default function ServiceDetail() {
       </main>
 
       <Footer />
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxOpen && (
+          <Lightbox 
+            images={allImageUrls} 
+            startIndex={lightboxStartIndex} 
+            onClose={() => setLightboxOpen(false)} 
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

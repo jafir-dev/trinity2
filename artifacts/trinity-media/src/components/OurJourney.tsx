@@ -39,10 +39,10 @@ const TIMELINE_STEPS = [
 
 export function OurJourney({ showCeoMessage = false }: { showCeoMessage?: boolean }) {
   return (
-    <section id="journey" className="py-20 md:py-32 bg-[#080808] relative overflow-hidden border-y border-border/80">
+    <section id="journey" className="py-20 md:py-32 bg-background relative overflow-hidden border-y border-border/80">
       {/* Background Typography */}
       <div className="absolute top-10 left-0 w-full overflow-hidden flex justify-center pointer-events-none opacity-5">
-        <h2 className="font-display text-[14rem] md:text-[22rem] leading-none whitespace-nowrap text-white">
+        <h2 className="font-display text-[14rem] md:text-[22rem] leading-none whitespace-nowrap text-foreground">
           JOURNEY
         </h2>
       </div>
@@ -66,7 +66,7 @@ export function OurJourney({ showCeoMessage = false }: { showCeoMessage?: boolea
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="font-display text-4xl sm:text-6xl md:text-7xl text-white uppercase tracking-tight"
+            className="font-display text-4xl sm:text-6xl md:text-7xl text-foreground uppercase tracking-tight"
           >
             OUR <span className="text-primary">JOURNEY</span>
           </motion.h2>
@@ -76,7 +76,7 @@ export function OurJourney({ showCeoMessage = false }: { showCeoMessage?: boolea
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-gray-400 text-sm sm:text-base mt-4 max-w-2xl mx-auto"
+            className="text-muted-foreground text-sm sm:text-base mt-4 max-w-2xl mx-auto"
           >
             From our founding in 2010 to operating an 18,000 sq.ft press in Dubai Investment Park, our journey represents relentless innovation and craftsmanship.
           </motion.p>
@@ -106,39 +106,39 @@ export function OurJourney({ showCeoMessage = false }: { showCeoMessage?: boolea
                 >
                   {/* Timeline Center Node */}
                   <div className="absolute left-6 md:left-1/2 -translate-x-1/2 top-4 z-20 flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full bg-[#160b1c] border-2 border-primary text-pink-300 flex items-center justify-center shadow-xl shadow-primary/30 group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 rounded-full bg-card border-2 border-primary text-primary flex items-center justify-center shadow-xl shadow-primary/30 group-hover:scale-110 transition-transform">
                       <IconComp size={20} className="text-primary" />
                     </div>
                   </div>
 
                   {/* Content Card (Desktop: 50% width) */}
                   <div className={`w-full md:w-1/2 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'}`}>
-                    <div className="bg-[#101010] border border-border/80 hover:border-primary/50 rounded-2xl p-6 sm:p-8 shadow-2xl transition-all duration-300 group">
+                    <div className="bg-card border border-border/80 hover:border-primary/50 rounded-2xl p-6 sm:p-8 shadow-xl transition-all duration-300 group">
                       
                       {/* Top Year & Category Badge */}
                       <div className={`flex items-center gap-3 mb-4 ${isEven ? 'md:justify-end' : 'md:justify-start'}`}>
                         <span className="font-display text-4xl sm:text-5xl text-primary font-bold tracking-tight">
                           {step.year}
                         </span>
-                        <span className="text-[11px] uppercase tracking-widest text-pink-300 font-bold px-3 py-1 rounded-full bg-primary/15 border border-primary/30">
+                        <span className="text-[11px] uppercase tracking-widest text-primary font-bold px-3 py-1 rounded-full bg-primary/15 border border-primary/30">
                           {step.badge}
                         </span>
                       </div>
 
                       {/* Title */}
-                      <h3 className="font-display text-2xl text-white uppercase tracking-wide mb-3 leading-snug">
+                      <h3 className="font-display text-2xl text-foreground uppercase tracking-wide mb-3 leading-snug">
                         {step.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-sm text-gray-300 leading-relaxed mb-5">
+                      <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                         {step.desc}
                       </p>
 
                       {/* Highlight Tag */}
                       <div className={`pt-4 border-t border-border/80 flex items-center gap-2 ${isEven ? 'md:justify-end' : 'md:justify-start'}`}>
                         <CheckCircle size={15} className="text-primary shrink-0" />
-                        <span className="text-xs font-semibold text-gray-300 tracking-wide">
+                        <span className="text-xs font-semibold text-muted-foreground tracking-wide">
                           {step.highlight}
                         </span>
                       </div>

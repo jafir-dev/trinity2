@@ -3,12 +3,14 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Menu, X, Phone, Mail, ChevronDown, 
   MapPin, MessageCircle, Clock, Award, Users, 
-  Sparkles, Layers, ShieldCheck, ArrowRight 
+  Sparkles, Layers, ShieldCheck, ArrowRight,
+  Sun, Moon
 } from 'lucide-react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 import { Link, useLocation } from 'wouter';
-import trinityLogo from "@assets/image_1785904865497.png";
+import trinityLogo from "@assets/trinity-logo-original.png";
 import { SERVICES } from '@/data/services';
+import { useTheme } from '@/components/ThemeProvider';
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -17,6 +19,7 @@ export function Navbar() {
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [location, setLocation] = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -35,7 +38,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 font-sans">
       {/* Top Notification & Contact Bar */}
-      <div className="bg-[#050505] text-gray-300 text-[11px] md:text-xs py-2 px-4 md:px-8 border-b border-border/60 hidden sm:block">
+      <div className="bg-neutral-100 dark:bg-[#050505] text-neutral-600 dark:text-gray-300 text-[11px] md:text-xs py-2 px-4 md:px-8 border-b border-border/60 hidden sm:block transition-colors">
         <div className="max-w-[1360px] mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-6">
             <div className="flex items-center gap-1.5">
@@ -55,7 +58,7 @@ export function Navbar() {
           </div>
 
           <div className="flex items-center space-x-4">
-            <div className="flex items-center space-x-3 text-gray-400">
+            <div className="flex items-center space-x-3 text-neutral-400 dark:text-gray-400">
               <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
                 <FaFacebookF size={12} />
               </a>
@@ -79,7 +82,7 @@ export function Navbar() {
               href="https://wa.me/971526935456" 
               target="_blank" 
               rel="noreferrer"
-              className="flex items-center gap-1.5 text-primary hover:text-white transition-colors font-semibold uppercase tracking-wider"
+              className="flex items-center gap-1.5 text-primary hover:text-primary/80 dark:hover:text-white transition-colors font-semibold uppercase tracking-wider"
             >
               <MessageCircle size={13} />
               <span>Contact Now</span>
@@ -92,13 +95,19 @@ export function Navbar() {
       <nav
         className={`transition-all duration-300 ${
           scrolled 
-            ? 'bg-[#0a0a0a]/95 backdrop-blur-md border-b border-border/80 py-3 shadow-xl' 
-            : 'bg-[#080808]/80 backdrop-blur-sm py-4'
+            ? 'bg-background/95 backdrop-blur-md border-b border-border/80 py-3 shadow-md dark:shadow-xl' 
+            : 'bg-background/80 backdrop-blur-sm py-4'
         }`}
       >
         <div className="max-w-[1360px] mx-auto px-4 md:px-8 flex items-center justify-between">
           <Link href="/" className="block">
-            <img src={trinityLogo} alt="Trinity Media UAE" className="h-10 md:h-12 w-auto object-contain cursor-pointer brightness-0 invert" />
+            <img 
+              src={trinityLogo} 
+              alt="Trinity Media UAE" 
+              className={`h-10 md:h-12 w-auto object-contain cursor-pointer transition-all ${
+                theme === 'dark' ? 'brightness-0 invert' : ''
+              }`} 
+            />
           </Link>
 
           {/* Desktop Nav Items */}
@@ -106,7 +115,7 @@ export function Navbar() {
             <button
               onClick={() => navigateTo('/')}
               className={`text-sm font-medium transition-colors cursor-pointer ${
-                location === '/' ? 'text-primary font-semibold' : 'text-gray-200 hover:text-primary'
+                location === '/' ? 'text-primary font-semibold' : 'text-foreground/85 hover:text-primary'
               }`}
             >
               Home
@@ -120,7 +129,7 @@ export function Navbar() {
             >
               <button
                 onClick={() => navigateTo('/about')}
-                className="flex items-center gap-1 text-sm font-medium text-gray-200 hover:text-primary transition-colors py-2 cursor-pointer"
+                className="flex items-center gap-1 text-sm font-medium text-foreground/85 hover:text-primary transition-colors py-2 cursor-pointer"
               >
                 <span>About Us</span>
                 <ChevronDown size={14} className={`transition-transform duration-200 ${aboutDropdownOpen ? 'rotate-180 text-primary' : ''}`} />
@@ -133,11 +142,11 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.95 }}
                     transition={{ duration: 0.18 }}
-                    className="absolute top-full left-0 w-64 bg-[#141414] border border-border/80 rounded-lg shadow-2xl p-2 z-50 backdrop-blur-xl"
+                    className="absolute top-full left-0 w-64 bg-card border border-border/80 rounded-lg shadow-2xl p-2 z-50 backdrop-blur-xl"
                   >
                     <button
                       onClick={() => navigateTo('/about')}
-                      className="w-full text-left px-3 py-2.5 rounded-md text-sm text-gray-200 hover:bg-primary/20 hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
+                      className="w-full text-left px-3 py-2.5 rounded-md text-sm text-foreground/85 hover:bg-primary/15 hover:text-primary transition-colors flex items-center gap-2.5 cursor-pointer"
                     >
                       <Sparkles size={16} className="text-primary" />
                       <div>
@@ -147,7 +156,7 @@ export function Navbar() {
                     </button>
                     <button
                       onClick={() => navigateTo('/our-journey')}
-                      className="w-full text-left px-3 py-2.5 rounded-md text-sm text-gray-200 hover:bg-primary/20 hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
+                      className="w-full text-left px-3 py-2.5 rounded-md text-sm text-foreground/85 hover:bg-primary/15 hover:text-primary transition-colors flex items-center gap-2.5 cursor-pointer"
                     >
                       <Clock size={16} className="text-primary" />
                       <div>
@@ -157,7 +166,7 @@ export function Navbar() {
                     </button>
                     <button
                       onClick={() => navigateTo('/why-choose-us')}
-                      className="w-full text-left px-3 py-2.5 rounded-md text-sm text-gray-200 hover:bg-primary/20 hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
+                      className="w-full text-left px-3 py-2.5 rounded-md text-sm text-foreground/85 hover:bg-primary/15 hover:text-primary transition-colors flex items-center gap-2.5 cursor-pointer"
                     >
                       <ShieldCheck size={16} className="text-primary" />
                       <div>
@@ -167,7 +176,7 @@ export function Navbar() {
                     </button>
                     <button
                       onClick={() => navigateTo('/about#ceo-message')}
-                      className="w-full text-left px-3 py-2.5 rounded-md text-sm text-gray-200 hover:bg-primary/20 hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
+                      className="w-full text-left px-3 py-2.5 rounded-md text-sm text-foreground/85 hover:bg-primary/15 hover:text-primary transition-colors flex items-center gap-2.5 cursor-pointer"
                     >
                       <Users size={16} className="text-primary" />
                       <div>
@@ -177,7 +186,7 @@ export function Navbar() {
                     </button>
                     <button
                       onClick={() => navigateTo('/awards')}
-                      className="w-full text-left px-3 py-2.5 rounded-md text-sm text-gray-200 hover:bg-primary/20 hover:text-white transition-colors flex items-center gap-2.5 cursor-pointer"
+                      className="w-full text-left px-3 py-2.5 rounded-md text-sm text-foreground/85 hover:bg-primary/15 hover:text-primary transition-colors flex items-center gap-2.5 cursor-pointer"
                     >
                       <Award size={16} className="text-primary" />
                       <div>
@@ -198,10 +207,10 @@ export function Navbar() {
             >
               <button
                 onClick={() => navigateTo('/#services')}
-                className="flex items-center gap-1 text-sm font-medium text-gray-200 hover:text-primary transition-colors py-2 cursor-pointer"
+                className="flex items-center gap-1 text-sm font-medium text-foreground/85 hover:text-primary transition-colors py-2 cursor-pointer"
               >
                 <span>Services</span>
-                <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-primary/20 text-pink-300 font-bold border border-primary/40">19</span>
+                <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-primary/20 text-primary font-bold border border-primary/40">19</span>
                 <ChevronDown size={14} className={`transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180 text-primary' : ''}`} />
               </button>
 
@@ -212,19 +221,19 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.98 }}
                     transition={{ duration: 0.2 }}
-                    className="absolute top-full left-[-320px] w-[1080px] max-w-[90vw] bg-[#0e0e0e]/98 border border-border/90 rounded-2xl shadow-2xl p-6 z-50 backdrop-blur-2xl"
+                    className="absolute top-full left-[-320px] w-[1080px] max-w-[90vw] bg-card/98 border border-border/90 rounded-2xl shadow-2xl p-6 z-50 backdrop-blur-2xl"
                   >
                     <div className="flex items-center justify-between pb-4 mb-4 border-b border-border/80">
                       <div className="flex items-center gap-2.5">
                         <span className="w-2.5 h-2.5 rounded-full bg-primary" />
-                        <span className="font-display text-lg text-white uppercase tracking-wide">
+                        <span className="font-display text-lg text-foreground uppercase tracking-wide">
                           All 19 Specialised Services
                         </span>
                       </div>
                       <Link
                         href="/#services"
                         onClick={() => setServicesDropdownOpen(false)}
-                        className="text-xs font-bold uppercase tracking-wider text-primary hover:text-white transition-colors flex items-center gap-1.5"
+                        className="text-xs font-bold uppercase tracking-wider text-primary hover:text-primary/80 transition-colors flex items-center gap-1.5"
                       >
                         Explore Services Section <ArrowRight size={13} />
                       </Link>
@@ -236,12 +245,12 @@ export function Navbar() {
                         <button
                           key={srv.slug}
                           onClick={() => navigateTo(`/services/${srv.slug}`)}
-                          className="text-left p-2.5 rounded-lg bg-[#141414]/70 hover:bg-primary/20 border border-transparent hover:border-primary/40 transition-all duration-200 flex items-start gap-2.5 group cursor-pointer"
+                          className="text-left p-2.5 rounded-lg bg-muted/50 hover:bg-primary/15 border border-border/50 hover:border-primary/40 transition-all duration-200 flex items-start gap-2.5 group cursor-pointer"
                         >
-                          <span className="font-display text-sm text-primary group-hover:text-pink-300 font-bold shrink-0 mt-0.5">
+                          <span className="font-display text-sm text-primary group-hover:text-primary font-bold shrink-0 mt-0.5">
                             {srv.num}
                           </span>
-                          <span className="text-xs text-gray-300 group-hover:text-white font-medium leading-snug">
+                          <span className="text-xs text-foreground/80 group-hover:text-primary font-medium leading-snug">
                             {srv.title}
                           </span>
                         </button>
@@ -255,7 +264,7 @@ export function Navbar() {
             <button
               onClick={() => navigateTo('/our-facilities')}
               className={`text-sm font-medium transition-colors cursor-pointer ${
-                location === '/our-facilities' ? 'text-primary font-semibold' : 'text-gray-200 hover:text-primary'
+                location === '/our-facilities' ? 'text-primary font-semibold' : 'text-foreground/85 hover:text-primary'
               }`}
             >
               Our Facilities
@@ -264,7 +273,7 @@ export function Navbar() {
             <button
               onClick={() => navigateTo('/awards')}
               className={`text-sm font-medium transition-colors cursor-pointer ${
-                location === '/awards' ? 'text-primary font-semibold' : 'text-gray-200 hover:text-primary'
+                location === '/awards' ? 'text-primary font-semibold' : 'text-foreground/85 hover:text-primary'
               }`}
             >
               Awards
@@ -272,7 +281,7 @@ export function Navbar() {
 
             <button
               onClick={() => navigateTo('/#portfolio')}
-              className="text-sm font-medium text-gray-200 hover:text-primary transition-colors cursor-pointer"
+              className="text-sm font-medium text-foreground/85 hover:text-primary transition-colors cursor-pointer"
             >
               Portfolio
             </button>
@@ -280,15 +289,28 @@ export function Navbar() {
             <button
               onClick={() => navigateTo('/contact')}
               className={`text-sm font-medium transition-colors cursor-pointer ${
-                location === '/contact' ? 'text-primary font-semibold' : 'text-gray-200 hover:text-primary'
+                location === '/contact' ? 'text-primary font-semibold' : 'text-foreground/85 hover:text-primary'
               }`}
             >
               Contact
             </button>
           </div>
 
-          {/* Quick CTA Button */}
-          <div className="hidden lg:flex items-center space-x-4">
+          {/* Theme Toggle & Quick CTA Button */}
+          <div className="hidden lg:flex items-center space-x-3">
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle dark and light mode"
+              className="p-2.5 rounded-full border border-border hover:border-primary/50 bg-background/80 hover:bg-primary/10 text-foreground transition-all duration-200 cursor-pointer flex items-center justify-center shadow-sm"
+              title={theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+            >
+              {theme === 'dark' ? (
+                <Sun size={18} className="text-amber-400 hover:rotate-45 transition-transform" />
+              ) : (
+                <Moon size={18} className="text-primary hover:-rotate-12 transition-transform" />
+              )}
+            </button>
+
             <button
               onClick={() => navigateTo('/contact')}
               className="px-6 py-2.5 rounded bg-primary hover:bg-primary/90 text-white text-xs md:text-sm font-bold uppercase tracking-wider transition-all duration-300 shadow-lg shadow-primary/25 cursor-pointer"
@@ -298,13 +320,22 @@ export function Navbar() {
           </div>
 
           {/* Mobile menu trigger */}
-          <button 
-            className="xl:hidden text-white p-2"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle Menu"
-          >
-            {mobileOpen ? <X size={26} /> : <Menu size={26} />}
-          </button>
+          <div className="xl:hidden flex items-center space-x-2">
+            <button
+              onClick={toggleTheme}
+              aria-label="Toggle dark and light mode"
+              className="p-2 rounded-full border border-border bg-background/80 text-foreground"
+            >
+              {theme === 'dark' ? <Sun size={18} className="text-amber-400" /> : <Moon size={18} className="text-primary" />}
+            </button>
+            <button 
+              className="text-foreground p-2"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle Menu"
+            >
+              {mobileOpen ? <X size={26} /> : <Menu size={26} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Navigation Drawer */}
@@ -314,36 +345,57 @@ export function Navbar() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: '100vh' }}
               exit={{ opacity: 0, height: 0 }}
-              className="xl:hidden fixed top-[60px] left-0 right-0 bg-[#0c0c0c]/98 backdrop-blur-2xl z-40 overflow-y-auto px-6 py-8 flex flex-col space-y-6"
+              className="xl:hidden fixed top-[60px] left-0 right-0 bg-card/98 backdrop-blur-2xl z-40 overflow-y-auto px-6 py-8 flex flex-col space-y-6"
             >
+              {/* Mobile Theme Toggle Banner */}
+              <div className="flex items-center justify-between pb-3 border-b border-border">
+                <span className="text-sm font-medium text-foreground">Color Mode</span>
+                <button
+                  onClick={toggleTheme}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-border bg-muted/60 text-xs font-semibold text-foreground cursor-pointer"
+                >
+                  {theme === 'dark' ? (
+                    <>
+                      <Sun size={14} className="text-amber-400" />
+                      <span>Switch to Light</span>
+                    </>
+                  ) : (
+                    <>
+                      <Moon size={14} className="text-primary" />
+                      <span>Switch to Dark</span>
+                    </>
+                  )}
+                </button>
+              </div>
+
               <div className="flex flex-col space-y-4 border-b border-border pb-6">
                 <button
                   onClick={() => navigateTo('/')}
-                  className="text-left text-lg font-display tracking-wider text-white hover:text-primary transition-colors"
+                  className="text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
                 >
                   Home
                 </button>
                 <button
                   onClick={() => navigateTo('/about')}
-                  className="text-left text-lg font-display tracking-wider text-white hover:text-primary transition-colors"
+                  className="text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
                 >
                   About Us
                 </button>
                 <button
                   onClick={() => navigateTo('/our-journey')}
-                  className="text-left text-lg font-display tracking-wider text-white hover:text-primary transition-colors pl-4 text-gray-400"
+                  className="text-left text-lg font-display tracking-wider text-muted-foreground hover:text-primary transition-colors pl-4"
                 >
                   • Our Journey
                 </button>
                 <button
                   onClick={() => navigateTo('/about#ceo-message')}
-                  className="text-left text-lg font-display tracking-wider text-white hover:text-primary transition-colors pl-4 text-gray-400"
+                  className="text-left text-lg font-display tracking-wider text-muted-foreground hover:text-primary transition-colors pl-4"
                 >
                   • CEO's Message
                 </button>
                 <button
                   onClick={() => navigateTo('/why-choose-us')}
-                  className="text-left text-lg font-display tracking-wider text-white hover:text-primary transition-colors pl-4 text-gray-400"
+                  className="text-left text-lg font-display tracking-wider text-muted-foreground hover:text-primary transition-colors pl-4"
                 >
                   • Why Choose Us
                 </button>
@@ -352,7 +404,7 @@ export function Navbar() {
                 <div>
                   <button
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                    className="w-full flex items-center justify-between text-left text-lg font-display tracking-wider text-white hover:text-primary transition-colors"
+                    className="w-full flex items-center justify-between text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
                   >
                     <span>Services (19)</span>
                     <ChevronDown size={16} className={`transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180 text-primary' : ''}`} />
@@ -363,7 +415,7 @@ export function Navbar() {
                         <button
                           key={s.slug}
                           onClick={() => navigateTo(`/services/${s.slug}`)}
-                          className="w-full text-left text-xs text-gray-300 hover:text-primary py-1 flex items-center gap-2"
+                          className="w-full text-left text-xs text-muted-foreground hover:text-primary py-1 flex items-center gap-2"
                         >
                           <span className="text-primary font-bold">{s.num}</span>
                           <span>{s.title}</span>
@@ -375,32 +427,32 @@ export function Navbar() {
 
                 <button
                   onClick={() => navigateTo('/our-facilities')}
-                  className="text-left text-lg font-display tracking-wider text-white hover:text-primary transition-colors"
+                  className="text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
                 >
                   Our Facilities
                 </button>
                 <button
                   onClick={() => navigateTo('/awards')}
-                  className="text-left text-lg font-display tracking-wider text-white hover:text-primary transition-colors"
+                  className="text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
                 >
                   Awards & Sponsorships
                 </button>
                 <button
                   onClick={() => navigateTo('/#portfolio')}
-                  className="text-left text-lg font-display tracking-wider text-white hover:text-primary transition-colors"
+                  className="text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
                 >
                   Portfolio
                 </button>
                 <button
                   onClick={() => navigateTo('/contact')}
-                  className="text-left text-lg font-display tracking-wider text-white hover:text-primary transition-colors"
+                  className="text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
                 >
                   Contact
                 </button>
               </div>
 
               {/* Mobile Contact Quick Links */}
-              <div className="space-y-3 text-sm text-gray-300">
+              <div className="space-y-3 text-sm text-foreground/80">
                 <div className="text-xs uppercase tracking-widest text-primary font-bold">Direct Inquiries</div>
                 <div className="flex items-center gap-2">
                   <Phone size={14} className="text-primary" />
@@ -419,7 +471,7 @@ export function Navbar() {
               <div className="pt-2">
                 <button
                   onClick={() => navigateTo('/contact')}
-                  className="w-full py-3.5 rounded bg-primary text-white font-bold uppercase tracking-wider text-center cursor-pointer"
+                  className="w-full py-3.5 rounded bg-primary text-white font-bold uppercase tracking-wider text-center cursor-pointer shadow-lg shadow-primary/20"
                 >
                   GET IN TOUCH / REQUEST QUOTE
                 </button>

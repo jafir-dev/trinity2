@@ -12,7 +12,7 @@ export function Brands() {
       <div className="max-w-[1360px] mx-auto px-6 md:px-8">
         
         <div className="text-center mb-16">
-          <h2 className="font-display text-4xl md:text-5xl text-white uppercase tracking-tight">BRANDS WE WORK WITH</h2>
+          <h2 className="font-display text-4xl md:text-5xl text-foreground uppercase tracking-tight">BRANDS WE WORK WITH</h2>
         </div>
 
         <div className="grid grid-cols-3 md:grid-cols-5 gap-y-12 gap-x-4">

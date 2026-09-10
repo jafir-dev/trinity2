@@ -31,7 +31,7 @@ const SLIDES: SlideData[] = [
     titleTop: "WE BUILD",
     titleHighlight: "BRAND",
     titleBottom: "EXPERIENCES.",
-    description: "Trinity Media delivers world-class large format digital printing, exhibition fabrication, signage, and turnkey branding across the UAE with engineering precision.",
+    description: "World-class digital printing, exhibition fabrication & bespoke signage across the UAE.",
     highlightStat: "2000+",
     highlightLabel: "Projects Delivered"
   },
@@ -42,7 +42,7 @@ const SLIDES: SlideData[] = [
     titleTop: "PRECISION",
     titleHighlight: "UV FLATBED",
     titleBottom: "& FABRICATION.",
-    description: "Equipped with state-of-the-art UV Flatbed, HP Latex, Eco-Solvent, CNC cutting, and acrylic fabrication to print on wood, glass, acrylic, metal, and textiles.",
+    description: "UV Flatbed, HP Latex, CNC cutting & acrylic fabrication on wood, glass, metal & textiles.",
     highlightStat: "18,000",
     highlightLabel: "Sqft Production Press"
   },
@@ -53,7 +53,7 @@ const SLIDES: SlideData[] = [
     titleTop: "CREATIVE",
     titleHighlight: "LARGE FORMAT",
     titleBottom: "SOLUTIONS.",
-    description: "From concept to flawless installation, we power Dubai's leading corporate brands, retail chains, and international exhibitions with unparalleled print quality.",
+    description: "Powering corporate brands, retail chains, and international exhibitions with premium print quality.",
     highlightStat: "100%",
     highlightLabel: "Client Satisfaction"
   }
@@ -185,19 +185,19 @@ export function Hero() {
         <AnimatePresence initial={false}>
           <motion.div
             key={currentSlide}
-            initial={{ opacity: 0, scale: 1.08 }}
+            initial={{ opacity: 0, scale: 1.05 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
+            transition={{ duration: 1.0, ease: "easeInOut" }}
             className="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: `url(${SLIDES[currentSlide].image})` }}
           />
         </AnimatePresence>
 
-        {/* Cinematic Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/95 via-black/80 to-black/90 z-10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-black/60 z-10" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(123,45,142,0.22)_0%,transparent_60%)] z-10" />
+        {/* Cinematic Theme-Aware Gradient Overlays — keeps images vibrant while ensuring high text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/70 dark:from-black/92 dark:via-black/75 dark:to-black/85 z-10 transition-colors" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50 dark:to-black/60 z-10 transition-colors" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(123,45,142,0.18)_0%,transparent_60%)] z-10" />
       </div>
 
       {/* Main Grid Content */}
@@ -214,43 +214,43 @@ export function Hero() {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/20 border border-primary/40 text-pink-300 text-xs font-semibold uppercase tracking-widest mb-6 backdrop-blur-md">
-                <Sparkles size={14} className="text-pink-300" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-xs font-semibold uppercase tracking-widest mb-6 backdrop-blur-md">
+                <Sparkles size={14} className="text-primary" />
                 <span>{SLIDES[currentSlide].badge}</span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] leading-[0.88] text-white tracking-tighter uppercase mb-4">
+              <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] leading-[0.88] text-foreground tracking-tighter uppercase mb-4">
                 <span>{SLIDES[currentSlide].titleTop}</span>{' '}
                 <span className="text-primary">{SLIDES[currentSlide].titleHighlight}</span><br />
                 <span>{SLIDES[currentSlide].titleBottom}</span>
               </h1>
 
-              {/* Description */}
-              <p className="mt-4 text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl font-sans leading-relaxed">
+              {/* Description - Punchy 1-2 lines */}
+              <p className="mt-4 text-base sm:text-lg md:text-xl text-foreground/80 max-w-2xl font-sans leading-relaxed">
                 {SLIDES[currentSlide].description}
               </p>
 
               {/* Quick Info & Stats Strip */}
-              <div className="mt-8 flex flex-wrap items-center gap-6 sm:gap-10 border-t border-white/10 pt-6">
+              <div className="mt-8 flex flex-wrap items-center gap-6 sm:gap-10 border-t border-border pt-6">
                 <div>
-                  <div className="font-display text-4xl text-white">
+                  <div className="font-display text-4xl text-foreground">
                     {SLIDES[currentSlide].highlightStat}
                   </div>
                   <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">
                     {SLIDES[currentSlide].highlightLabel}
                   </div>
                 </div>
-                <div className="h-8 w-px bg-white/15 hidden sm:block" />
+                <div className="h-8 w-px bg-border hidden sm:block" />
                 <div>
                   <div className="font-display text-4xl text-primary">ISO Certified</div>
                   <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">
                     9001 • 14001 • 18001
                   </div>
                 </div>
-                <div className="h-8 w-px bg-white/15 hidden sm:block" />
+                <div className="h-8 w-px bg-border hidden sm:block" />
                 <div>
-                  <div className="font-display text-4xl text-white">Dubai, UAE</div>
+                  <div className="font-display text-4xl text-foreground">Dubai, UAE</div>
                   <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">
                     DIP-1 Warehouse 4
                   </div>
@@ -270,7 +270,7 @@ export function Hero() {
                 </a>
                 <button
                   onClick={() => scrollTo('#services')}
-                  className="px-7 py-3.5 border border-white/20 hover:border-primary text-white hover:text-primary font-bold uppercase tracking-wider rounded text-xs sm:text-sm transition-all"
+                  className="px-7 py-3.5 border border-border hover:border-primary text-foreground hover:text-primary font-bold uppercase tracking-wider rounded text-xs sm:text-sm transition-all bg-background/50 hover:bg-muted/40 cursor-pointer"
                 >
                   Explore Services
                 </button>
@@ -278,34 +278,43 @@ export function Hero() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Slider Controls */}
-          <div className="mt-10 flex items-center gap-4">
+          {/* Visual Slide Thumbnails & Controls */}
+          <div className="mt-8 flex items-center gap-4">
             <button
               onClick={handlePrevSlide}
               aria-label="Previous Slide"
-              className="w-10 h-10 rounded-full border border-white/20 bg-black/40 text-white hover:bg-primary hover:border-primary flex items-center justify-center transition-all cursor-pointer"
+              className="w-10 h-10 rounded-full border border-border bg-background/70 text-foreground hover:bg-primary hover:text-white hover:border-primary flex items-center justify-center transition-all cursor-pointer shadow-sm"
             >
               <ChevronLeft size={20} />
             </button>
 
-            {/* Slide Dots */}
-            <div className="flex items-center gap-2">
-              {SLIDES.map((_, idx) => (
+            {/* Slide Visual Image Previews */}
+            <div className="flex items-center gap-3">
+              {SLIDES.map((slide, idx) => (
                 <button
                   key={idx}
                   onClick={() => setCurrentSlide(idx)}
                   aria-label={`Go to slide ${idx + 1}`}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    currentSlide === idx ? 'w-8 bg-primary' : 'w-2.5 bg-white/30 hover:bg-white/60'
+                  className={`group relative overflow-hidden rounded-lg transition-all duration-300 cursor-pointer border ${
+                    currentSlide === idx 
+                      ? 'w-20 h-12 border-primary ring-2 ring-primary/40' 
+                      : 'w-12 h-10 border-border/70 opacity-60 hover:opacity-100'
                   }`}
-                />
+                >
+                  <img 
+                    src={slide.image} 
+                    alt={`Preview slide ${idx + 1}`} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors" />
+                </button>
               ))}
             </div>
 
             <button
               onClick={handleNextSlide}
               aria-label="Next Slide"
-              className="w-10 h-10 rounded-full border border-white/20 bg-black/40 text-white hover:bg-primary hover:border-primary flex items-center justify-center transition-all cursor-pointer"
+              className="w-10 h-10 rounded-full border border-border bg-background/70 text-foreground hover:bg-primary hover:text-white hover:border-primary flex items-center justify-center transition-all cursor-pointer shadow-sm"
             >
               <ChevronRight size={20} />
             </button>
@@ -318,35 +327,35 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.95, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-[#121212]/90 backdrop-blur-xl border border-border/90 rounded-xl p-6 sm:p-8 shadow-2xl relative overflow-hidden"
+            className="bg-card/95 border border-border rounded-xl p-6 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl"
           >
             {/* Ambient glow accent */}
-            <div className="absolute top-0 right-0 w-48 h-48 bg-primary/20 rounded-full blur-3xl pointer-events-none -z-10" />
+            <div className="absolute top-0 right-0 w-48 h-48 bg-primary/15 rounded-full blur-3xl pointer-events-none -z-10" />
             
-            <div className="border-b border-white/10 pb-4 mb-5">
+            <div className="border-b border-border pb-4 mb-5">
               <div className="flex items-center justify-between">
                 <div>
                   <span className="text-xs uppercase tracking-widest text-primary font-bold">Fast Turnaround</span>
-                  <h3 className="font-display text-2xl sm:text-3xl text-white tracking-wide">
+                  <h3 className="font-display text-2xl sm:text-3xl text-foreground tracking-wide">
                     REQUEST A QUOTE
                   </h3>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-400">
+                <div className="w-10 h-10 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-500">
                   <FaWhatsapp size={22} />
                 </div>
               </div>
               <p className="text-xs text-muted-foreground mt-1">
-                Instant inquiry directly sent to our production engineering team via WhatsApp API.
+                Instant inquiry directly sent to our production engineering team via WhatsApp.
               </p>
             </div>
 
             {submittedSuccess ? (
               <div className="py-8 text-center space-y-4">
-                <div className="w-16 h-16 bg-green-500/20 text-green-400 rounded-full flex items-center justify-center mx-auto border border-green-500/40">
+                <div className="w-16 h-16 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mx-auto border border-green-500/40">
                   <CheckCircle2 size={36} />
                 </div>
-                <h4 className="font-display text-2xl text-white">Inquiry Transmitted!</h4>
-                <p className="text-xs text-gray-300 max-w-xs mx-auto">
+                <h4 className="font-display text-2xl text-foreground">Inquiry Transmitted!</h4>
+                <p className="text-xs text-muted-foreground max-w-xs mx-auto">
                   Your project specifications were encoded and redirected to our WhatsApp desk (+971 52 693 5456).
                 </p>
                 <button
@@ -354,7 +363,7 @@ export function Hero() {
                     setSubmittedSuccess(false);
                     refreshCaptcha();
                   }}
-                  className="px-6 py-2.5 rounded bg-primary/30 hover:bg-primary text-white text-xs font-bold uppercase tracking-wider transition-all"
+                  className="px-6 py-2.5 rounded bg-primary text-white text-xs font-bold uppercase tracking-wider transition-all hover:bg-primary/90 cursor-pointer"
                 >
                   Send Another Quote Request
                 </button>
@@ -362,7 +371,7 @@ export function Hero() {
             ) : (
               <form onSubmit={handleQuoteSubmit} className="space-y-3.5">
                 <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-gray-300 font-semibold mb-1">
+                  <label className="block text-[11px] uppercase tracking-wider text-foreground/80 font-semibold mb-1">
                     Your Name *
                   </label>
                   <input
@@ -371,13 +380,13 @@ export function Hero() {
                     placeholder="e.g. John Walter"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full bg-[#1c1c1c] border border-border/80 rounded px-3.5 py-2 text-sm text-white focus:outline-none focus:border-primary placeholder:text-gray-500"
+                    className="w-full bg-background border border-border rounded px-3.5 py-2 text-sm text-foreground focus:outline-none focus:border-primary placeholder:text-muted-foreground"
                   />
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-[11px] uppercase tracking-wider text-gray-300 font-semibold mb-1">
+                    <label className="block text-[11px] uppercase tracking-wider text-foreground/80 font-semibold mb-1">
                       Phone / WhatsApp *
                     </label>
                     <input
@@ -386,12 +395,12 @@ export function Hero() {
                       placeholder="+971 5X XXX XXXX"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full bg-[#1c1c1c] border border-border/80 rounded px-3.5 py-2 text-sm text-white focus:outline-none focus:border-primary placeholder:text-gray-500"
+                      className="w-full bg-background border border-border rounded px-3.5 py-2 text-sm text-foreground focus:outline-none focus:border-primary placeholder:text-muted-foreground"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] uppercase tracking-wider text-gray-300 font-semibold mb-1">
+                    <label className="block text-[11px] uppercase tracking-wider text-foreground/80 font-semibold mb-1">
                       Email Address
                     </label>
                     <input
@@ -399,22 +408,22 @@ export function Hero() {
                       placeholder="name@company.ae"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full bg-[#1c1c1c] border border-border/80 rounded px-3.5 py-2 text-sm text-white focus:outline-none focus:border-primary placeholder:text-gray-500"
+                      className="w-full bg-background border border-border rounded px-3.5 py-2 text-sm text-foreground focus:outline-none focus:border-primary placeholder:text-muted-foreground"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-gray-300 font-semibold mb-1">
+                  <label className="block text-[11px] uppercase tracking-wider text-foreground/80 font-semibold mb-1">
                     Select Service Required
                   </label>
                   <select
                     value={service}
                     onChange={(e) => setService(e.target.value)}
-                    className="w-full bg-[#1c1c1c] border border-border/80 rounded px-3.5 py-2 text-sm text-white focus:outline-none focus:border-primary"
+                    className="w-full bg-background border border-border rounded px-3.5 py-2 text-sm text-foreground focus:outline-none focus:border-primary"
                   >
                     {SERVICES_OPTIONS.map((opt, i) => (
-                      <option key={i} value={opt} className="bg-[#181818] text-white">
+                      <option key={i} value={opt} className="bg-background text-foreground">
                         {opt}
                       </option>
                     ))}
@@ -422,7 +431,7 @@ export function Hero() {
                 </div>
 
                 <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-gray-300 font-semibold mb-1">
+                  <label className="block text-[11px] uppercase tracking-wider text-foreground/80 font-semibold mb-1">
                     Project Details / Sizes / Quantity
                   </label>
                   <textarea
@@ -430,31 +439,31 @@ export function Hero() {
                     placeholder="Describe your dimensions, material, or deadline..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full bg-[#1c1c1c] border border-border/80 rounded px-3.5 py-2 text-sm text-white focus:outline-none focus:border-primary resize-none placeholder:text-gray-500"
+                    className="w-full bg-background border border-border rounded px-3.5 py-2 text-sm text-foreground focus:outline-none focus:border-primary resize-none placeholder:text-muted-foreground"
                   />
                 </div>
 
                 {/* Captcha Protection Block */}
-                <div className="p-3 bg-[#181818] border border-border/80 rounded-lg space-y-2.5">
+                <div className="p-3 bg-muted/40 border border-border rounded-lg space-y-2.5">
                   <div className="flex items-center justify-between">
-                    <label className="flex items-center space-x-2.5 cursor-pointer text-xs text-gray-200 select-none">
+                    <label className="flex items-center space-x-2.5 cursor-pointer text-xs text-foreground select-none">
                       <input
                         type="checkbox"
                         checked={captchaChecked}
                         onChange={(e) => setCaptchaChecked(e.target.checked)}
-                        className="w-4 h-4 rounded text-primary focus:ring-primary accent-primary bg-black"
+                        className="w-4 h-4 rounded text-primary focus:ring-primary accent-primary"
                       />
                       <span className="font-medium">I'm not a robot</span>
                     </label>
                     <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
                       <ShieldCheck size={12} className="text-primary" />
-                      <span>reCAPTCHA Security</span>
+                      <span>Security Verification</span>
                     </div>
                   </div>
 
                   {/* Math Security Challenge */}
-                  <div className="flex items-center gap-2 pt-1 border-t border-white/5">
-                    <span className="text-xs text-gray-300 font-mono bg-black/50 px-2 py-1 rounded border border-white/10">
+                  <div className="flex items-center gap-2 pt-1 border-t border-border/50">
+                    <span className="text-xs text-foreground font-mono bg-background px-2 py-1 rounded border border-border">
                       Security Code: {num1} + {num2} = ?
                     </span>
                     <input
@@ -462,13 +471,13 @@ export function Hero() {
                       placeholder="Answer"
                       value={userAnswer}
                       onChange={(e) => setUserAnswer(e.target.value)}
-                      className="w-20 bg-black border border-white/15 rounded px-2 py-1 text-xs text-white text-center focus:border-primary focus:outline-none"
+                      className="w-20 bg-background border border-border rounded px-2 py-1 text-xs text-foreground text-center focus:border-primary focus:outline-none"
                     />
                     <button
                       type="button"
                       onClick={refreshCaptcha}
                       title="Generate new calculation"
-                      className="p-1 rounded bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-colors"
+                      className="p-1 rounded bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                     >
                       <RefreshCw size={13} />
                     </button>
@@ -476,7 +485,7 @@ export function Hero() {
                 </div>
 
                 {captchaError && (
-                  <div className="text-[11px] text-red-400 font-medium bg-red-950/40 border border-red-800/50 px-3 py-1.5 rounded">
+                  <div className="text-[11px] text-red-500 font-medium bg-red-500/10 border border-red-500/20 px-3 py-1.5 rounded">
                     {captchaError}
                   </div>
                 )}
@@ -484,7 +493,7 @@ export function Hero() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-wider rounded text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/40 cursor-pointer disabled:opacity-50"
+                  className="w-full py-3.5 bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-wider rounded text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/30 cursor-pointer disabled:opacity-50"
                 >
                   <Send size={16} />
                   <span>{isSubmitting ? 'Submitting Quote...' : 'REQUEST A QUOTE'}</span>

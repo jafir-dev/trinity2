@@ -23,9 +23,9 @@ export function Process() {
   const width = useTransform(scrollYProgress, [0.2, 0.8], ["0%", "100%"]);
 
   return (
-    <section id="process" className="py-24 md:py-32 bg-[#080808] border-y border-border overflow-hidden" ref={containerRef}>
+    <section id="process" className="py-24 md:py-32 bg-background border-y border-border overflow-hidden" ref={containerRef}>
       <div className="max-w-[1360px] mx-auto px-6 md:px-8">
-        <h2 className="font-display text-5xl md:text-6xl text-white uppercase tracking-tight mb-20 text-center">OUR PROCESS</h2>
+        <h2 className="font-display text-5xl md:text-6xl text-foreground uppercase tracking-tight mb-20 text-center">OUR PROCESS</h2>
         
         <div className="relative">
           {/* Background Line */}
@@ -40,14 +40,14 @@ export function Process() {
           <div className="flex overflow-x-auto pb-12 pt-4 hide-scrollbar snap-x snap-mandatory">
             {STEPS.map((step, i) => (
               <div key={i} className="min-w-[280px] md:min-w-[320px] flex-shrink-0 snap-start flex flex-col relative z-20 group px-4">
-                <div className="w-16 h-16 rounded-full bg-[#121212] border-2 border-border group-hover:border-primary flex items-center justify-center mb-8 transition-colors mx-auto relative">
-                  <span className="font-display text-2xl text-white">{step.num}</span>
+                <div className="w-16 h-16 rounded-full bg-card border-2 border-border group-hover:border-primary flex items-center justify-center mb-8 transition-colors mx-auto relative shadow-md">
+                  <span className="font-display text-2xl text-foreground">{step.num}</span>
                   {/* Indicator Dot */}
                   <div className="absolute inset-0 rounded-full bg-primary/20 scale-0 group-hover:scale-150 transition-transform duration-500 z-[-1]" />
                 </div>
                 
                 <div className="text-center">
-                  <h3 className="font-bold text-xl text-white mb-2">{step.title}</h3>
+                  <h3 className="font-bold text-xl text-foreground mb-2">{step.title}</h3>
                   <p className="text-sm text-muted-foreground">{step.desc}</p>
                 </div>
               </div>
