@@ -41,16 +41,16 @@ export default function FacilitiesPage() {
       <Navbar />
 
       {/* Subheader */}
-      <div className="relative pt-40 pb-20 bg-cover bg-center overflow-hidden" style={{ backgroundImage: `url('/images/services/large-format-digital-printing/01.jpg')` }}>
-        <div className="absolute inset-0 bg-black/85 backdrop-blur-sm" />
+      <div className="relative pt-40 pb-20 bg-cover bg-center overflow-hidden border-b border-border transition-colors" style={{ backgroundImage: `url('/images/services/large-format-digital-printing/01.jpg')` }}>
+        <div className="absolute inset-0 bg-background/90 dark:bg-background/90 backdrop-blur-md transition-colors" />
         <div className="relative z-10 max-w-[1360px] mx-auto px-4 md:px-8 text-center">
-          <h1 className="font-display text-5xl sm:text-7xl md:text-8xl text-white uppercase tracking-tight">
+          <h1 className="font-display text-5xl sm:text-7xl md:text-8xl text-foreground uppercase tracking-tight transition-colors">
             OUR <span className="text-primary">FACILITIES</span>
           </h1>
-          <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-gray-300 uppercase tracking-widest mt-4">
+          <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-muted-foreground uppercase tracking-widest mt-4">
             <Link href="/" className="hover:text-primary transition-colors">Home</Link>
             <ChevronRight size={14} className="text-primary" />
-            <span className="text-pink-300 font-semibold">Our Facilities</span>
+            <span className="text-primary font-semibold">Our Facilities</span>
           </div>
         </div>
       </div>

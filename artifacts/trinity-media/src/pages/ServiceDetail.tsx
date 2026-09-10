@@ -189,7 +189,7 @@ export default function ServiceDetail() {
 
       <main>
         {/* Compact Top Header & Breadcrumbs */}
-        <section className="pt-32 pb-8 md:pt-36 md:pb-10 bg-background border-b border-border/60">
+        <section className="pt-32 pb-8 md:pt-36 md:pb-10 bg-muted/30 dark:bg-card/40 border-b border-border transition-colors">
           <div className="max-w-[1360px] mx-auto px-4 md:px-8">
             {/* Breadcrumb Navigation */}
             <div className="flex items-center gap-2 text-xs sm:text-sm uppercase tracking-widest text-muted-foreground mb-6">
