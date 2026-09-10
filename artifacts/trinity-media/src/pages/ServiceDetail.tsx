@@ -418,11 +418,8 @@ export default function ServiceDetail() {
                           </div>
                         </div>
 
-                        <div className="p-4 flex items-center justify-between border-t border-border/50 bg-card">
-                          <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                            Inspect Project
-                          </span>
-                          <span className="text-xs font-bold text-primary inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                        <div className="p-3.5 flex items-center justify-center border-t border-border/50 bg-card group-hover:bg-primary/5 transition-colors">
+                          <span className="text-xs font-bold text-primary inline-flex items-center justify-center gap-1.5 group-hover:translate-x-0.5 transition-transform uppercase tracking-wider">
                             Full View <ArrowRight size={13} />
                           </span>
                         </div>
