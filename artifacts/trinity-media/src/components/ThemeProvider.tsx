@@ -11,10 +11,10 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  // Defaults to light mode, while allowing user to toggle to dark mode
+  // Defaults to dark mode, while allowing user to toggle
   const [theme, setThemeState] = useState<Theme>(() => {
     const saved = localStorage.getItem('trinity-theme') as Theme | null;
-    return saved === 'dark' || saved === 'light' ? saved : 'light';
+    return saved === 'dark' || saved === 'light' ? saved : 'dark';
   });
 
   useEffect(() => {

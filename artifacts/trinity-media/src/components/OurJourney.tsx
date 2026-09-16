@@ -106,21 +106,21 @@ export function OurJourney({ showCeoMessage = false }: { showCeoMessage?: boolea
                 >
                   {/* Timeline Center Node */}
                   <div className="absolute left-6 md:left-1/2 -translate-x-1/2 top-4 z-20 flex items-center justify-center">
-                    <div className="w-12 h-12 rounded-full bg-card border-2 border-primary text-primary flex items-center justify-center shadow-xl shadow-primary/30 group-hover:scale-110 transition-transform">
-                      <IconComp size={20} className="text-primary" />
+                    <div className="w-12 h-12 rounded-full bg-card dark:bg-[#1c1e2b] border-2 border-primary text-primary flex items-center justify-center shadow-xl dark:shadow-[0_0_20px_rgba(182,62,204,0.35)] group-hover:scale-110 transition-transform">
+                      <IconComp size={20} className="text-primary dark:text-purple-300" />
                     </div>
                   </div>
 
                   {/* Content Card (Desktop: 50% width) */}
                   <div className={`w-full md:w-1/2 ${isEven ? 'md:pr-12 md:text-right' : 'md:pl-12 md:text-left'}`}>
-                    <div className="bg-card border border-border/80 hover:border-primary/50 rounded-2xl p-6 sm:p-8 shadow-xl transition-all duration-300 group">
+                    <div className="bg-card dark:bg-[#181a26] border border-border/80 dark:border-white/10 hover:border-primary/50 dark:hover:border-primary/50 rounded-2xl p-6 sm:p-8 shadow-xl dark:shadow-[0_8px_30px_rgba(0,0,0,0.3)] transition-all duration-300 group">
                       
                       {/* Top Year & Category Badge */}
                       <div className={`flex items-center gap-3 mb-4 ${isEven ? 'md:justify-end' : 'md:justify-start'}`}>
-                        <span className="font-display text-4xl sm:text-5xl text-primary font-bold tracking-tight">
+                        <span className="font-display text-4xl sm:text-5xl text-primary dark:text-purple-300 font-bold tracking-tight">
                           {step.year}
                         </span>
-                        <span className="text-[11px] uppercase tracking-widest text-primary font-bold px-3 py-1 rounded-full bg-primary/15 border border-primary/30">
+                        <span className="text-[11px] uppercase tracking-widest text-primary dark:text-purple-200 font-bold px-3 py-1 rounded-full bg-primary/15 dark:bg-primary/25 border border-primary/30 dark:border-primary/40">
                           {step.badge}
                         </span>
                       </div>

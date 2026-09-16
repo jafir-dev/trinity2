@@ -7,13 +7,13 @@ const CLIENTS = [
 
 export function TrustedBy() {
   return (
-    <section className="py-12 border-b border-border bg-background overflow-hidden flex flex-col items-center relative z-20">
-      <h3 className="text-xs font-bold text-muted-foreground tracking-[0.3em] uppercase mb-8">Trusted By</h3>
+    <section className="py-12 border-b border-border bg-muted/40 dark:bg-[#141622]/90 overflow-hidden flex flex-col items-center relative z-20 transition-colors">
+      <h3 className="text-xs font-bold text-muted-foreground dark:text-purple-300/80 tracking-[0.3em] uppercase mb-8">Trusted By Industry Leaders</h3>
       
       <div className="w-full relative flex items-center">
         {/* Gradients for smooth fade on edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-background to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-background to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-r from-muted/80 dark:from-[#141622] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 md:w-48 bg-gradient-to-l from-muted/80 dark:from-[#141622] to-transparent z-10 pointer-events-none" />
         
         <div className="flex overflow-hidden w-full group">
           <motion.div 
@@ -24,7 +24,7 @@ export function TrustedBy() {
             {[...CLIENTS, ...CLIENTS].map((client, i) => (
               <div 
                 key={i} 
-                className="font-display text-2xl md:text-3xl lg:text-4xl text-muted-foreground/40 uppercase whitespace-nowrap tracking-wider hover:text-foreground transition-colors duration-300"
+                className="font-display text-2xl md:text-3xl lg:text-4xl text-foreground/50 dark:text-slate-300/60 uppercase whitespace-nowrap tracking-wider hover:text-primary dark:hover:text-white transition-colors duration-300"
               >
                 {client}
               </div>

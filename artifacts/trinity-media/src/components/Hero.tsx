@@ -194,10 +194,11 @@ export function Hero() {
           />
         </AnimatePresence>
 
-        {/* Cinematic Theme-Aware Gradient Overlays — keeps images vibrant while ensuring high text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/70 dark:from-black/92 dark:via-black/75 dark:to-black/85 z-10 transition-colors" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50 dark:to-black/60 z-10 transition-colors" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_40%,rgba(123,45,142,0.18)_0%,transparent_60%)] z-10" />
+        {/* Cinematic Theme-Aware Gradient Overlays — soft light accents mixed in dark mode */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/70 dark:from-[#0d0f17]/90 dark:via-[#0f111a]/75 dark:to-[#141622]/80 z-10 transition-colors" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50 dark:to-[#0d0f17]/50 z-10 transition-colors" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_35%,rgba(182,62,204,0.24)_0%,transparent_60%)] z-10" />
+        <div className="hidden dark:block absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(147,197,253,0.06)_0%,transparent_50%)] z-10" />
       </div>
 
       {/* Main Grid Content */}
@@ -214,8 +215,8 @@ export function Hero() {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary text-xs font-semibold uppercase tracking-widest mb-6 backdrop-blur-md">
-                <Sparkles size={14} className="text-primary" />
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary dark:text-purple-200 dark:bg-primary/20 dark:border-primary/40 text-xs font-semibold uppercase tracking-widest mb-6 backdrop-blur-md shadow-sm dark:shadow-[0_0_15px_rgba(182,62,204,0.2)]">
+                <Sparkles size={14} className="text-primary dark:text-purple-300" />
                 <span>{SLIDES[currentSlide].badge}</span>
               </div>
 

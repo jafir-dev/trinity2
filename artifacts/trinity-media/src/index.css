@@ -133,60 +133,66 @@
    DARK MODE — Original Trinity Media dark theme
    ═══════════════════════════════════════════════════════════════ */
 .dark {
-  --background: 3 3% 3%;
-  --foreground: 0 0% 100%;
-  --border: 0 0% 16%;
-  --card: 0 0% 7%;
-  --card-foreground: 0 0% 100%;
-  --card-border: 0 0% 16%;
+  /* Rich deep dark base with soft lightness mixed in (prevents harsh pitch-black void) */
+  --background: 232 18% 10%;
+  --foreground: 220 20% 98%;
+  --border: 230 13% 21%;
   
-  --popover: 0 0% 7%;
-  --popover-foreground: 0 0% 100%;
-  --popover-border: 0 0% 16%;
+  --card: 232 16% 14%;
+  --card-foreground: 220 20% 98%;
+  --card-border: 230 14% 24%;
   
-  --primary: 289 54% 36%;
+  --popover: 232 16% 14%;
+  --popover-foreground: 220 20% 98%;
+  --popover-border: 230 14% 24%;
+  
+  /* Luminous brand purple that shines vividly against dark background */
+  --primary: 284 68% 54%;
   --primary-foreground: 0 0% 100%;
   
-  --secondary: 0 0% 75%;
-  --secondary-foreground: 0 0% 5%;
+  /* Light platinum silver accents */
+  --secondary: 220 16% 84%;
+  --secondary-foreground: 232 18% 10%;
   
-  --muted: 0 0% 9%;
-  --muted-foreground: 0 0% 56%;
+  /* Soft lighter contrast surfaces */
+  --muted: 232 14% 17%;
+  --muted-foreground: 224 14% 74%;
   
-  --accent: 289 54% 36%;
+  /* Radiant amethyst accent for glowing details */
+  --accent: 280 75% 62%;
   --accent-foreground: 0 0% 100%;
   
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
   
-  --input: 0 0% 16%;
-  --ring: 289 54% 36%;
+  --input: 230 13% 22%;
+  --ring: 284 68% 54%;
   
-  --chart-1: 289 54% 36%;
-  --chart-2: 0 0% 75%;
-  --chart-3: 0 0% 56%;
-  --chart-4: 0 0% 16%;
-  --chart-5: 0 0% 9%;
+  --chart-1: 284 68% 54%;
+  --chart-2: 220 16% 84%;
+  --chart-3: 280 75% 62%;
+  --chart-4: 232 14% 26%;
+  --chart-5: 232 14% 16%;
 
-  --sidebar: 0 0% 7%;
-  --sidebar-foreground: 0 0% 100%;
-  --sidebar-border: 0 0% 16%;
-  --sidebar-primary: 289 54% 36%;
+  --sidebar: 232 16% 12%;
+  --sidebar-foreground: 220 20% 98%;
+  --sidebar-border: 230 13% 21%;
+  --sidebar-primary: 284 68% 54%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 289 54% 36%;
+  --sidebar-accent: 280 75% 62%;
   --sidebar-accent-foreground: 0 0% 100%;
-  --sidebar-ring: 289 54% 36%;
+  --sidebar-ring: 284 68% 54%;
 
   --radius: 0.25rem;
 
-  /* Theme surfaces */
-  --surface: 0 0% 5%;
-  --surface-alt: 0 0% 7%;
-  --surface-elevated: 0 0% 9%;
-  --on-surface: 0 0% 100%;
-  --on-surface-muted: 0 0% 60%;
-  --nav-bg: rgba(8, 8, 8, 0.8);
-  --nav-bg-scrolled: rgba(10, 10, 10, 0.95);
+  /* Theme surfaces — alternating lighter slate tones */
+  --surface: 232 18% 10%;
+  --surface-alt: 232 15% 14.5%;
+  --surface-elevated: 232 15% 18%;
+  --on-surface: 220 20% 98%;
+  --on-surface-muted: 224 14% 74%;
+  --nav-bg: rgba(17, 19, 28, 0.86);
+  --nav-bg-scrolled: rgba(18, 20, 30, 0.96);
 }
 
 @layer base {
@@ -335,3 +341,19 @@
 .light iframe[title*="location"] {
   filter: none !important;
 }
+
+/* Ambient light accents mixed into dark theme for depth and luminosity */
+.dark .ambient-glow-header {
+  background-image: radial-gradient(ellipse 80% 40% at 50% -10%, rgba(182, 62, 204, 0.15), transparent 70%);
+}
+
+.dark .ambient-mesh-soft {
+  background-image: 
+    radial-gradient(ellipse 70% 40% at 20% 10%, rgba(182, 62, 204, 0.07), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 90%, rgba(147, 197, 253, 0.04), transparent 60%);
+}
+
+.dark .card-subtle-glow {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4), 0 0 16px -2px rgba(182, 62, 204, 0.08);
+}
+

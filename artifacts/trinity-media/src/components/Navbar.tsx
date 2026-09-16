@@ -9,6 +9,7 @@ import {
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 import { Link, useLocation } from 'wouter';
 import trinityLogo from "@assets/trinity-logo-original.png";
+import trinityLogoWhite from "@assets/trinity-logo-white.png";
 import { SERVICES } from '@/data/services';
 import { useTheme } from '@/components/ThemeProvider';
 
@@ -38,7 +39,7 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 font-sans">
       {/* Top Notification & Contact Bar */}
-      <div className="bg-neutral-100 dark:bg-[#050505] text-neutral-600 dark:text-gray-300 text-[11px] md:text-xs py-2 px-4 md:px-8 border-b border-border/60 hidden sm:block transition-colors">
+      <div className="bg-neutral-100 dark:bg-[#0e1017] text-neutral-600 dark:text-slate-300 text-[11px] md:text-xs py-2 px-4 md:px-8 border-b border-border/60 hidden sm:block transition-colors">
         <div className="max-w-[1360px] mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-6">
             <div className="flex items-center gap-1.5">
@@ -102,7 +103,7 @@ export function Navbar() {
         <div className="max-w-[1360px] mx-auto px-4 md:px-8 flex items-center justify-between">
           <Link href="/" className="block">
             <img 
-              src={trinityLogo} 
+              src={theme === 'dark' ? trinityLogoWhite : trinityLogo} 
               alt="Trinity Media UAE" 
               className="h-10 md:h-12 w-auto object-contain cursor-pointer transition-all"
             />

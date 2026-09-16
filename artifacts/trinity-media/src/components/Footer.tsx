@@ -2,14 +2,18 @@ import { Phone, Mail, MapPin, MessageCircle, Heart, ArrowUp } from 'lucide-react
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaYoutube, FaWhatsapp } from 'react-icons/fa';
 import { Link } from 'wouter';
 import trinityLogo from "@assets/trinity-logo-original.png";
+import trinityLogoWhite from "@assets/trinity-logo-white.png";
+import { useTheme } from '@/components/ThemeProvider';
 
 export function Footer() {
+  const { theme } = useTheme();
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <footer className="bg-muted/40 dark:bg-[#050505] pt-20 pb-8 border-t-[4px] border-primary text-foreground/80 transition-colors">
+    <footer className="bg-muted/40 dark:bg-gradient-to-b dark:from-[#11131c] dark:to-[#0c0d14] pt-20 pb-8 border-t-[4px] border-primary text-foreground/80 transition-colors">
       <div className="max-w-[1360px] mx-auto px-4 md:px-8">
         
         {/* Main Footer Grid */}
@@ -19,9 +23,9 @@ export function Footer() {
           <div className="lg:col-span-4 flex flex-col">
             <Link href="/">
               <img 
-                src={trinityLogo} 
+                src={theme === 'dark' ? trinityLogoWhite : trinityLogo} 
                 alt="Trinity Media UAE" 
-              className="h-11 w-auto mb-6 self-start cursor-pointer transition-all" 
+                className="h-11 w-auto mb-6 self-start cursor-pointer transition-all" 
               />
             </Link>
             

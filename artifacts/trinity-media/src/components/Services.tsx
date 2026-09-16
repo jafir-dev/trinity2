@@ -25,7 +25,10 @@ function getImg(filename?: string): string {
 
 export function Services() {
   return (
-    <section id="services" className="py-24 md:py-32 bg-background relative overflow-hidden transition-colors">
+    <section id="services" className="py-24 md:py-32 bg-background dark:bg-[#13151f] border-y border-border/80 relative overflow-hidden transition-colors">
+      {/* Subtle ambient light glow in dark mode */}
+      <div className="hidden dark:block absolute top-1/4 right-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] pointer-events-none -z-0" />
+      
       {/* Background Typography */}
       <div className="absolute top-0 left-0 w-full overflow-hidden flex justify-center pointer-events-none opacity-5">
         <h2 className="font-display text-[15rem] md:text-[25rem] leading-none whitespace-nowrap text-foreground">SERVICES</h2>
@@ -33,7 +36,7 @@ export function Services() {
 
       <div className="max-w-[1360px] mx-auto px-6 md:px-8 relative z-10">
         <div className="max-w-3xl mb-16 md:mb-20">
-          <div className="text-xs uppercase tracking-widest text-primary font-bold mb-3">Our Core Capabilities</div>
+          <div className="text-xs uppercase tracking-widest text-primary dark:text-purple-300 font-bold mb-3">Our Core Capabilities</div>
           <h2 className="font-display text-5xl md:text-7xl mb-4 uppercase tracking-tight text-foreground">WHAT WE DO</h2>
           <p className="text-muted-foreground text-base md:text-lg leading-relaxed">
             Nineteen specialised turnkey services under one roof — from large-scale exhibition stands to bespoke retail signage, UV flatbed printing, and vehicle branding.
@@ -48,7 +51,7 @@ export function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: (idx % 2) * 0.05 }}
-                className="relative bg-card border border-border rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:border-primary/60 hover:shadow-2xl h-full"
+                className="relative bg-card dark:bg-[#181a25] border border-border dark:border-white/10 rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:border-primary/60 dark:hover:border-primary/60 hover:shadow-2xl dark:hover:shadow-[0_8px_35px_rgba(182,62,204,0.14)] h-full"
               >
                 {/* Image - Tall, visually impactful */}
                 <div className="relative h-72 sm:h-80 md:h-84 overflow-hidden">

@@ -80,7 +80,11 @@ const VISUAL_CAPABILITIES = [
 export function About() {
   return (
     <section id="about" className="py-20 md:py-32 bg-background relative overflow-hidden transition-colors">
-      <div className="max-w-[1360px] mx-auto px-4 md:px-8">
+      {/* Subtle ambient light gradient glows in dark mode */}
+      <div className="hidden dark:block absolute top-10 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px] pointer-events-none -z-0" />
+      <div className="hidden dark:block absolute bottom-1/3 right-10 w-[400px] h-[400px] bg-indigo-500/5 rounded-full blur-[100px] pointer-events-none -z-0" />
+
+      <div className="max-w-[1360px] mx-auto px-4 md:px-8 relative z-10">
         
         {/* Main Grid: About Overview & Certifications */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-24">
@@ -93,7 +97,7 @@ export function About() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-6 relative"
           >
-            <div className="relative rounded-2xl overflow-hidden border border-border group shadow-2xl">
+            <div className="relative rounded-2xl overflow-hidden border border-border dark:border-white/10 group shadow-2xl">
               <img 
                 src="/images/about/facility_real.jpg" 
                 alt="Trinity Media Workshop Dubai" 
@@ -119,7 +123,7 @@ export function About() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 text-primary font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-3"
+              className="inline-flex items-center gap-2 text-primary dark:text-purple-300 font-bold tracking-[0.2em] uppercase text-xs sm:text-sm mb-3"
             >
               <Sparkles size={16} />
               <span>Digital Printing Providers In UAE</span>
@@ -166,9 +170,9 @@ export function About() {
               ].map((item, idx) => (
                 <div 
                   key={idx} 
-                  className="p-3 bg-card border border-border rounded-lg text-center flex flex-col items-center justify-center gap-1.5 shadow-sm"
+                  className="p-3 bg-card dark:bg-[#181a26] border border-border dark:border-white/10 hover:border-primary/50 rounded-lg text-center flex flex-col items-center justify-center gap-1.5 shadow-sm transition-all group cursor-default"
                 >
-                  <item.icon size={18} className="text-primary" />
+                  <item.icon size={18} className="text-primary dark:text-purple-300 group-hover:scale-110 transition-transform" />
                   <span className="text-[11px] font-semibold uppercase tracking-wider text-foreground">
                     {item.title}
                   </span>
@@ -231,7 +235,7 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group relative rounded-xl overflow-hidden border border-border bg-card shadow-lg flex flex-col hover:border-primary/50 transition-all duration-300"
+                className="group relative rounded-xl overflow-hidden border border-border dark:border-white/10 bg-card dark:bg-[#181a25] shadow-lg flex flex-col hover:border-primary/50 dark:hover:border-primary/50 dark:hover:shadow-[0_8px_30px_rgba(182,62,204,0.12)] transition-all duration-300"
               >
                 <div className="relative h-60 w-full overflow-hidden">
                   <img 
@@ -240,7 +244,7 @@ export function About() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-primary/90 text-white text-[10px] font-bold uppercase tracking-wider">
+                  <span className="absolute top-3 left-3 px-2.5 py-1 rounded bg-primary text-white text-[10px] font-bold uppercase tracking-wider dark:shadow-[0_0_12px_rgba(182,62,204,0.4)]">
                     {cap.tag}
                   </span>
                 </div>
@@ -260,7 +264,7 @@ export function About() {
         </div>
 
         {/* Section: Our Strength - Produced with Perfection */}
-        <div className="relative rounded-2xl overflow-hidden border border-border p-8 sm:p-14 mb-24 bg-card/60 backdrop-blur-sm">
+        <div className="relative rounded-2xl overflow-hidden border border-border/80 dark:border-white/10 p-8 sm:p-14 mb-24 bg-card/80 dark:bg-gradient-to-b dark:from-[#191b26] dark:to-[#12141e] backdrop-blur-sm shadow-xl">
           <div className="max-w-3xl mx-auto text-center relative z-10">
             <span className="text-xs uppercase tracking-widest text-primary font-bold">Produced with Perfection</span>
             <h3 className="font-display text-4xl sm:text-6xl text-foreground mt-2 mb-4 uppercase">
