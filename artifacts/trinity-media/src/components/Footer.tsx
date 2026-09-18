@@ -37,11 +37,11 @@ export function Footer() {
             {/* Social Icons */}
             <div className="flex items-center gap-3">
               {[
-                { icon: FaFacebookF, href: "https://facebook.com", label: "Facebook" },
-                { icon: FaTwitter, href: "https://twitter.com", label: "Twitter" },
-                { icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
-                { icon: FaLinkedinIn, href: "https://linkedin.com", label: "LinkedIn" },
-                { icon: FaYoutube, href: "https://youtube.com", label: "YouTube" },
+                { icon: FaFacebookF, href: "https://www.facebook.com/profile.php?id=100063650510124", label: "Facebook" },
+                { icon: FaTwitter, href: "https://x.com/TrinityMediaUAE", label: "X (Twitter)" },
+                { icon: FaInstagram, href: "https://www.instagram.com/trinitymediallc/", label: "Instagram" },
+                { icon: FaLinkedinIn, href: "https://www.linkedin.com/company/trinity-media-uae/", label: "LinkedIn" },
+                { icon: FaYoutube, href: "https://www.youtube.com/@TrinityMediaDIP", label: "YouTube" },
                 { icon: FaWhatsapp, href: "https://wa.me/971526935456", label: "WhatsApp" },
               ].map((item, i) => (
                 <a 

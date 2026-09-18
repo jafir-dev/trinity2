@@ -54,25 +54,25 @@ export function Navbar() {
             </div>
             <div className="flex items-center gap-1.5">
               <Clock size={13} className="text-primary" />
-              <span>Mon - Sat: 8:00 AM - 7:00 PM</span>
+              <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
             </div>
           </div>
 
           <div className="flex items-center space-x-4">
             <div className="flex items-center space-x-3 text-neutral-400 dark:text-gray-400">
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
+              <a href="https://www.facebook.com/profile.php?id=100063650510124" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
                 <FaFacebookF size={12} />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
+              <a href="https://x.com/TrinityMediaUAE" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
                 <FaTwitter size={12} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
+              <a href="https://www.instagram.com/trinitymediallc/" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
                 <FaInstagram size={12} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
+              <a href="https://www.linkedin.com/company/trinity-media-uae/" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
                 <FaLinkedinIn size={12} />
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
+              <a href="https://www.youtube.com/@TrinityMediaDIP" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
                 <FaYoutube size={12} />
               </a>
             </div>
@@ -193,7 +193,6 @@ export function Navbar() {
                 className="flex items-center gap-1 text-sm font-medium text-foreground/85 hover:text-primary transition-colors py-2 cursor-pointer"
               >
                 <span>Services</span>
-                <span className="text-[10px] px-1.5 py-0.2 rounded-full bg-primary/20 text-primary font-bold border border-primary/40">19</span>
                 <ChevronDown size={14} className={`transition-transform duration-200 ${servicesDropdownOpen ? 'rotate-180 text-primary' : ''}`} />
               </button>
 
@@ -364,7 +363,7 @@ export function Navbar() {
                     onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                     className="w-full flex items-center justify-between text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
                   >
-                    <span>Services (19)</span>
+                    <span>Services</span>
                     <ChevronDown size={16} className={`transition-transform duration-200 ${mobileServicesOpen ? 'rotate-180 text-primary' : ''}`} />
                   </button>
                   {mobileServicesOpen && (

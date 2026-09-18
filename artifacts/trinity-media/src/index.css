@@ -84,7 +84,7 @@
   --popover-foreground: 0 0% 10%;
   --popover-border: 0 0% 90%;
 
-  --primary: 289 54% 36%;
+  --primary: 289 60% 52%;
   --primary-foreground: 0 0% 100%;
 
   --secondary: 0 0% 40%;
@@ -93,16 +93,16 @@
   --muted: 0 0% 93%;
   --muted-foreground: 0 0% 45%;
 
-  --accent: 289 54% 36%;
+  --accent: 289 60% 52%;
   --accent-foreground: 0 0% 100%;
 
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
   --input: 0 0% 88%;
-  --ring: 289 54% 36%;
+  --ring: 289 60% 52%;
 
-  --chart-1: 289 54% 36%;
+  --chart-1: 289 60% 52%;
   --chart-2: 0 0% 75%;
   --chart-3: 0 0% 56%;
   --chart-4: 0 0% 16%;
@@ -111,11 +111,11 @@
   --sidebar: 0 0% 97%;
   --sidebar-foreground: 0 0% 10%;
   --sidebar-border: 0 0% 88%;
-  --sidebar-primary: 289 54% 36%;
+  --sidebar-primary: 289 60% 52%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 289 54% 36%;
+  --sidebar-accent: 289 60% 52%;
   --sidebar-accent-foreground: 0 0% 100%;
-  --sidebar-ring: 289 54% 36%;
+  --sidebar-ring: 289 60% 52%;
 
   --radius: 0.25rem;
 
@@ -146,8 +146,8 @@
   --popover-foreground: 220 20% 98%;
   --popover-border: 230 14% 24%;
   
-  /* Luminous brand purple that shines vividly against dark background */
-  --primary: 284 68% 54%;
+  /* Luminous brand purple — bright and light against dark background */
+  --primary: 284 72% 65%;
   --primary-foreground: 0 0% 100%;
   
   /* Light platinum silver accents */
@@ -158,30 +158,30 @@
   --muted: 232 14% 17%;
   --muted-foreground: 224 14% 74%;
   
-  /* Radiant amethyst accent for glowing details */
-  --accent: 280 75% 62%;
+  /* Bright lavender accent */
+  --accent: 280 78% 70%;
   --accent-foreground: 0 0% 100%;
   
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
   
   --input: 230 13% 22%;
-  --ring: 284 68% 54%;
+  --ring: 284 72% 65%;
   
-  --chart-1: 284 68% 54%;
+  --chart-1: 284 72% 65%;
   --chart-2: 220 16% 84%;
-  --chart-3: 280 75% 62%;
+  --chart-3: 280 78% 70%;
   --chart-4: 232 14% 26%;
   --chart-5: 232 14% 16%;
 
   --sidebar: 232 16% 12%;
   --sidebar-foreground: 220 20% 98%;
   --sidebar-border: 230 13% 21%;
-  --sidebar-primary: 284 68% 54%;
+  --sidebar-primary: 284 72% 65%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 280 75% 62%;
+  --sidebar-accent: 280 78% 70%;
   --sidebar-accent-foreground: 0 0% 100%;
-  --sidebar-ring: 284 68% 54%;
+  --sidebar-ring: 284 72% 65%;
 
   --radius: 0.25rem;
 

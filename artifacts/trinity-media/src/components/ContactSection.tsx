@@ -77,7 +77,11 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-20 md:py-32 bg-background relative overflow-hidden transition-colors">
+    <section id="contact" className="py-20 md:py-32 relative overflow-hidden transition-colors" style={{
+      background: theme === 'dark'
+        ? 'linear-gradient(135deg, #0d0f17 0%, #12141f 50%, #0a0c14 100%)'
+        : 'linear-gradient(135deg, #f0f4ff 0%, #faf5ff 50%, #f8f0ff 100%)'
+    }}>
       <div className="max-w-[1360px] mx-auto px-4 md:px-8">
         
         {/* Section Heading */}
@@ -203,7 +207,18 @@ export function ContactSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           
           {/* Left: Contact Form */}
-          <div className="lg:col-span-6 bg-card border border-border rounded-2xl p-8 sm:p-10 shadow-lg flex flex-col justify-between">
+          <div
+            className="lg:col-span-6 rounded-2xl p-8 sm:p-10 flex flex-col justify-between"
+            style={{
+              background: theme === 'dark' ? 'rgba(18,22,35,0.65)' : 'rgba(255,255,255,0.62)',
+              backdropFilter: 'blur(36px) saturate(200%)',
+              WebkitBackdropFilter: 'blur(36px) saturate(200%)',
+              border: theme === 'dark' ? '1px solid rgba(255,255,255,0.09)' : '1px solid rgba(255,255,255,0.70)',
+              boxShadow: theme === 'dark'
+                ? '0 20px 60px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.05)'
+                : '0 20px 60px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.90)'
+            }}
+          >
             <div>
               <h3 className="font-display text-3xl text-foreground uppercase mb-2">Send Us A Message</h3>
               <p className="text-xs text-muted-foreground mb-6">

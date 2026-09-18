@@ -10,6 +10,7 @@ import heroImg from '@assets/generated_images/hero.jpg';
 import manufacturingImg from '@assets/generated_images/manufacturing.jpg';
 import servicesImg from '@assets/generated_images/services.jpg';
 import portfolioImg from '@assets/generated_images/portfolio1.jpg';
+import { useTheme } from '@/components/ThemeProvider';
 
 interface SlideData {
   id: number;
@@ -74,6 +75,7 @@ const SERVICES_OPTIONS = [
 ];
 
 export function Hero() {
+  const { theme } = useTheme();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
@@ -194,11 +196,9 @@ export function Hero() {
           />
         </AnimatePresence>
 
-        {/* Cinematic Theme-Aware Gradient Overlays — soft light accents mixed in dark mode */}
-        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/70 dark:from-[#0d0f17]/90 dark:via-[#0f111a]/75 dark:to-[#141622]/80 z-10 transition-colors" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/50 dark:to-[#0d0f17]/50 z-10 transition-colors" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_25%_35%,rgba(182,62,204,0.24)_0%,transparent_60%)] z-10" />
-        <div className="hidden dark:block absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(147,197,253,0.06)_0%,transparent_50%)] z-10" />
+        {/* Gradient Overlays — clean, neutral, no color tint */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/58 via-white/30 to-white/10 dark:from-black/60 dark:via-black/35 dark:to-black/15 z-10 transition-colors" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/65 via-transparent to-transparent z-10 transition-colors" />
       </div>
 
       {/* Main Grid Content */}
@@ -223,7 +223,7 @@ export function Hero() {
               {/* Main Headline */}
               <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] leading-[0.88] text-foreground tracking-tighter uppercase mb-4">
                 <span>{SLIDES[currentSlide].titleTop}</span>{' '}
-                <span className="text-primary">{SLIDES[currentSlide].titleHighlight}</span><br />
+                <span className={theme === 'dark' ? 'text-white drop-shadow-lg' : 'text-primary'}>{SLIDES[currentSlide].titleHighlight}</span><br />
                 <span>{SLIDES[currentSlide].titleBottom}</span>
               </h1>
 
@@ -328,7 +328,16 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.95, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="bg-card/95 border border-border rounded-xl p-6 sm:p-8 shadow-2xl relative overflow-hidden backdrop-blur-xl"
+            className="relative overflow-hidden rounded-2xl p-6 sm:p-8 shadow-2xl"
+            style={{
+              background: theme === 'dark' ? 'rgba(18,20,30,0.60)' : 'rgba(255,255,255,0.58)',
+              backdropFilter: 'blur(32px) saturate(190%)',
+              WebkitBackdropFilter: 'blur(32px) saturate(190%)',
+              border: theme === 'dark' ? '1px solid rgba(255,255,255,0.10)' : '1px solid rgba(255,255,255,0.55)',
+              boxShadow: theme === 'dark'
+                ? '0 8px 40px 0 rgba(0,0,0,0.50), inset 0 1px 0 rgba(255,255,255,0.06)'
+                : '0 8px 40px 0 rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.80)'
+            }}
           >
             {/* Ambient glow accent */}
             <div className="absolute top-0 right-0 w-48 h-48 bg-primary/15 rounded-full blur-3xl pointer-events-none -z-10" />

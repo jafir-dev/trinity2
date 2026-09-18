@@ -62,10 +62,6 @@ export function Services() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   
-                  {/* Category / Badge overlay */}
-                  <span className="absolute top-4 left-4 px-3 py-1 rounded-full bg-primary/90 backdrop-blur-md text-white font-display text-sm tracking-wider uppercase">
-                    Service {srv.num}
-                  </span>
 
                   {/* Big Number overlay bottom-right */}
                   <span className="absolute bottom-2 right-4 font-display text-8xl leading-none text-white/20 select-none pointer-events-none">
