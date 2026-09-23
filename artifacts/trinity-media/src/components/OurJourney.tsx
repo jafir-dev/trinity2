@@ -31,8 +31,8 @@ const TIMELINE_STEPS = [
     year: "2024+",
     badge: "Innovation & Future",
     title: "Advanced Fabrication & GCC Regional Reach",
-    desc: "Equipped with the latest HP Latex, Flatbed UV, and high-speed CNC routers, Trinity Media now delivers end-to-end bespoke fit-outs, luxury exhibition stands, and multi-asset corporate activations across the UAE and GCC.",
-    highlight: "2000+ Completed Projects & 100% Satisfied Clients",
+    desc: "Operating with advanced HP Latex, Flatbed UV, high-speed CNC routers, and our own dedicated logistics & installation fleet, Trinity Media delivers 360-degree advertising activations, luxury exhibition stands, and multi-asset retail rollouts across the UAE and GCC.",
+    highlight: "360° Advertising Activations & Dedicated In-House Fleet",
     icon: Cpu,
   }
 ];

@@ -178,7 +178,7 @@ export function Hero() {
   return (
     <section 
       id="home" 
-      className="relative min-h-[100dvh] w-full flex items-center justify-center overflow-hidden pt-28 pb-16 md:pt-32 md:pb-20"
+      className="relative min-h-[78vh] lg:min-h-[82vh] w-full flex items-center justify-center overflow-hidden pt-24 pb-8 md:pt-28 md:pb-12"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -202,7 +202,7 @@ export function Hero() {
       </div>
 
       {/* Main Grid Content */}
-      <div className="relative z-20 max-w-[1360px] mx-auto w-full px-4 md:px-8 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-10">
+      <div className="relative z-20 max-w-[1360px] mx-auto w-full px-4 md:px-8 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-10">
         
         {/* Left Column: Slider Content */}
         <div className="w-full lg:w-7/12 flex flex-col justify-center">
@@ -215,63 +215,63 @@ export function Hero() {
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/15 border border-primary/30 text-primary dark:text-purple-200 dark:bg-primary/20 dark:border-primary/40 text-xs font-semibold uppercase tracking-widest mb-6 backdrop-blur-md shadow-sm dark:shadow-[0_0_15px_rgba(182,62,204,0.2)]">
-                <Sparkles size={14} className="text-primary dark:text-purple-300" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/15 border border-primary/30 text-primary dark:text-purple-200 dark:bg-primary/20 dark:border-primary/40 text-xs font-semibold uppercase tracking-widest mb-3 sm:mb-4 backdrop-blur-md shadow-sm dark:shadow-[0_0_15px_rgba(182,62,204,0.2)]">
+                <Sparkles size={13} className="text-primary dark:text-purple-300" />
                 <span>{SLIDES[currentSlide].badge}</span>
               </div>
 
               {/* Main Headline */}
-              <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[7.5rem] leading-[0.88] text-foreground tracking-tighter uppercase mb-4">
+              <h1 className="font-display text-4xl sm:text-6xl md:text-7xl lg:text-[5.4rem] xl:text-[6rem] leading-[0.9] text-foreground tracking-tighter uppercase mb-3">
                 <span>{SLIDES[currentSlide].titleTop}</span>{' '}
                 <span className={theme === 'dark' ? 'text-white drop-shadow-lg' : 'text-primary'}>{SLIDES[currentSlide].titleHighlight}</span><br />
                 <span>{SLIDES[currentSlide].titleBottom}</span>
               </h1>
 
               {/* Description - Punchy 1-2 lines */}
-              <p className="mt-4 text-base sm:text-lg md:text-xl text-foreground/80 max-w-2xl font-sans leading-relaxed">
+              <p className="mt-2 text-sm sm:text-base md:text-lg text-foreground/80 max-w-2xl font-sans leading-relaxed">
                 {SLIDES[currentSlide].description}
               </p>
 
               {/* Quick Info & Stats Strip */}
-              <div className="mt-8 flex flex-wrap items-center gap-6 sm:gap-10 border-t border-border pt-6">
+              <div className="mt-5 flex flex-wrap items-center gap-4 sm:gap-8 border-t border-border pt-4">
                 <div>
-                  <div className="font-display text-4xl text-foreground">
+                  <div className="font-display text-3xl sm:text-4xl text-foreground">
                     {SLIDES[currentSlide].highlightStat}
                   </div>
-                  <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">
+                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold">
                     {SLIDES[currentSlide].highlightLabel}
                   </div>
                 </div>
-                <div className="h-8 w-px bg-border hidden sm:block" />
+                <div className="h-7 w-px bg-border hidden sm:block" />
                 <div>
-                  <div className="font-display text-4xl text-primary">ISO Certified</div>
-                  <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">
+                  <div className="font-display text-3xl sm:text-4xl text-primary">ISO Certified</div>
+                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold">
                     9001 • 14001 • 18001
                   </div>
                 </div>
-                <div className="h-8 w-px bg-border hidden sm:block" />
+                <div className="h-7 w-px bg-border hidden sm:block" />
                 <div>
-                  <div className="font-display text-4xl text-foreground">Dubai, UAE</div>
-                  <div className="text-xs uppercase tracking-wider text-muted-foreground font-semibold">
+                  <div className="font-display text-3xl sm:text-4xl text-foreground">Dubai, UAE</div>
+                  <div className="text-[11px] uppercase tracking-wider text-muted-foreground font-semibold">
                     DIP-1 Warehouse 4
                   </div>
                 </div>
               </div>
 
               {/* CTA Action Buttons */}
-              <div className="mt-8 flex flex-wrap gap-4 items-center">
+              <div className="mt-5 flex flex-wrap gap-3.5 items-center">
                 <a
                   href="https://wa.me/971526935456?text=Hello%20Trinity%20Media%2C%20I%20would%20like%20to%20discuss%20a%20printing%20and%20branding%20project."
                   target="_blank"
                   rel="noreferrer"
-                  className="px-7 py-3.5 bg-green-600 hover:bg-green-500 text-white font-bold uppercase tracking-wider rounded text-xs sm:text-sm flex items-center gap-2.5 transition-all shadow-lg shadow-green-900/30"
+                  className="px-6 py-3 bg-green-600 hover:bg-green-500 text-white font-bold uppercase tracking-wider rounded text-xs sm:text-sm flex items-center gap-2 transition-all shadow-lg shadow-green-900/30"
                 >
-                  <FaWhatsapp size={18} />
+                  <FaWhatsapp size={17} />
                   <span>Contact Now</span>
                 </a>
                 <button
                   onClick={() => scrollTo('#services')}
-                  className="px-7 py-3.5 border border-border hover:border-primary text-foreground hover:text-primary font-bold uppercase tracking-wider rounded text-xs sm:text-sm transition-all bg-background/50 hover:bg-muted/40 cursor-pointer"
+                  className="px-6 py-3 border border-border hover:border-primary text-foreground hover:text-primary font-bold uppercase tracking-wider rounded text-xs sm:text-sm transition-all bg-background/50 hover:bg-muted/40 cursor-pointer"
                 >
                   Explore Services
                 </button>
@@ -280,7 +280,7 @@ export function Hero() {
           </AnimatePresence>
 
           {/* Visual Slide Thumbnails & Controls */}
-          <div className="mt-8 flex items-center gap-4">
+          <div className="mt-5 flex items-center gap-3">
             <button
               onClick={handlePrevSlide}
               aria-label="Previous Slide"
@@ -328,7 +328,7 @@ export function Hero() {
             initial={{ opacity: 0, scale: 0.95, y: 30 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative overflow-hidden rounded-2xl p-6 sm:p-8 shadow-2xl"
+            className="relative overflow-hidden rounded-2xl p-5 sm:p-6 shadow-2xl"
             style={{
               background: theme === 'dark' ? 'rgba(18,20,30,0.60)' : 'rgba(255,255,255,0.58)',
               backdropFilter: 'blur(32px) saturate(190%)',
@@ -342,29 +342,29 @@ export function Hero() {
             {/* Ambient glow accent */}
             <div className="absolute top-0 right-0 w-48 h-48 bg-primary/15 rounded-full blur-3xl pointer-events-none -z-10" />
             
-            <div className="border-b border-border pb-4 mb-5">
+            <div className="border-b border-border pb-3 mb-3.5">
               <div className="flex items-center justify-between">
                 <div>
-                  <span className="text-xs uppercase tracking-widest text-primary font-bold">Fast Turnaround</span>
-                  <h3 className="font-display text-2xl sm:text-3xl text-foreground tracking-wide">
+                  <span className="text-[11px] uppercase tracking-widest text-primary font-bold">Fast Turnaround</span>
+                  <h3 className="font-display text-xl sm:text-2xl text-foreground tracking-wide">
                     REQUEST A QUOTE
                   </h3>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-500">
-                  <FaWhatsapp size={22} />
+                <div className="w-9 h-9 rounded-full bg-green-500/10 border border-green-500/30 flex items-center justify-center text-green-500">
+                  <FaWhatsapp size={20} />
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground mt-1">
+              <p className="text-[11px] text-muted-foreground mt-0.5">
                 Instant inquiry directly sent to our production engineering team via WhatsApp.
               </p>
             </div>
 
             {submittedSuccess ? (
-              <div className="py-8 text-center space-y-4">
-                <div className="w-16 h-16 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mx-auto border border-green-500/40">
-                  <CheckCircle2 size={36} />
+              <div className="py-6 text-center space-y-3">
+                <div className="w-14 h-14 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mx-auto border border-green-500/40">
+                  <CheckCircle2 size={32} />
                 </div>
-                <h4 className="font-display text-2xl text-foreground">Inquiry Transmitted!</h4>
+                <h4 className="font-display text-xl text-foreground">Inquiry Transmitted!</h4>
                 <p className="text-xs text-muted-foreground max-w-xs mx-auto">
                   Your project specifications were encoded and redirected to our WhatsApp desk (+971 52 693 5456).
                 </p>
@@ -373,15 +373,15 @@ export function Hero() {
                     setSubmittedSuccess(false);
                     refreshCaptcha();
                   }}
-                  className="px-6 py-2.5 rounded bg-primary text-white text-xs font-bold uppercase tracking-wider transition-all hover:bg-primary/90 cursor-pointer"
+                  className="px-5 py-2 rounded bg-primary text-white text-xs font-bold uppercase tracking-wider transition-all hover:bg-primary/90 cursor-pointer"
                 >
                   Send Another Quote Request
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleQuoteSubmit} className="space-y-3.5">
+              <form onSubmit={handleQuoteSubmit} className="space-y-2.5">
                 <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-foreground/80 font-semibold mb-1">
+                  <label className="block text-[10px] uppercase tracking-wider text-foreground/80 font-semibold mb-0.5">
                     Your Name *
                   </label>
                   <input
@@ -390,13 +390,13 @@ export function Hero() {
                     placeholder="e.g. John Walter"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
-                    className="w-full bg-background border border-border rounded px-3.5 py-2 text-sm text-foreground focus:outline-none focus:border-primary placeholder:text-muted-foreground"
+                    className="w-full bg-background border border-border rounded px-3 py-1.5 text-xs sm:text-sm text-foreground focus:outline-none focus:border-primary placeholder:text-muted-foreground"
                   />
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   <div>
-                    <label className="block text-[11px] uppercase tracking-wider text-foreground/80 font-semibold mb-1">
+                    <label className="block text-[10px] uppercase tracking-wider text-foreground/80 font-semibold mb-0.5">
                       Phone / WhatsApp *
                     </label>
                     <input
@@ -405,12 +405,12 @@ export function Hero() {
                       placeholder="+971 5X XXX XXXX"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      className="w-full bg-background border border-border rounded px-3.5 py-2 text-sm text-foreground focus:outline-none focus:border-primary placeholder:text-muted-foreground"
+                      className="w-full bg-background border border-border rounded px-3 py-1.5 text-xs sm:text-sm text-foreground focus:outline-none focus:border-primary placeholder:text-muted-foreground"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[11px] uppercase tracking-wider text-foreground/80 font-semibold mb-1">
+                    <label className="block text-[10px] uppercase tracking-wider text-foreground/80 font-semibold mb-0.5">
                       Email Address
                     </label>
                     <input
@@ -418,19 +418,19 @@ export function Hero() {
                       placeholder="name@company.ae"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      className="w-full bg-background border border-border rounded px-3.5 py-2 text-sm text-foreground focus:outline-none focus:border-primary placeholder:text-muted-foreground"
+                      className="w-full bg-background border border-border rounded px-3 py-1.5 text-xs sm:text-sm text-foreground focus:outline-none focus:border-primary placeholder:text-muted-foreground"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-foreground/80 font-semibold mb-1">
+                  <label className="block text-[10px] uppercase tracking-wider text-foreground/80 font-semibold mb-0.5">
                     Select Service Required
                   </label>
                   <select
                     value={service}
                     onChange={(e) => setService(e.target.value)}
-                    className="w-full bg-background border border-border rounded px-3.5 py-2 text-sm text-foreground focus:outline-none focus:border-primary"
+                    className="w-full bg-background border border-border rounded px-3 py-1.5 text-xs sm:text-sm text-foreground focus:outline-none focus:border-primary"
                   >
                     {SERVICES_OPTIONS.map((opt, i) => (
                       <option key={i} value={opt} className="bg-background text-foreground">
@@ -441,7 +441,7 @@ export function Hero() {
                 </div>
 
                 <div>
-                  <label className="block text-[11px] uppercase tracking-wider text-foreground/80 font-semibold mb-1">
+                  <label className="block text-[10px] uppercase tracking-wider text-foreground/80 font-semibold mb-0.5">
                     Project Details / Sizes / Quantity
                   </label>
                   <textarea
@@ -449,21 +449,21 @@ export function Hero() {
                     placeholder="Describe your dimensions, material, or deadline..."
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    className="w-full bg-background border border-border rounded px-3.5 py-2 text-sm text-foreground focus:outline-none focus:border-primary resize-none placeholder:text-muted-foreground"
+                    className="w-full bg-background border border-border rounded px-3 py-1.5 text-xs sm:text-sm text-foreground focus:outline-none focus:border-primary resize-none placeholder:text-muted-foreground"
                   />
                 </div>
 
                 {/* Captcha Protection Block */}
-                <div className="p-3 bg-muted/40 border border-border rounded-lg space-y-2.5">
+                <div className="p-2.5 bg-muted/40 border border-border rounded-lg space-y-1.5">
                   <div className="flex items-center justify-between">
-                    <label className="flex items-center space-x-2.5 cursor-pointer text-xs text-foreground select-none">
+                    <label className="flex items-center space-x-2 cursor-pointer text-xs text-foreground select-none">
                       <input
                         type="checkbox"
                         checked={captchaChecked}
                         onChange={(e) => setCaptchaChecked(e.target.checked)}
-                        className="w-4 h-4 rounded text-primary focus:ring-primary accent-primary"
+                        className="w-3.5 h-3.5 rounded text-primary focus:ring-primary accent-primary"
                       />
-                      <span className="font-medium">I'm not a robot</span>
+                      <span className="font-medium text-[11px]">I'm not a robot</span>
                     </label>
                     <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
                       <ShieldCheck size={12} className="text-primary" />
@@ -473,7 +473,7 @@ export function Hero() {
 
                   {/* Math Security Challenge */}
                   <div className="flex items-center gap-2 pt-1 border-t border-border/50">
-                    <span className="text-xs text-foreground font-mono bg-background px-2 py-1 rounded border border-border">
+                    <span className="text-[11px] text-foreground font-mono bg-background px-2 py-0.5 rounded border border-border">
                       Security Code: {num1} + {num2} = ?
                     </span>
                     <input
@@ -481,7 +481,7 @@ export function Hero() {
                       placeholder="Answer"
                       value={userAnswer}
                       onChange={(e) => setUserAnswer(e.target.value)}
-                      className="w-20 bg-background border border-border rounded px-2 py-1 text-xs text-foreground text-center focus:border-primary focus:outline-none"
+                      className="w-16 bg-background border border-border rounded px-2 py-0.5 text-xs text-foreground text-center focus:border-primary focus:outline-none"
                     />
                     <button
                       type="button"
@@ -489,13 +489,13 @@ export function Hero() {
                       title="Generate new calculation"
                       className="p-1 rounded bg-muted hover:bg-muted/80 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
                     >
-                      <RefreshCw size={13} />
+                      <RefreshCw size={12} />
                     </button>
                   </div>
                 </div>
 
                 {captchaError && (
-                  <div className="text-[11px] text-red-500 font-medium bg-red-500/10 border border-red-500/20 px-3 py-1.5 rounded">
+                  <div className="text-[10px] text-red-500 font-medium bg-red-500/10 border border-red-500/20 px-2.5 py-1 rounded">
                     {captchaError}
                   </div>
                 )}
@@ -503,9 +503,9 @@ export function Hero() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-wider rounded text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/30 cursor-pointer disabled:opacity-50"
+                  className="w-full py-2.5 bg-primary hover:bg-primary/90 text-white font-bold uppercase tracking-wider rounded text-xs sm:text-sm flex items-center justify-center gap-2 transition-all shadow-lg shadow-primary/30 cursor-pointer disabled:opacity-50"
                 >
-                  <Send size={16} />
+                  <Send size={15} />
                   <span>{isSubmitting ? 'Submitting Quote...' : 'REQUEST A QUOTE'}</span>
                 </button>
               </form>

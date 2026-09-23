@@ -5,7 +5,7 @@ import pillow_heif
 
 pillow_heif.register_heif_opener()
 
-base = Path(r'c:\Users\Hussain Jafir\Documents\trinity2\Images\New Images')
+base = Path(r'c:\Users\Hussain Jafir\Downloads\Trinity Media\trinity2\Images\New Images')
 
 for folder in sorted(base.iterdir()):
     if not folder.is_dir():

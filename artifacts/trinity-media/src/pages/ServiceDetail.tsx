@@ -9,6 +9,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { CustomCursor } from '@/components/CustomCursor';
 import { ContactCTA } from '@/components/ContactCTA';
+import { ServiceRequestForm } from '@/components/ServiceRequestForm';
 import { getServiceBySlug, SERVICES } from '@/data/services';
 
 // ─── Image Resolver ──────────────────────────────────────────────────────────
@@ -242,42 +243,56 @@ export default function ServiceDetail() {
           </div>
         </section>
 
-        {/* ── Single Hero Image (Replaces Slider) ── */}
+        {/* ── Single Hero Image & High-Conversion Ad Campaign Quote Form ── */}
         <section className="pt-8 pb-12">
           <div className="max-w-[1360px] mx-auto px-4 md:px-8">
-            <div className="relative rounded-2xl overflow-hidden border border-border shadow-2xl group">
-              <div className="relative h-[360px] sm:h-[480px] md:h-[580px] w-full overflow-hidden bg-neutral-900">
-                <img
-                  src={heroImageUrl}
-                  alt={`${service.title} Hero Showcase`}
-                  className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700 cursor-zoom-in"
-                  onClick={() => openLightbox(0)}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start lg:items-center">
+              
+              {/* Left Column: Hero Image (7 cols) */}
+              <div className="lg:col-span-7 flex flex-col justify-center">
+                <div className="relative rounded-2xl overflow-hidden border border-border shadow-2xl group w-full h-[460px] sm:h-[500px] lg:h-[520px]">
+                  <img
+                    src={heroImageUrl}
+                    alt={`${service.title} Hero Showcase`}
+                    className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-700 cursor-zoom-in"
+                    onClick={() => openLightbox(0)}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent pointer-events-none" />
 
-                {/* Top Right Zoom Fullscreen button */}
-                <button
-                  onClick={() => openLightbox(0)}
-                  className="absolute top-4 right-4 z-10 w-11 h-11 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-primary transition-colors cursor-pointer shadow-lg"
-                  title="View Fullscreen"
-                >
-                  <Maximize2 size={18} />
-                </button>
+                  {/* Top Right Zoom Fullscreen button */}
+                  <button
+                    onClick={() => openLightbox(0)}
+                    className="absolute top-4 right-4 z-10 w-11 h-11 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white flex items-center justify-center hover:bg-primary transition-colors cursor-pointer shadow-lg"
+                    title="View Fullscreen"
+                  >
+                    <Maximize2 size={18} />
+                  </button>
 
-                {/* Bottom Overlay Label */}
-                <div className="absolute bottom-6 left-6 right-6 z-10 flex items-center justify-between pointer-events-none">
-                  <div className="px-4 py-2 rounded-lg bg-black/70 backdrop-blur-md border border-white/15 text-white font-display text-lg sm:text-xl tracking-wide uppercase shadow-lg">
-                    {service.title} • Featured Build
-                  </div>
-                  <div className="px-3.5 py-1.5 rounded-md bg-primary text-white text-xs font-bold uppercase tracking-wider shadow-lg">
-                    Click to enlarge
+                  {/* Bottom Overlay Label */}
+                  <div className="absolute bottom-6 left-6 right-6 z-10 flex items-center justify-between pointer-events-none">
+                    <div className="px-4 py-2 rounded-lg bg-black/70 backdrop-blur-md border border-white/15 text-white font-display text-lg sm:text-xl tracking-wide uppercase shadow-lg">
+                      {service.title} • Featured Build
+                    </div>
+                    <div className="px-3.5 py-1.5 rounded-md bg-primary text-white text-xs font-bold uppercase tracking-wider shadow-lg">
+                      Click to enlarge
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* ── Overview & Capabilities Content Grid ── */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start mt-12">
+              {/* Right Column: Glassmorphic Request Quote Form (5 cols) */}
+              <div className="lg:col-span-5 flex flex-col justify-center">
+                <ServiceRequestForm serviceTitle={service.title} />
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        {/* ── Overview & Capabilities Content Grid ── */}
+        <section className="pb-16">
+          <div className="max-w-[1360px] mx-auto px-4 md:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
               
               {/* Left Column: Overview Details */}
               <div className="lg:col-span-7 space-y-8">

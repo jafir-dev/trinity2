@@ -48,7 +48,7 @@ const STATS = [
 // Gallery row — real production shots
 const GALLERY = [
   { img: '/images/manufacturing/facility.jpg', label: 'UV Flatbed Printing Press', wide: true },
-  { img: '/images/why-choose-us/vehicle.jpg', label: 'Vehicle Wrap Workshop' },
+  { img: '/images/about/vehicle-1.png', label: 'Vehicle Wrap Workshop' },
   { img: '/images/why-choose-us/retail.jpg', label: 'Retail Signage Output' },
 ];
 

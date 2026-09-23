@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import AboutPage from './pages/AboutPage';
 import JourneyPage from './pages/JourneyPage';
 import WhyChooseUsPage from './pages/WhyChooseUsPage';
+import OurWorksPage from './pages/OurWorksPage';
 import AwardsPage from './pages/AwardsPage';
 import ContactPage from './pages/ContactPage';
 import FacilitiesPage from './pages/FacilitiesPage';
@@ -21,7 +22,8 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/about" component={AboutPage} />
       <Route path="/our-journey" component={JourneyPage} />
-      <Route path="/why-choose-us" component={WhyChooseUsPage} />
+      <Route path="/our-works" component={OurWorksPage} />
+      <Route path="/why-choose-us" component={OurWorksPage} />
       <Route path="/awards" component={AwardsPage} />
       <Route path="/our-facilities" component={FacilitiesPage} />
       <Route path="/contact" component={ContactPage} />

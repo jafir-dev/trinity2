@@ -2,7 +2,7 @@ import os
 import tarfile
 from pathlib import Path
 
-root = Path(r'c:\Users\Hussain Jafir\Documents\trinity2')
+root = Path(r'C:\Users\Hussain Jafir\Downloads\Trinity Media\trinity2')
 dist_dir = root / 'artifacts' / 'trinity-media' / 'dist' / 'public'
 tar_path = root / 'trinity_media_cpanel.tar'
 tar_gz_path = root / 'trinity_media_cpanel.tar.gz'

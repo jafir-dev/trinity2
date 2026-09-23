@@ -2,8 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Building2, Phone, Mail, MapPin, 
-  Send, ShieldCheck, CheckCircle2, RefreshCw, 
-  Truck, Factory, Briefcase, MessageSquare 
+  Send, ShieldCheck, CheckCircle2, RefreshCw
 } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { useTheme } from '@/components/ThemeProvider';
@@ -93,115 +92,77 @@ export function ContactSection() {
             INQUIRE <span className="text-primary">NOW</span>
           </h2>
           <p className="text-muted-foreground text-sm sm:text-base mt-4">
-            Connect directly with our Sales, Production, and Logistics teams in Dubai Investment Park 1.
+            Connect directly with our Head Quarters and central production team in Dubai Investment Park 1.
           </p>
         </div>
 
-        {/* 3 Department Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-          
-          {/* Sales Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="p-8 bg-card border border-border rounded-2xl hover:border-primary/60 transition-all text-center flex flex-col items-center justify-between shadow-lg group"
-          >
-            <div className="w-full flex flex-col items-center">
-              <div className="w-14 h-14 rounded-xl bg-primary/15 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                <Briefcase size={28} />
+        {/* Single Head Quarters Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mb-16 p-8 sm:p-10 bg-card border border-border rounded-2xl hover:border-primary/60 transition-all shadow-xl relative overflow-hidden group"
+        >
+          {/* Subtle decorative glow */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-3xl pointer-events-none -z-0" />
+
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-8 relative z-10">
+            {/* Left: Icon Badge */}
+            <div className="w-20 h-20 rounded-2xl bg-primary/15 text-primary flex items-center justify-center shrink-0 border border-primary/20 shadow-lg group-hover:bg-primary group-hover:text-white transition-colors">
+              <Building2 size={40} />
+            </div>
+
+            {/* Middle: Details */}
+            <div className="flex-1 text-center md:text-left space-y-3">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/15 text-primary text-xs font-bold uppercase tracking-wider">
+                <span>Central Operations & Production Facility</span>
               </div>
-              <h3 className="font-display text-3xl text-foreground uppercase mb-3">Sales</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed mb-6 max-w-xs">
-                Warehouse No. 4, Plot 194-0, Near Aiko Mall, Opp. BSL Gulf LLC, Dubai Investment park 1, Dubai UAE.
+              <h3 className="font-display text-3xl sm:text-4xl text-foreground uppercase tracking-tight">
+                HEAD <span className="text-primary">QUARTERS</span>
+              </h3>
+              <p className="text-sm text-foreground/80 leading-relaxed flex items-start gap-2 justify-center md:justify-start">
+                <MapPin size={18} className="text-primary shrink-0 mt-0.5" />
+                <span>Warehouse No. 4, Plot 194-0, Near Aiko Mall, Opp. BSL Gulf LLC, Dubai Investment park 1, Dubai UAE.</span>
               </p>
-            </div>
 
-            <div className="w-full pt-4 border-t border-border space-y-2 text-xs text-foreground/80">
-              <div className="flex items-center justify-center gap-2">
-                <Phone size={13} className="text-primary" />
-                <a href="tel:+97143409377" className="hover:text-primary transition-colors">+971 4 340 9377</a>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Phone size={13} className="text-primary" />
-                <a href="tel:+971526935456" className="hover:text-primary transition-colors">+971 52 693 5456</a>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Mail size={13} className="text-primary" />
-                <a href="mailto:inquiry@trinitymediauae.com" className="hover:text-primary transition-colors">inquiry@trinitymediauae.com</a>
-              </div>
-            </div>
-          </motion.div>
+              {/* Direct Channels */}
+              <div className="pt-4 border-t border-border grid grid-cols-1 sm:grid-cols-3 gap-3.5 text-xs">
+                <a 
+                  href="tel:+97143409377" 
+                  className="p-3 rounded-xl bg-muted/40 border border-border/80 hover:border-primary flex items-center gap-3 transition-colors group/item"
+                >
+                  <Phone size={16} className="text-primary group-hover/item:scale-110 transition-transform" />
+                  <div className="text-left">
+                    <span className="text-[10px] uppercase tracking-wider text-muted-foreground block font-semibold">Landline</span>
+                    <span className="font-semibold text-foreground group-hover/item:text-primary transition-colors">+971 4 340 9377</span>
+                  </div>
+                </a>
 
-          {/* Production Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="p-8 bg-card border border-border rounded-2xl hover:border-primary/60 transition-all text-center flex flex-col items-center justify-between shadow-lg group"
-          >
-            <div className="w-full flex flex-col items-center">
-              <div className="w-14 h-14 rounded-xl bg-primary/15 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                <Factory size={28} />
-              </div>
-              <h3 className="font-display text-3xl text-foreground uppercase mb-3">Production</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed mb-6 max-w-xs">
-                Warehouse No. 4, Plot 194-0, Dubai Investment Park - 1, Dubai United Arab Emirates.
-              </p>
-            </div>
+                <a 
+                  href="tel:+971526935456" 
+                  className="p-3 rounded-xl bg-muted/40 border border-border/80 hover:border-primary flex items-center gap-3 transition-colors group/item"
+                >
+                  <Phone size={16} className="text-primary group-hover/item:scale-110 transition-transform" />
+                  <div className="text-left">
+                    <span className="text-[10px] uppercase tracking-wider text-muted-foreground block font-semibold">Mobile / WhatsApp</span>
+                    <span className="font-semibold text-foreground group-hover/item:text-primary transition-colors">+971 52 693 5456</span>
+                  </div>
+                </a>
 
-            <div className="w-full pt-4 border-t border-border space-y-2 text-xs text-foreground/80">
-              <div className="flex items-center justify-center gap-2">
-                <Phone size={13} className="text-primary" />
-                <a href="tel:+97143409377" className="hover:text-primary transition-colors">+971 4 340 9377</a>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Phone size={13} className="text-primary" />
-                <a href="tel:+971526935456" className="hover:text-primary transition-colors">+971 52 693 5456</a>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Mail size={13} className="text-primary" />
-                <a href="mailto:inquiry@trinitymediauae.com" className="hover:text-primary transition-colors">inquiry@trinitymediauae.com</a>
+                <a 
+                  href="mailto:inquiry@trinitymediauae.com" 
+                  className="p-3 rounded-xl bg-muted/40 border border-border/80 hover:border-primary flex items-center gap-3 transition-colors group/item"
+                >
+                  <Mail size={16} className="text-primary group-hover/item:scale-110 transition-transform" />
+                  <div className="text-left">
+                    <span className="text-[10px] uppercase tracking-wider text-muted-foreground block font-semibold">Email Desk</span>
+                    <span className="font-semibold text-foreground group-hover/item:text-primary transition-colors truncate">inquiry@trinitymediauae.com</span>
+                  </div>
+                </a>
               </div>
             </div>
-          </motion.div>
-
-          {/* Logistic Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="p-8 bg-card border border-border rounded-2xl hover:border-primary/60 transition-all text-center flex flex-col items-center justify-between shadow-lg group"
-          >
-            <div className="w-full flex flex-col items-center">
-              <div className="w-14 h-14 rounded-xl bg-primary/15 text-primary flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-white transition-colors">
-                <Truck size={28} />
-              </div>
-              <h3 className="font-display text-3xl text-foreground uppercase mb-3">Logistic</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed mb-6 max-w-xs">
-                Warehouse No. 4, Plot 194-0, Dubai Investment Park - 1, Dubai United Arab Emirates.
-              </p>
-            </div>
-
-            <div className="w-full pt-4 border-t border-border space-y-2 text-xs text-foreground/80">
-              <div className="flex items-center justify-center gap-2">
-                <Phone size={13} className="text-primary" />
-                <a href="tel:+97143409377" className="hover:text-primary transition-colors">+971 4 340 9377</a>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Phone size={13} className="text-primary" />
-                <a href="tel:+971526935456" className="hover:text-primary transition-colors">+971 52 693 5456</a>
-              </div>
-              <div className="flex items-center justify-center gap-2">
-                <Mail size={13} className="text-primary" />
-                <a href="mailto:inquiry@trinitymediauae.com" className="hover:text-primary transition-colors">inquiry@trinitymediauae.com</a>
-              </div>
-            </div>
-          </motion.div>
-
-        </div>
+          </div>
+        </motion.div>
 
         {/* Contact Form & Google Map Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">

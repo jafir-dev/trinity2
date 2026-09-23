@@ -16,7 +16,6 @@ import { useTheme } from '@/components/ThemeProvider';
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [location, setLocation] = useLocation();
@@ -31,7 +30,6 @@ export function Navbar() {
   const navigateTo = (href: string) => {
     setLocation(href);
     setMobileOpen(false);
-    setAboutDropdownOpen(false);
     setServicesDropdownOpen(false);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -120,67 +118,15 @@ export function Navbar() {
               Home
             </button>
 
-            {/* About Us with Submenu (Our Journey, Why Choose Trinity) */}
-            <div 
-              className="relative group"
-              onMouseEnter={() => setAboutDropdownOpen(true)}
-              onMouseLeave={() => setAboutDropdownOpen(false)}
+            {/* About Us (No Subpages) */}
+            <button
+              onClick={() => navigateTo('/about')}
+              className={`text-sm font-medium transition-colors cursor-pointer ${
+                location === '/about' ? 'text-primary font-semibold' : 'text-foreground/85 hover:text-primary'
+              }`}
             >
-              <button
-                onClick={() => navigateTo('/about')}
-                className={`flex items-center gap-1 text-sm font-medium transition-colors py-2 cursor-pointer ${
-                  location.startsWith('/about') || location === '/our-journey' || location === '/why-choose-us'
-                    ? 'text-primary font-semibold' 
-                    : 'text-foreground/85 hover:text-primary'
-                }`}
-              >
-                <span>About Us</span>
-                <ChevronDown size={14} className={`transition-transform duration-200 ${aboutDropdownOpen ? 'rotate-180 text-primary' : ''}`} />
-              </button>
-
-              <AnimatePresence>
-                {aboutDropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10, scale: 0.96 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                    transition={{ duration: 0.18 }}
-                    className="absolute top-full left-0 w-64 bg-card border border-border/80 rounded-xl shadow-2xl p-2 z-50 backdrop-blur-xl"
-                  >
-                    <button
-                      onClick={() => navigateTo('/about')}
-                      className="w-full text-left px-3 py-2.5 rounded-lg text-sm text-foreground/85 hover:bg-primary/15 hover:text-primary transition-colors flex items-center gap-2.5 cursor-pointer"
-                    >
-                      <Sparkles size={16} className="text-primary shrink-0" />
-                      <div>
-                        <div className="font-semibold text-foreground">About Trinity</div>
-                        <div className="text-[11px] text-muted-foreground">Overview & ISO certifications</div>
-                      </div>
-                    </button>
-                    <button
-                      onClick={() => navigateTo('/our-journey')}
-                      className="w-full text-left px-3 py-2.5 rounded-lg text-sm text-foreground/85 hover:bg-primary/15 hover:text-primary transition-colors flex items-center gap-2.5 cursor-pointer"
-                    >
-                      <Clock size={16} className="text-primary shrink-0" />
-                      <div>
-                        <div className="font-semibold text-foreground">Our Journey</div>
-                        <div className="text-[11px] text-muted-foreground">Company timeline from 2010</div>
-                      </div>
-                    </button>
-                    <button
-                      onClick={() => navigateTo('/why-choose-us')}
-                      className="w-full text-left px-3 py-2.5 rounded-lg text-sm text-foreground/85 hover:bg-primary/15 hover:text-primary transition-colors flex items-center gap-2.5 cursor-pointer"
-                    >
-                      <ShieldCheck size={16} className="text-primary shrink-0" />
-                      <div>
-                        <div className="font-semibold text-foreground">Why Choose Trinity</div>
-                        <div className="text-[11px] text-muted-foreground">7 trust pillars & machinery</div>
-                      </div>
-                    </button>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              About Us
+            </button>
 
             {/* Services 19-Service Mega Menu */}
             <div 
@@ -244,21 +190,12 @@ export function Navbar() {
             </div>
 
             <button
-              onClick={() => navigateTo('/our-facilities')}
+              onClick={() => navigateTo('/our-works')}
               className={`text-sm font-medium transition-colors cursor-pointer ${
-                location === '/our-facilities' ? 'text-primary font-semibold' : 'text-foreground/85 hover:text-primary'
+                location === '/our-works' ? 'text-primary font-semibold' : 'text-foreground/85 hover:text-primary'
               }`}
             >
-              Our Facilities
-            </button>
-
-            <button
-              onClick={() => navigateTo('/awards')}
-              className={`text-sm font-medium transition-colors cursor-pointer ${
-                location === '/awards' ? 'text-primary font-semibold' : 'text-foreground/85 hover:text-primary'
-              }`}
-            >
-              Awards
+              Our Works
             </button>
 
             <button
@@ -267,7 +204,7 @@ export function Navbar() {
                 location === '/contact' ? 'text-primary font-semibold' : 'text-foreground/85 hover:text-primary'
               }`}
             >
-              Contact
+              Contact Us
             </button>
           </div>
 
@@ -342,20 +279,6 @@ export function Navbar() {
                 >
                   About Us
                 </button>
-                <div className="pl-4 space-y-2 border-l border-primary/30 my-1">
-                  <button
-                    onClick={() => navigateTo('/our-journey')}
-                    className="block text-left text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    • Our Journey
-                  </button>
-                  <button
-                    onClick={() => navigateTo('/why-choose-us')}
-                    className="block text-left text-sm text-muted-foreground hover:text-primary transition-colors"
-                  >
-                    • Why Choose Trinity
-                  </button>
-                </div>
 
                 {/* Mobile Services Accordion */}
                 <div>
@@ -383,22 +306,16 @@ export function Navbar() {
                 </div>
 
                 <button
-                  onClick={() => navigateTo('/our-facilities')}
+                  onClick={() => navigateTo('/our-works')}
                   className="text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
                 >
-                  Our Facilities
-                </button>
-                <button
-                  onClick={() => navigateTo('/awards')}
-                  className="text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
-                >
-                  Awards & Sponsorships
+                  Our Works
                 </button>
                 <button
                   onClick={() => navigateTo('/contact')}
                   className="text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
                 >
-                  Contact
+                  Contact Us
                 </button>
               </div>
 

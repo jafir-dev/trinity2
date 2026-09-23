@@ -6,8 +6,8 @@ import pillow_heif
 
 pillow_heif.register_heif_opener()
 
-SOURCE_BASE = Path(r'c:\Users\Hussain Jafir\Documents\trinity2\Images\New Images')
-TARGET_BASE = Path(r'c:\Users\Hussain Jafir\Documents\trinity2\artifacts\trinity-media\public\images')
+SOURCE_BASE = Path(r'C:\Users\Hussain Jafir\Downloads\Trinity Media\trinity2\Images\New Images')
+TARGET_BASE = Path(r'C:\Users\Hussain Jafir\Downloads\Trinity Media\trinity2\artifacts\trinity-media\public\images')
 
 # Mapping from Folder name in New Images to service slug
 FOLDER_TO_SLUG = {

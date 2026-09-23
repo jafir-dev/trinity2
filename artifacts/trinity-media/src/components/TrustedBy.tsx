@@ -7,8 +7,8 @@ const CLIENTS = [
 
 export function TrustedBy() {
   return (
-    <section className="py-12 border-b border-border bg-muted/40 dark:bg-[#141622]/90 overflow-hidden flex flex-col items-center relative z-20 transition-colors">
-      <h3 className="text-xs font-bold text-muted-foreground dark:text-purple-300/80 tracking-[0.3em] uppercase mb-8">Trusted By Industry Leaders</h3>
+    <section className="py-6 sm:py-8 border-b border-border bg-muted/40 dark:bg-[#141622]/90 overflow-hidden flex flex-col items-center relative z-20 transition-colors">
+      <h3 className="text-xs font-bold text-muted-foreground dark:text-purple-300/80 tracking-[0.3em] uppercase mb-4">Trusted By Industry Leaders</h3>
       
       <div className="w-full relative flex items-center">
         {/* Gradients for smooth fade on edges */}
