@@ -72,7 +72,7 @@ export function About() {
           >
             <div className="relative rounded-2xl overflow-hidden border border-border dark:border-white/10 group shadow-2xl">
               <img 
-                src="/images/about/main-cover.png" 
+                src="/images/about/Main Cover.png" 
                 alt="Trinity Media 360 Advertising and Visual Fabrication Dubai" 
                 className="w-full h-[460px] sm:h-[540px] object-cover scale-105 group-hover:scale-100 transition-transform duration-1000"
               />
@@ -94,7 +94,7 @@ export function About() {
               className="hidden sm:flex absolute -bottom-5 -right-5 z-30 p-2.5 bg-card/95 dark:bg-[#141624]/95 border border-border dark:border-white/15 rounded-xl shadow-2xl backdrop-blur-md items-center gap-3 max-w-[280px]"
             >
               <img 
-                src="/images/about/vehicle-1.png" 
+                src="/images/about/Vehicle.png" 
                 alt="Trinity Media Company Fleet & Rapid Logistics" 
                 className="w-16 h-14 rounded-lg object-cover border border-border"
               />
@@ -281,7 +281,7 @@ export function About() {
               </div>
               <div className="p-4 rounded-xl bg-white/10 backdrop-blur-md border border-white/15 flex items-center gap-3">
                 <img 
-                  src="/images/about/vehicle-2.png" 
+                  src="/images/about/Vehicle 2.png" 
                   alt="Trinity Media In-House Company Fleet" 
                   className="w-14 h-12 rounded-lg object-cover shrink-0 border border-white/20"
                 />

@@ -52,7 +52,4 @@ Thumbs.db
 *.tar.gz
 *.zip
 
-# Local raw image assets (root only)
-/Images/
-
 

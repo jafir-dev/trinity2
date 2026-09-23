@@ -23,8 +23,9 @@ export default function AboutPage() {
             muted
             playsInline
             className="w-full h-full object-cover scale-105"
-            poster="/images/about/main-cover.png"
+            poster="/images/about/Main Cover.png"
           >
+            <source src="/images/about/Video 3.mp4" type="video/mp4" />
             <source src="/images/about/about-video.mp4" type="video/mp4" />
           </video>
           {/* Subtle light gradient overlays so the video is clearly visible */}
