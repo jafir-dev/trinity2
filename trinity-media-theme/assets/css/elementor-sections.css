@@ -1,0 +1,287 @@
+/* Elementor Sections Custom CSS for Trinity Media Theme */
+
+/* Marquee Animation */
+.trinity-marquee {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+.trinity-marquee .marquee-item {
+    flex-shrink: 0;
+    animation: marquee-scroll 20s linear infinite;
+    padding: 0 40px;
+}
+
+@keyframes marquee-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Glassmorphism effect for sections */
+.elementor-section[class*="trinity-glass"] {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Service card hover effect */
+.trinity-service-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trinity-service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.trinity-service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.8));
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+
+.trinity-service-card:hover::before {
+    opacity: 1;
+}
+
+/* Portfolio card hover effect */
+.trinity-portfolio-card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trinity-portfolio-card img {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trinity-portfolio-card:hover img {
+    transform: scale(1.05);
+}
+
+.trinity-portfolio-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(124, 58, 237, 0.9), transparent);
+    opacity: 0;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+
+.trinity-portfolio-card:hover::after {
+    opacity: 1;
+}
+
+/* Testimonial card styling */
+.trinity-testimonial-card {
+    position: relative;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.trinity-testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(124, 58, 237, 0.2);
+}
+
+.trinity-testimonial-card::before {
+    content: '\201C';
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 60px;
+    font-family: Georgia, serif;
+    color: rgba(255, 255, 255, 0.1);
+}
+
+/* Button animations */
+.elementor-button.trinity-btn-primary {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.elementor-button.trinity-btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1), height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.elementor-button.trinity-btn-primary:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Hero section overlay effect */
+.trinity-hero-overlay {
+    position: relative;
+}
+
+.trinity-hero-overlay::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+    z-index: 0;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 1024px) {
+    .trinity-marquee .marquee-item {
+        padding: 0 20px;
+    }
+
+    .trinity-service-card:hover {
+        transform: translateY(-4px);
+    }
+}
+
+@media (max-width: 768px) {
+    .trinity-marquee .marquee-item {
+        padding: 0 15px;
+    }
+
+    .trinity-testimonial-card {
+        padding: 20px;
+    }
+}
+
+/* Loading animation for Elementor sections */
+.elementor-section.trinity-fade-in {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation for grid items */
+.trinity-grid-stagger .elementor-widget {
+    animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.trinity-grid-stagger .elementor-widget:nth-child(1) { animation-delay: 0.1s; }
+.trinity-grid-stagger .elementor-widget:nth-child(2) { animation-delay: 0.2s; }
+.trinity-grid-stagger .elementor-widget:nth-child(3) { animation-delay: 0.3s; }
+.trinity-grid-stagger .elementor-widget:nth-child(4) { animation-delay: 0.4s; }
+.trinity-grid-stagger .elementor-widget:nth-child(5) { animation-delay: 0.5s; }
+.trinity-grid-stagger .elementor-widget:nth-child(6) { animation-delay: 0.6s; }
+.trinity-grid-stagger .elementor-widget:nth-child(7) { animation-delay: 0.7s; }
+.trinity-grid-stagger .elementor-widget:nth-child(8) { animation-delay: 0.8s; }
+
+/* Gradient text effect */
+.elementor-widget-heading.trinity-gradient-text h1,
+.elementor-widget-heading.trinity-gradient-text h2,
+.elementor-widget-heading.trinity-gradient-text h3 {
+    background: linear-gradient(90deg, #7C3AED 0%, #EC4899 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Floating animation for call-to-action elements */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.elementor-button.trinity-float {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Pulse animation for important buttons */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(124, 58, 237, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(124, 58, 237, 0);
+    }
+}
+
+.elementor-button.trinity-pulse {
+    animation: pulse 2s infinite;
+}
+
+/* Cursor trail effect for interactive elements */
+.elementor-widget-image.trinity-cursor-trail:hover img,
+.elementor-button.trinity-cursor-trail:hover {
+    position: relative;
+    overflow: visible;
+}
+
+.elementor-widget-image.trinity-cursor-trail:hover::after,
+.elementor-button.trinity-cursor-trail:hover::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(124, 58, 237, 0.5);
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    animation: cursorTrail 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes cursorTrail {
+    0% {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
+    100% {
+        width: 140%;
+        height: 140%;
+        opacity: 0;
+    }
+}

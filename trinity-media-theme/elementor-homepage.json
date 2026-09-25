@@ -1,0 +1,412 @@
+{
+  "version": "1.0.0",
+  "title": "Trinity Homepage",
+  "type": "page",
+  "settings": {
+    "layout": "full-width",
+    "padding": "0"
+  },
+  "sections": [
+    {
+      "name": "hero",
+      "type": "hero-section",
+      "settings": {
+        "min_height": "90vh",
+        "padding": "0",
+        "background_type": "gradient",
+        "background_gradient": {
+          "type": "linear",
+          "direction": "to bottom",
+          "start_color": "rgba(15, 23, 42, 0.95)",
+          "end_color": "rgba(15, 23, 42, 0.95)"
+        }
+      },
+      "widgets": [
+        {
+          "type": "heading",
+          "settings": {
+            "text": "Transform Your Digital Presence",
+            "tag": "h1",
+            "font_size": { "desktop": "72px", "tablet": "48px", "mobile": "32px" },
+            "font_weight": "700",
+            "text_transform": "uppercase",
+            "font_family": "Bebas Neue",
+            "margin": "0 0 24px 0"
+          }
+        },
+        {
+          "type": "text-editor",
+          "settings": {
+            "editor": "<p style=\"font-size: 24px; line-height: 1.6; color: #cbd5e1;\">We create digital experiences that drive growth and engagement. Strategic design, cutting-edge development, and measurable results.</p>",
+            "margin": "0 0 40px 0"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "text": "Get Started",
+            "link": { "url": "#contact" },
+            "background_color": "#7C3AED",
+            "text_color": "#ffffff",
+            "padding": "16px 48px",
+            "border_radius": "4px",
+            "font_weight": "600",
+            "font_size": "18px",
+            "margin": "0 16px 0 0"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "text": "View Our Work",
+            "link": { "url": "#portfolio" },
+            "background_color": "transparent",
+            "border_color": "#ffffff",
+            "text_color": "#ffffff",
+            "padding": "16px 48px",
+            "border_radius": "4px",
+            "font_weight": "600",
+            "font_size": "18px"
+          }
+        }
+      ]
+    },
+    {
+      "name": "trusted-by",
+      "type": "marquee-section",
+      "settings": {
+        "padding": "60px 0",
+        "background_color": "#1e293b"
+      },
+      "widgets": [
+        {
+          "type": "text-editor",
+          "settings": {
+            "editor": "<div class=\"trinity-marquee\"><span class=\"marquee-item\"><img src=\"https://via.placeholder.com/150x50/7C3AED/FFFFFF?text=CLIENT+1\" alt=\"Client 1\"></span><span class=\"marquee-item\"><img src=\"https://via.placeholder.com/150x50/EC4899/FFFFFF?text=CLIENT+2\" alt=\"Client 2\"></span><span class=\"marquee-item\"><img src=\"https://via.placeholder.com/150x50/10B981/FFFFFF?text=CLIENT+3\" alt=\"Client 3\"></span><span class=\"marquee-item\"><img src=\"https://via.placeholder.com/150x50/F59E0B/FFFFFF?text=CLIENT+4\" alt=\"Client 4\"></span><span class=\"marquee-item\"><img src=\"https://via.placeholder.com/150x50/3B82F6/FFFFFF?text=CLIENT+5\" alt=\"Client 5\"></span><span class=\"marquee-item\"><img src=\"https://via.placeholder.com/150x50/6366F1/FFFFFF?text=CLIENT+6\" alt=\"Client 6\"></span><span class=\"marquee-item\"><img src=\"https://via.placeholder.com/150x50/8B5CF6/FFFFFF?text=CLIENT+7\" alt=\"Client 7\"></span><span class=\"marquee-item\"><img src=\"https://via.placeholder.com/150x50/14B8A6/FFFFFF?text=CLIENT+8\" alt=\"Client 8\"></span></div>",
+            "margin": "0"
+          }
+        }
+      ]
+    },
+    {
+      "name": "industries",
+      "type": "grid-section",
+      "settings": {
+        "padding": "80px 0",
+        "background_color": "#0f172a"
+      },
+      "widgets": [
+        {
+          "type": "heading",
+          "settings": {
+            "text": "INDUSTRIES WE SERVE",
+            "tag": "h2",
+            "font_size": "48px",
+            "font_weight": "700",
+            "text_transform": "uppercase",
+            "font_family": "Bebas Neue",
+            "margin": "0 0 40px 0",
+            "text_align": "center"
+          }
+        },
+        {
+          "type": "grid",
+          "settings": {
+            "columns": { "desktop": 4, "tablet": 2, "mobile": 1 },
+            "gap": "24px"
+          },
+          "widgets": [
+            { "type": "industry-card", "image": "https://via.placeholder.com/300x200/7C3AED/FFFFFF?text=Finance", "title": "Finance & Banking" },
+            { "type": "industry-card", "image": "https://via.placeholder.com/300x200/EC4899/FFFFFF?text=Healthcare", "title": "Healthcare" },
+            { "type": "industry-card", "image": "https://via.placeholder.com/300x200/10B981/FFFFFF?text=Technology", "title": "Technology" },
+            { "type": "industry-card", "image": "https://via.placeholder.com/300x200/F59E0B/FFFFFF?text=Retail", "title": "Retail & E-commerce" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "services",
+      "type": "services-section",
+      "settings": {
+        "padding": "80px 0",
+        "background_color": "#1e293b"
+      },
+      "widgets": [
+        {
+          "type": "heading",
+          "settings": {
+            "text": "OUR SERVICES",
+            "tag": "h2",
+            "font_size": "48px",
+            "font_weight": "700",
+            "text_transform": "uppercase",
+            "font_family": "Bebas Neue",
+            "margin": "0 0 40px 0",
+            "text_align": "center"
+          }
+        },
+        {
+          "type": "grid",
+          "settings": {
+            "columns": { "desktop": 4, "tablet": 2, "mobile": 1 },
+            "gap": "32px"
+          },
+          "widgets": [
+            { "type": "service-card", "image": "https://via.placeholder.com/600x400/7C3AED/FFFFFF?text=Brand+Identity", "title": "Brand Identity Design", "description": "Comprehensive brand identity systems including logo design, color palettes, typography guidelines, and brand voice documentation." },
+            { "type": "service-card", "image": "https://via.placeholder.com/600x400/EC4899/FFFFFF?text=Digital+Marketing", "title": "Digital Marketing Strategy", "description": "Strategic planning and execution of multi-channel digital campaigns with data-driven strategies that maximize ROI." },
+            { "type": "service-card", "image": "https://via.placeholder.com/600x400/10B981/FFFFFF?text=Web+Development", "title": "Website Development", "description": "Custom website development using modern technologies with responsive design and conversion-focused architecture." },
+            { "type": "service-card", "image": "https://via.placeholder.com/600x400/F59E0B/FFFFFF?text=Mobile+Apps", "title": "Mobile App Development", "description": "Native and cross-platform mobile applications with user-centric design and robust backend infrastructure." },
+            { "type": "service-card", "image": "https://via.placeholder.com/600x400/3B82F6/FFFFFF?text=UI/UX+Design", "title": "UI/UX Design", "description": "User interface and experience design focused on usability and aesthetic excellence with wireframing and prototyping." },
+            { "type": "service-card", "image": "https://via.placeholder.com/600x400/6366F1/FFFFFF?text=Content+Creation", "title": "Content Creation", "description": "Professional content production including photography, videography, and copywriting tailored to your brand voice." },
+            { "type": "service-card", "image": "https://via.placeholder.com/600x400/8B5CF6/FFFFFF?text=Social+Media", "title": "Social Media Management", "description": "End-to-end social media strategy with community management and analytics for building engaged audiences." },
+            { "type": "service-card", "image": "https://via.placeholder.com/600x400/14B8A6/FFFFFF?text=E-commerce", "title": "E-commerce Solutions", "description": "Complete e-commerce platform setup with custom inventory management and conversion optimization strategies." }
+          ]
+        },
+        {
+          "type": "button",
+          "settings": {
+            "text": "View All Services",
+            "link": { "url": "#services" },
+            "background_color": "#7C3AED",
+            "text_color": "#ffffff",
+            "padding": "16px 48px",
+            "border_radius": "4px",
+            "font_weight": "600",
+            "font_size": "18px",
+            "margin": "40px auto 0",
+            "display": "block"
+          }
+        }
+      ]
+    },
+    {
+      "name": "portfolio",
+      "type": "portfolio-section",
+      "settings": {
+        "padding": "80px 0",
+        "background_color": "#0f172a"
+      },
+      "widgets": [
+        {
+          "type": "heading",
+          "settings": {
+            "text": "OUR PORTFOLIO",
+            "tag": "h2",
+            "font_size": "48px",
+            "font_weight": "700",
+            "text_transform": "uppercase",
+            "font_family": "Bebas Neue",
+            "margin": "0 0 40px 0",
+            "text_align": "center"
+          }
+        },
+        {
+          "type": "filter-buttons",
+          "settings": {
+            "buttons": [
+              { "label": "All", "filter": "all" },
+              { "label": "Mobile App", "filter": "mobile-app" },
+              { "label": "Web App", "filter": "web-app" },
+              { "label": "E-commerce", "filter": "ecommerce" }
+            ]
+          }
+        },
+        {
+          "type": "grid",
+          "settings": {
+            "columns": { "desktop": 3, "tablet": 2, "mobile": 1 },
+            "gap": "32px"
+          },
+          "widgets": [
+            { "type": "portfolio-card", "image": "https://via.placeholder.com/800x600/7C3AED/FFFFFF?text=TechFlow+App", "title": "TechFlow Mobile App", "category": "Mobile App", "link": "#portfolio-detail-1" },
+            { "type": "portfolio-card", "image": "https://via.placeholder.com/800x600/EC4899/FFFFFF?text=EcoWave+E-commerce", "title": "EcoWave E-commerce Platform", "category": "E-commerce", "link": "#portfolio-detail-2" },
+            { "type": "portfolio-card", "image": "https://via.placeholder.com/800x600/10B981/FFFFFF?text=FinanceHub+Dashboard", "title": "FinanceHub Dashboard", "category": "Web App", "link": "#portfolio-detail-3" },
+            { "type": "portfolio-card", "image": "https://via.placeholder.com/800x600/F59E0B/FFFFFF?text=HealthConnect+Portal", "title": "HealthConnect Patient Portal", "category": "Healthcare", "link": "#portfolio-detail-4" },
+            { "type": "portfolio-card", "image": "https://via.placeholder.com/800x600/3B82F6/FFFFFF?text=Logistics+Platform", "title": "Global Logistics Platform", "category": "Logistics", "link": "#portfolio-detail-5" },
+            { "type": "portfolio-card", "image": "https://via.placeholder.com/800x600/6366F1/FFFFFF?text=EduConnect+Learning", "title": "EduConnect Learning Platform", "category": "EdTech", "link": "#portfolio-detail-6" }
+          ]
+        },
+        {
+          "type": "button",
+          "settings": {
+            "text": "View All Projects",
+            "link": { "url": "#portfolio" },
+            "background_color": "#7C3AED",
+            "text_color": "#ffffff",
+            "padding": "16px 48px",
+            "border_radius": "4px",
+            "font_weight": "600",
+            "font_size": "18px",
+            "margin": "40px auto 0",
+            "display": "block"
+          }
+        }
+      ]
+    },
+    {
+      "name": "about",
+      "type": "about-section",
+      "settings": {
+        "padding": "80px 0",
+        "background_color": "#1e293b"
+      },
+      "widgets": [
+        {
+          "type": "heading",
+          "settings": {
+            "text": "ABOUT US",
+            "tag": "h2",
+            "font_size": "48px",
+            "font_weight": "700",
+            "text_transform": "uppercase",
+            "font_family": "Bebas Neue",
+            "margin": "0 0 24px 0"
+          }
+        },
+        {
+          "type": "text-editor",
+          "settings": {
+            "editor": "<p style=\"font-size: 18px; line-height: 1.8; color: #cbd5e1;\">We are a full-service digital agency passionate about creating exceptional digital experiences. Our team of designers, developers, and strategists work together to deliver results that exceed expectations.</p>",
+            "margin": "0 0 40px 0"
+          }
+        },
+        {
+          "type": "grid",
+          "settings": {
+            "columns": { "desktop": 2, "tablet": 1, "mobile": 1 },
+            "gap": "40px"
+          },
+          "widgets": [
+            { "type": "image", "image": "https://via.placeholder.com/600x400/7C3AED/FFFFFF?text=Our+Team", "margin": "0" },
+            { "type": "column", "widgets": [
+              { "type": "heading", "settings": { "text": "Who We Are", "tag": "h3", "font_size": "28px", "margin": "0 0 20px 0" } },
+              { "type": "text-editor", "settings": { "editor": "<p style=\"font-size: 16px; line-height: 1.8; color: #94a3b8;\">Founded with a vision to transform digital experiences, Trinity Media has grown into a leading digital agency known for our innovative approach and client-centric service.</p>" } },
+              { "type": "button", "settings": { "text": "Learn More", "link": { "url": "#about" }, "background_color": "#7C3AED", "text_color": "#ffffff", "padding": "12px 32px", "border_radius": "4px", "margin": "20px 0 0 0" } }
+            ] }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "milestones",
+      "type": "milestones-section",
+      "settings": {
+        "padding": "80px 0",
+        "background_gradient": {
+          "type": "linear",
+          "direction": "to bottom",
+          "start_color": "#7C3AED",
+          "end_color": "#8B5CF6"
+        }
+      },
+      "widgets": [
+        {
+          "type": "heading",
+          "settings": {
+            "text": "BY THE NUMBERS",
+            "tag": "h2",
+            "font_size": "48px",
+            "font_weight": "700",
+            "text_transform": "uppercase",
+            "font_family": "Bebas Neue",
+            "margin": "0 0 60px 0",
+            "text_align": "center",
+            "text_color": "#ffffff"
+          }
+        },
+        {
+          "type": "grid",
+          "settings": {
+            "columns": { "desktop": 4, "tablet": 2, "mobile": 1 },
+            "gap": "32px"
+          },
+          "widgets": [
+            { "type": "milestone-item", "number": "150+", "label": "Projects Completed", "text_color": "#ffffff" },
+            { "type": "milestone-item", "number": "98%", "label": "Client Satisfaction", "text_color": "#ffffff" },
+            { "type": "milestone-item", "number": "50+", "label": "Team Members", "text_color": "#ffffff" },
+            { "type": "milestone-item", "number": "10+", "label": "Years Experience", "text_color": "#ffffff" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "testimonials",
+      "type": "testimonials-section",
+      "settings": {
+        "padding": "80px 0",
+        "background_color": "#1e293b"
+      },
+      "widgets": [
+        {
+          "type": "heading",
+          "settings": {
+            "text": "WHAT CLIENTS SAY",
+            "tag": "h2",
+            "font_size": "48px",
+            "font_weight": "700",
+            "text_transform": "uppercase",
+            "font_family": "Bebas Neue",
+            "margin": "0 0 40px 0",
+            "text_align": "center"
+          }
+        },
+        {
+          "type": "grid",
+          "settings": {
+            "columns": { "desktop": 3, "tablet": 2, "mobile": 1 },
+            "gap": "32px"
+          },
+          "widgets": [
+            { "type": "testimonial-card", "quote": "Trinity Media transformed our digital presence. Their strategic approach and technical expertise delivered results beyond our expectations.", "author": "Sarah Mitchell", "role": "CEO, TechFlow Inc", "avatar": "https://via.placeholder.com/100x100/7C3AED/FFFFFF?text=SM" },
+            { "type": "testimonial-card", "quote": "The e-commerce platform they built increased our conversion rate by 320%. Professional team, excellent communication, and outstanding results.", "author": "James Rodriguez", "role": "CMO, EcoWave Fashion", "avatar": "https://via.placeholder.com/100x100/EC4899/FFFFFF?text=JR" },
+            { "type": "testimonial-card", "quote": "Working with Trinity Media was seamless. They understood our complex requirements and delivered a world-class dashboard that our clients love.", "author": "Priya Patel", "role": "Head of Product, FinanceHub", "avatar": "https://via.placeholder.com/100x100/10B981/FFFFFF?text=PP" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "cta",
+      "type": "cta-section",
+      "settings": {
+        "padding": "100px 0",
+        "background_gradient": {
+          "type": "linear",
+          "direction": "to bottom",
+          "start_color": "#7C3AED",
+          "end_color": "#8B5CF6"
+        }
+      },
+      "widgets": [
+        {
+          "type": "heading",
+          "settings": {
+            "text": "READY TO START YOUR PROJECT?",
+            "tag": "h2",
+            "font_size": "48px",
+            "font_weight": "700",
+            "text_transform": "uppercase",
+            "font_family": "Bebas Neue",
+            "margin": "0 0 40px 0",
+            "text_align": "center",
+            "text_color": "#ffffff"
+          }
+        },
+        {
+          "type": "button",
+          "settings": {
+            "text": "Get in Touch",
+            "link": { "url": "#contact" },
+            "background_color": "#ffffff",
+            "text_color": "#7C3AED",
+            "padding": "20px 60px",
+            "border_radius": "4px",
+            "font_weight": "700",
+            "font_size": "20px",
+            "margin": "40px auto 0",
+            "display": "block"
+          }
+        }
+      ]
+    }
+  ]
+}
