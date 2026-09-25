@@ -87,14 +87,14 @@ export function Industries() {
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-indigo-600/6 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 max-w-[1360px] mx-auto px-6 md:px-8">
-        <div className="text-center mb-16">
+        <div className="text-left mb-16">
           <div className="text-xs uppercase tracking-widest text-primary font-bold mb-2">Sectors We Empower</div>
           <h2 className="font-display text-5xl md:text-6xl text-foreground uppercase tracking-tight">Industries We Serve</h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_450px] gap-8 items-start">
           {/* Left: Industry Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 gap-4">
             {INDUSTRIES.map((ind, i) => (
               <motion.div
                 key={i}
