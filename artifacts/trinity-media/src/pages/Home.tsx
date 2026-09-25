@@ -5,7 +5,6 @@ import { Industries } from '../components/Industries';
 import { Services } from '../components/Services';
 import { Portfolio } from '../components/Portfolio';
 import { About } from '../components/About';
-import { QuoteFormSection } from '../components/QuoteFormSection';
 import { Milestones } from '../components/Milestones';
 import { Awards } from '../components/Awards';
 import { Footer } from '../components/Footer';
@@ -16,7 +15,7 @@ export default function Home() {
     <div className="min-h-screen bg-background text-foreground font-sans relative">
       <CustomCursor />
       <Navbar />
-      
+
       <main>
         <Hero />
         <TrustedBy />
@@ -24,7 +23,6 @@ export default function Home() {
         <Services />
         <Portfolio />
         <About />
-        <QuoteFormSection />
         <Milestones />
         <Awards />
       </main>
