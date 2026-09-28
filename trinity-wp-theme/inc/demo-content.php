@@ -1,0 +1,649 @@
+<?php
+/**
+ * Demo Content Generator
+ * Creates posts, pages, and custom post types matching React design
+ */
+
+// Prevent direct access
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+/**
+ * Register Custom Post Types
+ */
+function trinity_register_post_types() {
+    // Services Post Type
+    register_post_type('service', array(
+        'labels' => array(
+            'name' => 'Services',
+            'singular_name' => 'Service',
+            'add_new' => 'Add New Service',
+            'add_new_item' => 'Add New Service',
+            'edit_item' => 'Edit Service',
+            'new_item' => 'New Service',
+            'view_item' => 'View Service',
+            'search_items' => 'Search Services',
+            'not_found' => 'No services found',
+            'not_found_in_trash' => 'No services found in Trash'
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'services'),
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'),
+        'show_in_rest' => true,
+        'menu_icon' => 'dashicons-portfolio'
+    ));
+
+    // Portfolio Post Type
+    register_post_type('portfolio', array(
+        'labels' => array(
+            'name' => 'Portfolio',
+            'singular_name' => 'Portfolio Item',
+            'add_new' => 'Add New Item',
+            'add_new_item' => 'Add New Portfolio Item',
+            'edit_item' => 'Edit Portfolio Item',
+            'new_item' => 'New Portfolio Item',
+            'view_item' => 'View Portfolio Item',
+            'search_items' => 'Search Portfolio',
+            'not_found' => 'No portfolio items found',
+            'not_found_in_trash' => 'No portfolio items found in Trash'
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'portfolio'),
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'show_in_rest' => true,
+        'menu_icon' => 'dashicons-images-alt2'
+    ));
+
+    // Testimonial Post Type
+    register_post_type('testimonial', array(
+        'labels' => array(
+            'name' => 'Testimonials',
+            'singular_name' => 'Testimonial',
+            'add_new' => 'Add New Testimonial',
+            'add_new_item' => 'Add New Testimonial',
+            'edit_item' => 'Edit Testimonial',
+            'new_item' => 'New Testimonial',
+            'view_item' => 'View Testimonial',
+            'search_items' => 'Search Testimonials',
+            'not_found' => 'No testimonials found',
+            'not_found_in_trash' => 'No testimonials found in Trash'
+        ),
+        'public' => true,
+        'has_archive' => false,
+        'rewrite' => array('slug' => 'testimonials'),
+        'supports' => array('title', 'editor', 'thumbnail'),
+        'show_in_rest' => true,
+        'menu_icon' => 'dashicons-testimonial'
+    ));
+}
+add_action('init', 'trinity_register_post_types');
+
+/**
+ * Create Demo Content on Theme Activation
+ */
+function trinity_create_demo_content() {
+    // Check if demo content already created
+    if (get_option('trinity_demo_content_created')) {
+        return;
+    }
+
+    // Create services from React data
+    trinity_create_services();
+
+    // Create main pages
+    trinity_create_pages();
+
+    // Create sample portfolio items
+    trinity_create_portfolio_items();
+
+    // Create sample testimonials
+    trinity_create_testimonials();
+
+    // Create navigation menu
+    trinity_create_navigation_menu();
+
+    // Mark demo content as created
+    update_option('trinity_demo_content_created', true);
+}
+add_action('after_switch_theme', 'trinity_create_demo_content');
+
+/**
+ * Get all services data
+ */
+function trinity_get_services_data() {
+    return array(
+        array(
+            'num' => '01',
+            'slug' => 'exhibition-stand-design-construction',
+            'title' => 'Exhibition Stand Design & Construction',
+            'short' => 'Trinity Media designs and builds innovative, custom exhibition stands that maximize brand visibility, attract visitors, and create a lasting impact at every event.',
+            'overview' => 'Trinity Media designs and builds innovative, custom exhibition stands that maximize brand visibility, attract visitors, and create a lasting impact at every event.
+
+We design and build premium exhibition solutions that help brands create a powerful presence at trade shows and events. From custom-built exhibition stands and modular exhibition stands to double-deck stands and portable pop-up stands, we deliver innovative designs tailored to your business goals. Every stand is crafted to maximize visibility, engagement, and brand impact.
+
+Our complete exhibition stand services include exhibition counters / reception desks, meeting pods / private rooms, and in-stand storage rooms for enhanced functionality and visitor comfort. Our exhibition graphics and branding solutions are crafted to communicate your message effectively, paired with advanced LED display integration for immersive digital presentations. Our expertly designed product display fixtures within stands showcase your products in an attractive and organized way, encouraging customer interaction and increasing engagement.
+
+Combining creative design, premium materials, and flawless execution, we deliver exhibition spaces that are both visually impressive and highly practical. Whether you need a compact display or a large custom exhibition environment, our team ensures every project reflects your brand with excellence.
+
+From concept and 3D design to manufacturing, installation, and dismantling, we provide end-to-end exhibition stand solutions under one roof. Our experienced team focuses on quality, innovation, and timely delivery to ensure a seamless exhibition experience. Partner with us to create memorable exhibition stands that attract visitors, generate leads, and strengthen your brand presence.',
+            'capabilities' => array('Custom-built exhibition stands', 'Modular exhibition stands', 'Double-deck stands', 'Portable pop-up stands', 'Exhibition counters / reception desks', 'Meeting pods / private rooms', 'In-stand storage rooms', 'Exhibition graphics and branding', 'LED display integration', 'Product display fixtures', '3D design and visualization', 'On-site installation and dismantling'),
+            'deliverables' => array('Concept and 3D design', 'Custom exhibition stand fabrication', 'Modular and portable solutions', 'Reception desks and counters', 'Meeting pods and private rooms', 'Storage solutions', 'Brand graphics and signage', 'LED display systems', 'Product display fixtures', 'Installation and setup', 'Dismantling and removal', 'Project management')
+        ),
+        array(
+            'num' => '02',
+            'slug' => 'event-branding-activation',
+            'title' => 'Event Branding & Activation',
+            'short' => 'Create unforgettable brand experiences with Trinity Media\'s creative event branding and activation solutions that engage audiences, strengthen brand visibility, and deliver lasting impact.',
+            'overview' => 'Create unforgettable brand experiences with Trinity Media\'s creative event branding and activation solutions that engage audiences, strengthen brand visibility, and deliver lasting impact.
+
+Trinity media delivers complete Event Branding & Activation solutions that transform every event into a memorable brand experience. From concept to execution, we create visually impactful environments that capture attention and strengthen your brand presence. Our expert team ensures every branding element is designed with precision, creativity, and quality.
+
+Our comprehensive event branding services include stage design & construction, backdrop banners, event branding packages, registration counters, photo booth setups, red carpet setups, podiums, flag & banner stands, table throws & runners, truss & rigging structures, LED screen rental, gift & giveaway branding, and directional event signage. Whether you\'re organizing a corporate conference, product launch, exhibition, trade show, awards ceremony, or promotional event, Trinity media provides customized branding solutions that enhance audience engagement and deliver a professional, cohesive event experience.
+
+Every detail is carefully planned to ensure your brand stands out from entrance to stage. At Trinity media, we combine innovative design, premium materials, and flawless execution to create impactful event experiences that leave a lasting impression. Partner with us for reliable Event Branding & Activation services that elevate your brand and make every event unforgettable.',
+            'capabilities' => array('Stage design & construction', 'Backdrop banners', 'Event branding packages', 'Registration counters', 'Photo booth setups', 'Red carpet setups', 'Podiums', 'Flag & banner stands', 'Table throws & runners', 'Truss & rigging structures', 'LED screen rental', 'Gift & giveaway branding', 'Directional event signage'),
+            'deliverables' => array('Stage design and construction', 'Custom backdrop banners', 'Complete event branding packages', 'Registration counters', 'Photo booth setups', 'Red carpet installations', 'Custom podiums', 'Flag and banner stands', 'Table throws and runners', 'Truss and rigging structures', 'LED screen solutions', 'Branded gifts and giveaways', 'Directional signage systems', 'Event design consultation', 'On-site setup and management')
+        ),
+        array(
+            'num' => '03',
+            'slug' => 'custom-kiosk-design-fabrication',
+            'title' => 'Custom Kiosk Design & Fabrication',
+            'short' => 'Premium custom kiosk design and fabrication solutions by Trinity Media, delivering innovative, durable, and brand-focused kiosks for retail, exhibitions, malls, and promotional events.',
+            'overview' => 'Premium custom kiosk design and fabrication solutions by Trinity Media, delivering innovative, durable, and brand-focused kiosks for retail, exhibitions, malls, and promotional events.
+
+Trinity Media is a leading provider of innovative kiosk solutions designed to transform customer experiences and elevate business engagement. We specialize in Mall Information Kiosks, Retail Sales Kiosks, Food & Beverage Kiosks, and Digital Interactive Kiosks, delivering smart technology with premium design. Our customized kiosk solutions help businesses improve efficiency, increase visibility, and create seamless user interactions.
+
+From Ticketing Kiosks that simplify transactions to Photo Booth Kiosks that create memorable experiences, Trinity Media offers solutions for every industry. Our Mobile / Telecom Kiosks provide modern retail displays, while ATM Enclosure Kiosks ensure secure and durable banking environments. We also design Exhibition Promotional Kiosks that maximize brand exposure at events and trade shows. Our advanced Charging Station Kiosks keep customers connected while increasing footfall and engagement.
+
+Every kiosk is engineered with cutting-edge technology, superior craftsmanship, and customizable features to meet your unique business requirements. At Trinity Media, we combine innovation, quality, and reliability to deliver kiosk solutions that drive business success. Our expert team provides complete support from design and manufacturing to installation and maintenance, ensuring exceptional performance at every stage. Partner with Trinity Media to create intelligent, future-ready kiosk experiences that leave a lasting impression.',
+            'capabilities' => array('Mall Information Kiosks', 'Retail Sales Kiosks', 'Food & Beverage Kiosks', 'Digital Interactive Kiosks', 'Ticketing Kiosks', 'Photo Booth Kiosks', 'Mobile / Telecom Kiosks', 'ATM Enclosure Kiosks', 'Exhibition Promotional Kiosks', 'Charging Station Kiosks', 'Custom kiosk design', 'Digital integration', 'Maintenance and support'),
+            'deliverables' => array('Custom kiosk design and development', 'Mall information kiosks', 'Retail sales kiosks', 'Food and beverage kiosks', 'Digital interactive kiosks', 'Ticketing kiosks', 'Photo booth kiosks', 'Mobile and telecom kiosks', 'ATM enclosures', 'Exhibition promotional kiosks', 'Charging station kiosks', 'Installation services', 'Maintenance and support', 'Technology integration', 'Brand customization')
+        ),
+        array(
+            'num' => '04',
+            'slug' => 'retail-display-pos-solutions',
+            'title' => 'Retail Display & Point-of-Sale Solutions',
+            'short' => 'Trinity Media offers premium retail display and point-of-sale solutions that boost brand presence, enhance customer engagement, and maximize sales impact.',
+            'overview' => 'Trinity Media offers premium retail display and point-of-sale solutions that boost brand presence, enhance customer engagement, and maximize sales impact.
+
+Trinity Media delivers innovative Retail Display & Point-of-Sale Solutions that enhance product visibility and create engaging shopping experiences. Our customized display systems are designed to maximize retail space while strengthening your brand presence. From concept to installation, Trinity Media provides durable, stylish, and functional display solutions for every retail environment.
+
+Our extensive range includes retail product display racks, POS counter displays, slat wall displays, gondola shelving, and jewelry display cases designed to showcase products with maximum impact. We also manufacture premium cosmetic display units, mobile accessory displays, and literature / brochure stands that improve product organization and customer engagement. Our versatile rotating display stands and wall-mounted display units help optimize floor space while ensuring easy product access.
+
+Every display solution is crafted using high-quality materials with modern designs that suit supermarkets, showrooms, retail stores, pharmacies, and branded outlets. We focus on delivering customized, durable, and visually appealing retail displays that increase product visibility and support stronger sales performance.
+
+Whether you need a single display unit or a complete retail fit-out, Trinity Media provides reliable solutions tailored to your business requirements. Our team combines creativity, quality craftsmanship, and precision manufacturing to deliver displays that leave a lasting impression. Partner with Trinity Media to transform your retail space into an attractive and high-performing shopping destination.',
+            'capabilities' => array('Retail product display racks', 'POS counter displays', 'Slat wall displays', 'Gondola shelving', 'Jewelry display cases', 'Cosmetic display units', 'Mobile accessory displays', 'Literature / brochure stands', 'Rotating display stands', 'Wall-mounted display units', 'Custom design solutions', 'Space optimization'),
+            'deliverables' => array('Retail product display racks', 'POS counter displays', 'Slat wall displays', 'Gondola shelving systems', 'Jewelry display cases', 'Cosmetic display units', 'Mobile accessory displays', 'Literature and brochure stands', 'Rotating display stands', 'Wall-mounted display units', 'Custom display designs', 'Installation services', 'Brand integration', 'Store layout consultation')
+        ),
+        array(
+            'num' => '05',
+            'slug' => 'interior-fit-out-solutions',
+            'title' => 'Interior Fit-Out Solutions',
+            'short' => 'Transforming spaces with innovative interior fit-out solutions by Trinity Media, delivering functional, stylish, and high-quality designs tailored for modern workplaces and commercial environments.',
+            'overview' => 'Transforming spaces with innovative interior fit-out solutions by Trinity Media, delivering functional, stylish, and high-quality designs tailored for modern workplaces and commercial environments.
+
+Transform your workspace with premium Interior Fit-Out Solutions designed to enhance functionality, style, and brand identity. Trinity Media delivers innovative interior solutions with expert craftsmanship and modern design concepts. From commercial spaces to retail environments, we create interiors that inspire and perform.
+
+Our complete fit-out services include office partitions, glass partitioning, flooring installation, and reception counter design & build to create professional and welcoming spaces. From retail shelving and racking to showroom, restaurant, and café interiors, we provide customized design solutions that bring your business vision to life. Our skilled team provides gypsum works, painting & wall finishes, and joinery / carpentry work with attention to every detail.
+
+Using quality materials and creative solutions, we deliver seamless interiors that balance aesthetics, durability, and practicality. Trinity Media focuses on delivering end-to-end interior transformation with reliable service and exceptional results.
+
+Whether it\'s a corporate office, retail outlet, showroom, or hospitality space, our team brings your ideas to life. We create modern, functional, and elegant interiors that reflect your unique style and business goals. Choose Trinity Media for professional interior fit-out solutions built with creativity, precision, and excellence.',
+            'capabilities' => array('Office partitions', 'Glass partitioning', 'Flooring installation', 'Reception counter design & build', 'Retail shelving and racking', 'Showroom interiors', 'Restaurant and café interiors', 'Gypsum works', 'Painting & wall finishes', 'Joinery / carpentry work', 'Space planning', 'Project management'),
+            'deliverables' => array('Office partition systems', 'Glass partition installations', 'Flooring solutions', 'Custom reception counters', 'Retail shelving and racking', 'Showroom interiors', 'Restaurant and café fit-outs', 'Gypsum ceiling and walls', 'Painting and wall finishes', 'Custom joinery and carpentry', 'Space planning and design', 'Project management', 'Turnkey solutions', 'Maintenance services')
+        ),
+        array(
+            'num' => '06',
+            'slug' => 'portable-display-branding-solutions',
+            'title' => 'Portable display & branding Solutions',
+            'short' => 'Premium portable display and branding solutions by Trinity Media—delivering high-impact exhibition displays, pop-up stands, roll-up banners, and custom branding that elevate your brand anywhere, anytime.',
+            'overview' => 'Premium portable display and branding solutions by Trinity Media—delivering high-impact exhibition displays, pop-up stands, roll-up banners, and custom branding that elevate your brand anywhere, anytime.
+
+At Trinity Media, we create innovative portable display & branding solutions that help businesses showcase their products with style and impact. Our premium display systems are designed for retail stores, exhibitions, supermarkets, and promotional spaces. We combine modern design, durability, and functionality to enhance every brand presentation.
+
+Our wide range of display solutions includes retail product display racks, POS counter displays, slat wall displays, gondola shelving, jewelry display cases, and cosmetic display units to suit diverse retail requirements. We also manufacture mobile accessory displays, literature and brochure stands, rotating display stands, and wall-mounted display units for effective product visibility and organized merchandising.
+
+Every display is crafted using high-quality materials with customizable sizes, colors, and branding options. Our solutions maximize retail space while improving customer engagement and product accessibility. Whether for retail outlets, trade shows, or commercial interiors, our display systems deliver a professional and lasting impression.
+
+From concept to installation, we provide reliable display solutions tailored to your business needs. Our commitment to quality, innovation, and customer satisfaction ensures every project reflects your brand identity with excellence. Choose our modern display systems to create an attractive, organized, and impactful retail environment.',
+            'capabilities' => array('Retail product display racks', 'POS counter displays', 'Slat wall displays', 'Gondola shelving', 'Jewelry display cases', 'Cosmetic display units', 'Mobile accessory displays', 'Literature and brochure stands', 'Rotating display stands', 'Wall-mounted display units', 'Custom branding options', 'Portable solutions'),
+            'deliverables' => array('Retail product display racks', 'POS counter displays', 'Slat wall display systems', 'Gondola shelving units', 'Jewelry display cases', 'Cosmetic display units', 'Mobile accessory displays', 'Literature and brochure stands', 'Rotating display stands', 'Wall-mounted display units', 'Custom branding and graphics', 'Portable display systems', 'Installation services', 'Brand consultation')
+        ),
+        array(
+            'num' => '07',
+            'slug' => 'corrugated-display-forex-stand-solutions',
+            'title' => 'Corrugated Display & Forex Stand Solutions',
+            'short' => 'Enhance your brand visibility with premium corrugated displays and durable Forex stand solutions, custom-designed by Trinity Media for impactful retail promotions, exhibitions, events, and point-of-sale branding.',
+            'overview' => 'Corrugated Display & Forex Stand Solutions – Enhance your brand visibility with premium corrugated displays and durable Forex stand solutions, custom-designed by Trinity Media for impactful retail promotions, exhibitions, events, and point-of-sale branding.
+
+Create powerful retail branding and promotional displays with high-quality Corrugated Display and Forex Stand Solutions. Designed for durability and visual appeal, our solutions help businesses attract customers and strengthen brand presence across every marketing space. Trinity Media delivers innovative display products that combine creative design with premium-quality materials for outstanding results.
+
+Our product range includes life-size standee cutouts, tabletop standee cutouts, POS counter stands, product display stands, and pull-up POS units for effective in-store promotions. We also manufacture retail shelf displays, danglers & header boards, product dump bins, and floor display units to maximize product visibility and improve customer engagement.
+
+Enhance storefront branding with attractive window display cutouts, promotional standees, and high-quality Forex board signage panels designed for long-lasting performance. Every display solution is customized to suit your brand identity, campaign goals, and retail environment. From concept to production, we ensure precision craftsmanship, vibrant printing, and exceptional finishing for every project.
+
+Our durable Corrugated Displays and Forex Stands are suitable for a wide range of applications, including retail stores, supermarkets, exhibitions, shopping malls, and corporate events. With innovative designs, premium materials, and reliable execution, we help brands create memorable customer experiences and lasting visual impact. Choose our custom display solutions to showcase your products with confidence and professionalism.',
+            'capabilities' => array('Life-size standee cutouts', 'Tabletop standee cutouts', 'POS counter stands', 'Product display stands', 'Pull-up POS units', 'Retail shelf displays', 'Danglers & header boards', 'Product dump bins', 'Floor display units', 'Window display cutouts', 'Promotional standees', 'Forex board signage panels'),
+            'deliverables' => array('Life-size standee cutouts', 'Tabletop standee cutouts', 'POS counter stands', 'Custom product display stands', 'Pull-up POS units', 'Retail shelf displays', 'Danglers and header boards', 'Product dump bins', 'Floor display units', 'Window display cutouts', 'Promotional standees', 'Forex board signage panels', 'Custom printing and finishing', 'Design consultation', 'Brand integration')
+        ),
+        array(
+            'num' => '08',
+            'slug' => 'indoor-outdoor-signage',
+            'title' => 'Indoor & Outdoor Signage',
+            'short' => 'Trinity Media delivers premium indoor and outdoor signage solutions with creative designs, durable materials, and impactful branding to enhance your business visibility.',
+            'overview' => 'Trinity Media delivers premium indoor and outdoor signage solutions that help businesses create a powerful first impression. From eye-catching storefront displays to professional interior branding, we design signage that enhances visibility and strengthens brand identity. Every project is crafted with precision, quality materials, and a modern finish.
+
+Our comprehensive signage solutions include 3D letter signs (illuminated and non-illuminated), LED channel letters, storefront signboards, directional and wayfinding signs, pylon signs, and monument signs for maximum brand visibility. We also provide parking and compliance signs, window graphics, door and office signage, building wraps, and blade/projecting signs to create a consistent and professional business environment.
+
+For restaurants, retail stores, offices, and commercial spaces, we design high-quality menu boards, washroom signage, and reception signage that combine functionality with contemporary design. Every signage solution is customized to match your brand, improve customer experience, and deliver lasting visual impact.
+
+Whether you need a single sign or a complete signage system, our team provides creative designs, expert fabrication, and seamless installation. We focus on durability, innovation, and attention to detail to ensure every sign represents your business with confidence. Transform your space with signage that attracts attention, communicates clearly, and leaves a lasting impression.',
+            'capabilities' => array('3D letter signs (illuminated and non-illuminated)', 'LED channel letters', 'Storefront signboards', 'Directional and wayfinding signs', 'Pylon signs', 'Monument signs', 'Parking and compliance signs', 'Window graphics', 'Door and office signage', 'Building wraps', 'Blade/projecting signs', 'Menu boards', 'Washroom signage', 'Reception signage'),
+            'deliverables' => array('3D illuminated and non-illuminated letters', 'LED channel letter signs', 'Custom storefront signboards', 'Directional and wayfinding systems', 'Pylon and monument signs', 'Parking and compliance signage', 'Window graphics and decals', 'Door and office signage', 'Building wraps', 'Blade and projecting signs', 'Menu boards', 'Washroom signage', 'Reception signage', 'Design consultation', 'Installation services')
+        ),
+        array(
+            'num' => '09',
+            'slug' => 'led-neon-illuminated-signage',
+            'title' => 'LED Neon & Illuminated Signage',
+            'short' => 'Trinity Media delivers premium LED Neon and illuminated signage solutions that enhance brand visibility with creative designs, energy-efficient technology, and stunning visual impact.',
+            'overview' => 'Trinity Media delivers premium LED Neon and illuminated signage solutions that enhance brand visibility with creative designs, energy-efficient technology, and stunning visual impact.
+
+Transform your space with stunning LED neon & illuminated signage designed to create a bold visual impact. Trinity media delivers modern lighting solutions with creative designs for businesses, events, and interiors. From eye-catching displays to personalized creations, we bring your ideas to life with vibrant neon style.
+
+Our collection includes LED neon shop signs, neon wall art / home decor, and custom neon text & quotes for every space. Create a memorable brand identity with premium neon logo signs and stylish cafe / restaurant neon signs. We design attractive neon "open" / "welcome" signs that enhance customer experience and visibility. Perfect for celebrations, our neon wedding & event signs add a unique and elegant touch to special occasions.
+
+Our outdoor weatherproof neon solutions are built for durability, brightness, and long-lasting performance. Choose innovative illuminated signage that combines creativity, quality, and modern design. Whether for commercial spaces or personal interiors, our neon solutions make every location stand out. Experience the perfect blend of style and technology with custom LED neon creations made to impress.',
+            'capabilities' => array('LED neon shop signs', 'Neon wall art / home decor', 'Custom neon text & quotes', 'Neon logo signs', 'Cafe / restaurant neon signs', 'Neon "open" / "welcome" signs', 'Neon wedding & event signs', 'Outdoor weatherproof neon solutions', 'Custom neon designs', 'Energy-efficient LED technology'),
+            'deliverables' => array('LED neon shop signs', 'Neon wall art and home decor', 'Custom neon text and quotes', 'Neon logo signs', 'Cafe and restaurant neon signs', 'Neon open and welcome signs', 'Neon wedding and event signs', 'Outdoor weatherproof neon solutions', 'Custom neon designs', 'Design consultation', 'Installation services', 'Energy-efficient lighting solutions', 'Maintenance and support')
+        ),
+        array(
+            'num' => '10',
+            'slug' => 'shell-scheme-booth-furniture-rental',
+            'title' => 'Shell Scheme Booth Rental & Furniture Rental',
+            'short' => 'Premium shell scheme booth rental and furniture solutions by Trinity Media, delivering stylish, functional, and professional exhibition setups that elevate your brand presence.',
+            'overview' => 'Premium shell scheme booth rental and furniture solutions by Trinity Media, delivering stylish, functional, and professional exhibition setups that elevate your brand presence.
+
+Create an impressive exhibition presence with professional Shell Scheme Booth Rental & Furniture Rental solutions designed to enhance your brand visibility. Our modern booth setups deliver a clean, functional, and attractive environment for every event. Trinity media provides complete exhibition support with customized solutions for your business needs.
+
+Our Standard shell scheme package includes walls, fascia, and carpet for a polished booth appearance. Choose from premium Furniture rental options including chairs, tables, and counters to complete your setup. Enhance your branding with branded fascia name boards and professional lighting packages for maximum impact.
+
+We offer practical storage room add-ons, electrical socket add-ons, and shelving / display add-ons for better booth functionality. Select from multiple carpet colour options to match your brand theme and exhibition style. With reliable service and creative booth solutions, we help businesses create memorable exhibition experiences. Our team ensures smooth installation, quality materials, and customized booth arrangements for every event. Partner with us for modern, efficient, and visually engaging exhibition booth solutions.',
+            'capabilities' => array('Standard shell scheme package (walls, fascia, carpet)', 'Furniture rental (chairs, tables, counters)', 'Branded fascia name boards', 'Professional lighting packages', 'Storage room add-ons', 'Electrical socket add-ons', 'Shelving / display add-ons', 'Multiple carpet colour options', 'Custom booth arrangements', 'Installation and setup services'),
+            'deliverables' => array('Shell scheme booth installation', 'Wall panels and fascia', 'Carpet flooring', 'Furniture rental (chairs, tables, counters)', 'Branded fascia name boards', 'Professional lighting packages', 'Storage room solutions', 'Electrical socket installations', 'Shelving and display add-ons', 'Multiple carpet colour options', 'Booth customization', 'Installation and dismantling', 'On-site support')
+        ),
+        array(
+            'num' => '11',
+            'slug' => 'acrylic-fabrication',
+            'title' => 'Acrylic Fabrication',
+            'short' => 'Premium custom acrylic solutions with precision design, durable finishes, and innovative craftsmanship for impactful branding and displays.',
+            'overview' => 'Acrylic Fabrication by Trinity Media – Premium custom acrylic solutions with precision design, durable finishes, and innovative craftsmanship for impactful branding and displays.
+
+Trinity media delivers modern Acrylic Fabrication solutions with precision-crafted acrylic display stands and custom acrylic name plates & desk plates. We create elegant acrylic photo frames, menu holders / table stands, brochure & literature holders, and premium acrylic podiums & lecterns. Our expertise includes acrylic partitions / sneeze guards, acrylic light boxes, and 3D acrylic letters & logos for brands and businesses.
+
+Our expertly crafted acrylic awards, trophies, and display units combine strength with sophistication, ensuring an impressive presentation every time. Our range of risers, display shelves, cake stands, event décor items, and acrylic signage panels is designed to deliver both beauty and practicality. We manufacture ballot / suggestion boxes with high-quality finishes and offer professional laser engraving & cutting services.
+
+Every project is customized using advanced techniques to deliver attractive, reliable, and long-lasting acrylic solutions. Your trusted partner for custom fabrication solutions across retail, corporate, hospitality, event, and promotional display sectors. We transform creative ideas into stunning acrylic products with clean designs and superior craftsmanship. Our custom fabrication solutions help businesses showcase their products with confidence and elegance. Experience professional acrylic design, fabrication, and finishing services tailored to your unique needs.',
+            'capabilities' => array('Acrylic display stands', 'Custom acrylic name plates & desk plates', 'Acrylic photo frames', 'Menu holders / table stands', 'Brochure & literature holders', 'Acrylic podiums & lecterns', 'Acrylic partitions / sneeze guards', 'Acrylic light boxes', '3D acrylic letters & logos', 'Acrylic awards and trophies', 'Display risers and shelves', 'Cake stands', 'Event décor items', 'Acrylic signage panels', 'Ballot / suggestion boxes', 'Laser engraving & cutting'),
+            'deliverables' => array('Custom acrylic display stands', 'Acrylic name plates and desk plates', 'Acrylic photo frames', 'Menu holders and table stands', 'Brochure and literature holders', 'Acrylic podiums and lecterns', 'Acrylic partitions and sneeze guards', 'Acrylic light boxes', '3D acrylic letters and logos', 'Acrylic awards and trophies', 'Display risers and shelves', 'Cake stands and event décor', 'Acrylic signage panels', 'Ballot and suggestion boxes', 'Laser engraving and cutting services', 'Custom fabrication projects')
+        ),
+        array(
+            'num' => '12',
+            'slug' => 'large-format-digital-printing',
+            'title' => 'Large Format & Digital Printing',
+            'short' => 'Trinity Media delivers high-quality large format and digital printing solutions with vibrant designs, precision printing, and impactful branding for every business need.',
+            'overview' => 'Trinity Media delivers high-quality large format and digital printing solutions with vibrant designs, precision printing, and impactful branding for every business need.
+
+Large Format & Digital Printing solutions by Trinity media deliver high-impact visuals for brands and businesses. From large format banner printing to vinyl sticker printing and poster printing, we create professional displays. Our creative printing services help businesses stand out with quality, precision, and modern designs.
+
+We provide roll-up / pull-up banners, backlit prints, and vehicle wrap printing for powerful brand visibility. Our wallpaper printing and canvas printing services transform spaces with premium customized artwork. Floor graphics printing and window graphics printing add unique promotional experiences for every environment.
+
+Mesh banner printing (building / scaffold) offers durable outdoor advertising solutions for large-scale projects. With advanced technology and expert finishing, we deliver reliable printing solutions for every requirement. Choose Trinity media for innovative printing services that combine creativity, quality, and impact. Our team creates customized visual solutions designed to enhance your brand presence. Experience professional printing excellence with solutions built for businesses of all sizes.',
+            'capabilities' => array('Large format banner printing', 'Vinyl sticker printing', 'Poster printing', 'Roll-up / pull-up banners', 'Backlit prints', 'Vehicle wrap printing', 'Wallpaper printing', 'Canvas printing', 'Floor graphics printing', 'Window graphics printing', 'Mesh banner printing (building / scaffold)', 'Custom printing solutions'),
+            'deliverables' => array('Large format banners', 'Vinyl stickers and decals', 'Posters and prints', 'Roll-up and pull-up banners', 'Backlit displays', 'Vehicle wraps and graphics', 'Custom wallpaper', 'Canvas prints', 'Floor graphics', 'Window graphics and decals', 'Mesh banners for buildings and scaffolds', 'Custom printing projects', 'Design consultation', 'Installation services')
+        ),
+        array(
+            'num' => '13',
+            'slug' => 'vehicle-branding-fleet-graphics',
+            'title' => 'Vehicle Branding & Fleet Graphics',
+            'short' => 'Transform your fleet into powerful mobile advertising with Trinity Media\'s premium vehicle branding and custom fleet graphics designed to boost brand visibility and reach.',
+            'overview' => 'Transform your fleet into powerful mobile advertising with Trinity Media\'s premium vehicle branding and custom fleet graphics designed to boost brand visibility and reach.
+
+Transform your vehicles into powerful brand ambassadors with professional Vehicle Branding & Fleet Graphics solutions. Trinity media creates modern, high-impact designs that enhance visibility and make your business stand out on the road. Our services include full vehicle wraps, partial vehicle wraps, and customized fleet branding packages.
+
+Our premium vehicle graphics for vans and trucks, combined with custom car window decals, help build a bold and recognizable brand presence. Our taxi branding and bus branding solutions help businesses reach more customers through mobile advertising. With durable vehicle magnetic signs, we provide flexible branding options for every type of vehicle.
+
+From corporate fleets to racing / sports vehicle graphics, our creative designs are built for maximum attention. We combine quality materials, expert installation, and innovative ideas to deliver long-lasting vehicle graphics. Upgrade your fleet with eye-catching designs that promote your brand wherever your vehicles travel. Our vehicle branding services offer creativity, durability, and a professional finish that leaves a lasting impression. Choose reliable fleet graphics solutions to turn every drive into an effective marketing opportunity.',
+            'capabilities' => array('Full vehicle wraps', 'Partial vehicle wraps', 'Customized fleet branding packages', 'Vehicle graphics for vans and trucks', 'Custom car window decals', 'Taxi branding', 'Bus branding', 'Vehicle magnetic signs', 'Corporate fleet branding', 'Racing / sports vehicle graphics', 'Custom designs and installation'),
+            'deliverables' => array('Full vehicle wraps', 'Partial vehicle wraps', 'Fleet branding packages', 'Van and truck graphics', 'Car window decals', 'Taxi branding', 'Bus branding', 'Vehicle magnetic signs', 'Corporate fleet branding', 'Racing and sports vehicle graphics', 'Custom vehicle designs', 'Professional installation', 'Design consultation', 'Brand integration')
+        ),
+        array(
+            'num' => '14',
+            'slug' => 'custom-fabric-printing-branding',
+            'title' => 'Custom Fabric Printing & Branding',
+            'short' => 'Premium-quality textile solutions with vibrant prints, creative designs, and professional branding to elevate your business identity.',
+            'overview' => 'Custom Fabric Printing & Branding by Trinity Media – Premium-quality textile solutions with vibrant prints, creative designs, and professional branding to elevate your business identity.
+
+Create a powerful brand presence with premium Custom Fabric Printing & Branding solutions designed for modern spaces. Trinity media delivers innovative fabric display solutions that combine creativity, quality, and visual impact. Transform exhibitions, events, retail areas, and corporate environments with customized branding experiences.
+
+Our expertise includes Tension Fabric Backdrops, Stretch Fabric Displays, and Fabric Light Boxes for stunning visual presentations. We provide stylish Fabric Pop-Up Displays, Ceiling Fabric Structures, and Fabric Banners that enhance every promotional space. Our Fabric Wall Coverings and Fabric Booth Walls are designed to create seamless, professional brand environments.
+
+Using advanced printing techniques and premium materials, we deliver durable solutions with exceptional finishing. From concept development to final installation, our fabric branding services are tailored to meet unique business requirements. Elevate your brand visibility with modern fabric solutions built for impactful communication. Experience the perfect blend of design, innovation, and functionality with customized fabric displays. Choose creative branding solutions that make your space stand out and leave a lasting impression.',
+            'capabilities' => array('Tension Fabric Backdrops', 'Stretch Fabric Displays', 'Fabric Light Boxes', 'Fabric Pop-Up Displays', 'Ceiling Fabric Structures', 'Fabric Banners', 'Fabric Wall Coverings', 'Fabric Booth Walls', 'Custom fabric printing', 'Advanced printing techniques', 'Premium materials'),
+            'deliverables' => array('Tension fabric backdrops', 'Stretch fabric displays', 'Fabric light boxes', 'Fabric pop-up displays', 'Ceiling fabric structures', 'Fabric banners', 'Fabric wall coverings', 'Fabric booth walls', 'Custom fabric printing', 'Design consultation', 'Installation services', 'Brand integration', 'Project management')
+        ),
+        array(
+            'num' => '15',
+            'slug' => 'canvas-prints-photo-frames-wall-decor',
+            'title' => 'Canvas Prints, Photo Frames & Wall Decor',
+            'short' => 'Premium canvas prints, elegant photo frames, and stylish wall decor by Trinity Media to transform your spaces with personalized designs and lasting quality.',
+            'overview' => 'Premium canvas prints, elegant photo frames, and stylish wall decor by Trinity Media to transform your spaces with personalized designs and lasting quality.
+
+Transform your interiors with premium Canvas Prints, Photo Frames & Wall Decor designed to make every space memorable. Trinity media delivers creative and customized wall solutions with modern designs, quality materials, and elegant finishes. Turn your favorite moments into beautiful displays that add style, warmth, and personality to your surroundings.
+
+Our Custom canvas prints, Photo frames (various sizes), and Multi-panel canvas sets bring a unique artistic touch to homes and workplaces. Choose from stylish Wall art prints and Photo collages that showcase your memories with exceptional visual appeal. Create timeless family displays with personalized Family portrait canvases crafted with precision and care.
+
+Upgrade professional spaces with Corporate wall decor and Framed certificates that enhance your brand image. Add sophistication with premium Mirror frames and Metal / acrylic photo prints for a modern decorative experience. Discover innovative wall decor solutions that combine creativity, quality, and contemporary design. From personal celebrations to professional environments, our products are made to leave a lasting impression. Experience elegant craftsmanship and transform your walls into inspiring visual stories.',
+            'capabilities' => array('Custom canvas prints', 'Photo frames (various sizes)', 'Multi-panel canvas sets', 'Wall art prints', 'Photo collages', 'Family portrait canvases', 'Corporate wall decor', 'Framed certificates', 'Mirror frames', 'Metal / acrylic photo prints', 'Custom designs', 'Professional finishing'),
+            'deliverables' => array('Custom canvas prints', 'Photo frames in various sizes', 'Multi-panel canvas sets', 'Wall art prints', 'Photo collages', 'Family portrait canvases', 'Corporate wall decor', 'Framed certificates', 'Mirror frames', 'Metal and acrylic photo prints', 'Custom design services', 'Professional finishing', 'Installation consultation', 'Personalized solutions')
+        ),
+        array(
+            'num' => '16',
+            'slug' => 'kitchen-cabinet-wrapping',
+            'title' => 'Kitchen Cabinet Wrapping',
+            'short' => 'Premium vinyl wrapping solutions to transform your kitchen cabinets with a modern, stylish, and cost-effective makeover.',
+            'overview' => 'Kitchen Cabinet Wrapping by Trinity Media – Premium vinyl wrapping solutions to transform your kitchen cabinets with a modern, stylish, and cost-effective makeover.
+
+Modernize your kitchen with premium cabinet wrapping solutions designed for modern homes and businesses in Dubai. Trinity media delivers stylish interior transformations with precision, creativity, and exceptional craftsmanship. Our expert wrapping services bring a fresh, elegant look while enhancing the beauty of your space.
+
+We specialize in seamless kitchen cabinet wrapping with a focus on quality, durability, and flawless finishing. Enjoy flexible scheduling that fits your lifestyle and project requirements with ease. Our professionally trained team ensures every installation is completed with care and attention to detail.
+
+Experience a clean, dust-free, and noise-free process that keeps your space comfortable throughout the work. We use eco-friendly methods to maintain a safe, tidy, and responsible working environment. From concept to completion, we treat every project with the same care as our own home. Trust our skilled specialists to create a kitchen space that reflects your style and exceeds expectations. Discover the perfect blend of elegance, efficiency, and long-lasting quality with our interior wrapping services.',
+            'capabilities' => array('Seamless kitchen cabinet wrapping', 'Premium vinyl wrapping', 'Quality and durability', 'Flawless finishing', 'Flexible scheduling', 'Professional installation', 'Eco-friendly methods', 'Custom design solutions', 'Interior transformations'),
+            'deliverables' => array('Professional kitchen cabinet wrapping', 'Premium vinyl materials', 'Custom design and consultation', 'Surface preparation', 'Precision installation', 'Flawless finishing', 'Flexible scheduling', 'Eco-friendly process', 'Clean and dust-free service', 'Project management', 'Aftercare guidance')
+        ),
+        array(
+            'num' => '17',
+            'slug' => 'decorative-wallpaper-solutions',
+            'title' => 'Decorative Wallpaper Solutions',
+            'short' => 'Trinity Media offers professional wallpaper printing with exceptional quality, sharp details, and creative designs for homes, offices, and commercial spaces.',
+            'overview' => 'Trinity Media offers professional wallpaper printing with exceptional quality, sharp details, and creative designs for homes, offices, and commercial spaces.
+
+Convert your interiors with stunning custom wallpaper designs by Trinity Media, Dubai\'s trusted wallpaper printing service. We create durable, affordable, and stylish wallpapers using advanced printing technology and premium materials. From elegant patterns to creative wall solutions, we bring your vision to life with perfection.
+
+Enhance every space with our exclusive Kids Room Wallpaper, Living Room Wallpaper, and modern Pattern Wallpaper collections. Our creative designs include beautiful Floral Wallpaper, impressive Wall Mural concepts, and luxurious Textured Wallpaper finishes. Trinity Media combines innovation, quality, and the latest trends to deliver wallpapers that match your unique style.
+
+We use eco-friendly materials and safe printing methods to create beautiful environments without harmful products. Our customized wallpaper solutions add charm, personality, and a premium touch to homes, offices, and commercial spaces. Experience exceptional wallpaper printing in Dubai with Trinity Media, where quality meets creative excellence. Our expert team is dedicated to delivering long-lasting, attractive, and customized wallpaper solutions for every interior. Experience the perfect blend of technology, creativity, and elegance with wallpapers designed to exceed expectations.',
+            'capabilities' => array('Kids Room Wallpaper', 'Living Room Wallpaper', 'Pattern Wallpaper', 'Floral Wallpaper', 'Wall Mural concepts', 'Textured Wallpaper', 'Custom wallpaper designs', 'Advanced printing technology', 'Eco-friendly materials', 'Safe printing methods'),
+            'deliverables' => array('Kids room wallpaper', 'Living room wallpaper', 'Pattern wallpaper collections', 'Floral wallpaper designs', 'Custom wall murals', 'Textured wallpaper finishes', 'Custom wallpaper printing', 'Design consultation', 'Professional installation', 'Eco-friendly solutions', 'Custom sizing and fitting', 'Project management')
+        ),
+        array(
+            'num' => '18',
+            'slug' => 'custom-awards-recognition-products',
+            'title' => 'Custom Awards & Recognition Products',
+            'short' => 'Designing personalized, high-quality awards and recognition products that celebrate success with distinction and a lasting impression.',
+            'overview' => 'Trinity Media Custom Awards & Recognition — Designing personalized, high-quality awards and recognition products that celebrate success with distinction and a lasting impression.
+
+Create a lasting impression with premium Custom Awards & Recognition Products designed to celebrate achievements and success. Trinity media delivers creative and elegant award solutions for businesses, organizations, and special occasions. Our designs combine quality craftsmanship with modern styles to honor every milestone.
+
+From Corporate award trophies to Sports trophies & medals, we create customized recognition pieces that inspire excellence. Our Wooden plaques, Crystal-acrylic combination awards, and Engraved nameplates are crafted with precision and attention to detail. We also provide Framed certificates that add a professional touch to achievements and memorable moments.
+
+Our Retirement / recognition awards are designed to celebrate dedication, loyalty, and valuable contributions. Choose our Employee-of-the-month awards to appreciate talent and motivate teams with meaningful recognition. With innovative designs and superior finishing, our award collections bring elegance to every celebration. We create personalized recognition products that reflect your brand values and achievements. Experience exceptional quality and timeless designs with our complete award solutions.',
+            'capabilities' => array('Corporate award trophies', 'Sports trophies & medals', 'Wooden plaques', 'Crystal-acrylic combination awards', 'Engraved nameplates', 'Framed certificates', 'Retirement / recognition awards', 'Employee-of-the-month awards', 'Custom designs', 'Precision engraving', 'Quality craftsmanship'),
+            'deliverables' => array('Corporate award trophies', 'Sports trophies and medals', 'Wooden plaques', 'Crystal-acrylic combination awards', 'Engraved nameplates', 'Framed certificates', 'Retirement and recognition awards', 'Employee-of-the-month awards', 'Custom award designs', 'Precision engraving', 'Quality finishing', 'Design consultation', 'Bulk production', 'Presentation packaging')
+        ),
+        array(
+            'num' => '19',
+            'slug' => 'commercial-offset-printing',
+            'title' => 'Commercial Offset Printing',
+            'short' => 'Trinity Media offers premium commercial offset printing services with superior quality, vibrant colors, and cost-effective solutions for all business printing needs.',
+            'overview' => 'Trinity Media offers premium commercial offset printing services with superior quality, vibrant colors, and cost-effective solutions for all business printing needs.
+
+Trinity media provides professional Commercial Offset Printing solutions with creativity and precision. We help businesses build a strong brand identity through high-quality printed materials. Our advanced printing services deliver excellence, consistency, and impactful visual communication.
+
+From professional Business cards and elegant Letterheads & envelopes to creative Brochures & catalogues, we deliver exceptional printing solutions. Our services cover Flyers & leaflets, Corporate stationery sets, and Annual reports & magazines with outstanding quality and precise finishing. We design attractive Packaging boxes & labels that enhance product presentation and market appeal.
+
+Our printing range also covers Calendars & diaries, Invitation cards, and Certificates for every professional need. With advanced technology and meticulous craftsmanship, we make sure every project delivers excellence, reliability, and a professional impression. Choose reliable Commercial Offset Printing services tailored to your unique requirements. We combine innovative design, superior materials, and expert craftsmanship for outstanding results. Partner with us to create print solutions that leave a lasting impression.',
+            'capabilities' => array('Business cards', 'Letterheads & envelopes', 'Brochures & catalogues', 'Flyers & leaflets', 'Corporate stationery sets', 'Annual reports & magazines', 'Packaging boxes & labels', 'Calendars & diaries', 'Invitation cards', 'Certificates', 'High-volume printing', 'Professional finishing'),
+            'deliverables' => array('Professional business cards', 'Letterheads and envelopes', 'Brochures and catalogues', 'Flyers and leaflets', 'Corporate stationery sets', 'Annual reports and magazines', 'Packaging boxes and labels', 'Calendars and diaries', 'Invitation cards', 'Certificates', 'Custom printing solutions', 'Design consultation', 'Quality finishing', 'Bulk printing services')
+        )
+    );
+}
+
+/**
+ * Create Services from React Data
+ */
+function trinity_create_services() {
+    $services = trinity_get_services_data();
+
+    foreach ($services as $service) {
+        // Check if service already exists
+        $existing = get_page_by_path($service['slug'], OBJECT, 'service');
+
+        if ($existing) {
+            continue;
+        }
+
+        // Create service post
+        $post_id = wp_insert_post(array(
+            'post_title' => $service['title'],
+            'post_name' => $service['slug'],
+            'post_content' => $service['overview'],
+            'post_excerpt' => $service['short'],
+            'post_type' => 'service',
+            'post_status' => 'publish'
+        ));
+
+        if (!is_wp_error($post_id)) {
+            // Add custom fields
+            update_post_meta($post_id, 'service_num', $service['num']);
+            update_post_meta($post_id, 'capabilities', implode("\n", $service['capabilities']));
+            update_post_meta($post_id, 'deliverables', implode("\n", $service['deliverables']));
+        }
+    }
+}
+
+/**
+ * Create Main Pages
+ */
+function trinity_create_pages() {
+    $pages = array(
+        array(
+            'title' => 'Home',
+            'slug' => 'home',
+            'content' => '<!-- Elementor Home Page - To be built in Elementor -->'
+        ),
+        array(
+            'title' => 'About Us',
+            'slug' => 'about',
+            'content' => '<!-- Elementor About Page - To be built in Elementor -->'
+        ),
+        array(
+            'title' => 'Our Services',
+            'slug' => 'services',
+            'content' => '<!-- Elementor Services Page - To be built in Elementor -->'
+        ),
+        array(
+            'title' => 'Portfolio',
+            'slug' => 'portfolio',
+            'content' => '<!-- Elementor Portfolio Page - To be built in Elementor -->'
+        ),
+        array(
+            'title' => 'Our Journey',
+            'slug' => 'journey',
+            'content' => '<!-- Elementor Journey Page - To be built in Elementor -->'
+        ),
+        array(
+            'title' => 'Facilities',
+            'slug' => 'facilities',
+            'content' => '<!-- Elementor Facilities Page - To be built in Elementor -->'
+        ),
+        array(
+            'title' => 'Awards',
+            'slug' => 'awards',
+            'content' => '<!-- Elementor Awards Page - To be built in Elementor -->'
+        ),
+        array(
+            'title' => 'Why Choose Us',
+            'slug' => 'why-choose-us',
+            'content' => '<!-- Elementor Why Choose Us Page - To be built in Elementor -->'
+        ),
+        array(
+            'title' => 'Contact Us',
+            'slug' => 'contact',
+            'content' => '<!-- Elementor Contact Page - To be built in Elementor -->'
+        )
+    );
+
+    foreach ($pages as $page) {
+        // Check if page exists
+        $existing = get_page_by_path($page['slug']);
+
+        if ($existing) {
+            continue;
+        }
+
+        wp_insert_post(array(
+            'post_title' => $page['title'],
+            'post_name' => $page['slug'],
+            'post_content' => $page['content'],
+            'post_type' => 'page',
+            'post_status' => 'publish'
+        ));
+    }
+}
+
+/**
+ * Create Sample Portfolio Items
+ */
+function trinity_create_portfolio_items() {
+    $portfolio_items = array(
+        array(
+            'title' => 'Exhibition Stand for Tech Summit 2024',
+            'content' => 'Custom-built 72sqm exhibition stand featuring LED displays and interactive demo zones.',
+            'excerpt' => 'Award-winning exhibition stand design for major tech conference.',
+        ),
+        array(
+            'title' => 'Retail Display System for Luxury Brand',
+            'content' => 'Premium retail display system with integrated lighting and modular components.',
+            'excerpt' => 'Elegant retail display solutions for luxury fashion brand.',
+        ),
+        array(
+            'title' => 'Event Branding for Product Launch',
+            'content' => 'Complete event branding package including stage design, backdrops, and signage.',
+            'excerpt' => 'Full event branding for international product launch.',
+        ),
+        array(
+            'title' => 'Interior Fit-Out for Corporate Office',
+            'content' => 'Modern office interior with custom reception counter and glass partitions.',
+            'excerpt' => 'Contemporary corporate office transformation.',
+        ),
+        array(
+            'title' => 'Vehicle Fleet Branding',
+            'content' => 'Full vehicle wrap fleet branding for logistics company.',
+            'excerpt' => 'Eye-catching fleet graphics for brand visibility.',
+        ),
+        array(
+            'title' => 'LED Neon Signage Installation',
+            'content' => 'Custom LED neon signs for restaurant chain.',
+            'excerpt' => 'Stunning illuminated signage for hospitality brand.',
+        )
+    );
+
+    foreach ($portfolio_items as $item) {
+        $existing = get_page_by_path(sanitize_title($item['title']), OBJECT, 'portfolio');
+
+        if ($existing) {
+            continue;
+        }
+
+        wp_insert_post(array(
+            'post_title' => $item['title'],
+            'post_content' => $item['content'],
+            'post_excerpt' => $item['excerpt'],
+            'post_type' => 'portfolio',
+            'post_status' => 'publish'
+        ));
+    }
+}
+
+/**
+ * Create Sample Testimonials
+ */
+function trinity_create_testimonials() {
+    $testimonials = array(
+        array(
+            'title' => 'John Smith - Tech Corp',
+            'content' => 'Trinity Media delivered an exceptional exhibition stand that exceeded our expectations. Their attention to detail and creative approach made our booth the highlight of the trade show. Highly recommended!',
+        ),
+        array(
+            'title' => 'Sarah Johnson - Fashion Brand',
+            'content' => 'Outstanding work on our retail displays. The quality and craftsmanship are unmatched. Our products have never looked better. The team was professional and delivered on time.',
+        ),
+        array(
+            'title' => 'Ahmed Hassan - Event Organizer',
+            'content' => 'We\'ve worked with Trinity Media on multiple events. Their branding solutions consistently impress our clients. They understand our vision and bring it to life perfectly.',
+        ),
+        array(
+            'title' => 'Lisa Chen - Marketing Director',
+            'content' => 'The vehicle branding they did for our fleet has significantly increased our brand visibility. Professional service from design to installation. Great value for money.',
+        )
+    );
+
+    foreach ($testimonials as $testimonial) {
+        $existing = get_page_by_path(sanitize_title($testimonial['title']), OBJECT, 'testimonial');
+
+        if ($existing) {
+            continue;
+        }
+
+        wp_insert_post(array(
+            'post_title' => $testimonial['title'],
+            'post_content' => $testimonial['content'],
+            'post_type' => 'testimonial',
+            'post_status' => 'publish'
+        ));
+    }
+}
+
+/**
+ * Create Navigation Menu
+ */
+function trinity_create_navigation_menu() {
+    // Check if menu exists
+    $menu_name = 'Main Menu';
+    $menu_exists = wp_get_nav_menu_object($menu_name);
+
+    if (!$menu_exists) {
+        $menu_id = wp_create_nav_menu($menu_name);
+
+        // Add menu items
+        $menu_items = array(
+            'Home' => home_url('/'),
+            'About' => home_url('/about/'),
+            'Services' => home_url('/services/'),
+            'Portfolio' => home_url('/portfolio/'),
+            'Journey' => home_url('/journey/'),
+            'Facilities' => home_url('/facilities/'),
+            'Awards' => home_url('/awards/'),
+            'Contact' => home_url('/contact/')
+        );
+
+        foreach ($menu_items as $title => $url) {
+            wp_update_nav_menu_item($menu_id, 0, array(
+                'menu-item-title' => $title,
+                'menu-item-url' => $url,
+                'menu-item-status' => 'publish',
+                'menu-item-type' => 'custom'
+            ));
+        }
+
+        // Set menu location
+        $locations = get_theme_mod('nav_menu_locations');
+        $locations['primary'] = $menu_id;
+        set_theme_mod('nav_menu_locations', $locations);
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "novamira-trinitywp-zariya": {
+    "command": "npx",
+    "args": ["-y", "@automattic/mcp-wordpress-remote@latest"],
+    "env": {
+      "WP_API_URL": "https://trinitywp.zariya.dev/wp-json/mcp/novamira",
+      "WP_API_USERNAME": "xyglk",
+      "WP_API_PASSWORD": "7LPvaZdjhF54tUwwgs7iJtMK"
+    }
+  }
+}
