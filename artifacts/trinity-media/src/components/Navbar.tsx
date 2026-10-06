@@ -199,6 +199,15 @@ export function Navbar() {
             </button>
 
             <button
+              onClick={() => navigateTo('/blog')}
+              className={`text-sm font-medium transition-colors cursor-pointer ${
+                location === '/blog' ? 'text-primary font-semibold' : 'text-foreground/85 hover:text-primary'
+              }`}
+            >
+              Blog
+            </button>
+
+            <button
               onClick={() => navigateTo('/contact')}
               className={`text-sm font-medium transition-colors cursor-pointer ${
                 location === '/contact' ? 'text-primary font-semibold' : 'text-foreground/85 hover:text-primary'
@@ -310,6 +319,12 @@ export function Navbar() {
                   className="text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
                 >
                   Our Works
+                </button>
+                <button
+                  onClick={() => navigateTo('/blog')}
+                  className="text-left text-lg font-display tracking-wider text-foreground hover:text-primary transition-colors"
+                >
+                  Blog
                 </button>
                 <button
                   onClick={() => navigateTo('/contact')}

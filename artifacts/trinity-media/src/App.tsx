@@ -12,6 +12,8 @@ import OurWorksPage from './pages/OurWorksPage';
 import AwardsPage from './pages/AwardsPage';
 import ContactPage from './pages/ContactPage';
 import FacilitiesPage from './pages/FacilitiesPage';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
 import { Route, Switch, Router as WouterRouter } from 'wouter';
 
 const queryClient = new QueryClient();
@@ -28,6 +30,8 @@ function Router() {
       <Route path="/our-facilities" component={FacilitiesPage} />
       <Route path="/contact" component={ContactPage} />
       <Route path="/services/:slug" component={ServiceDetail} />
+      <Route path="/blog/:slug" component={BlogPostPage} />
+      <Route path="/blog" component={BlogPage} />
       <Route component={NotFound} />
     </Switch>
   );

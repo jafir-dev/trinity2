@@ -290,7 +290,7 @@ export function Hero() {
               {/* CTA Action Buttons */}
               <div className="mt-5 flex flex-wrap gap-3.5 items-center">
                 <button
-                  onClick={() => scrollTo('#industries')}
+                  onClick={() => scrollTo('quote-form')}
                   className="px-6 py-3 bg-green-600 hover:bg-green-500 text-white font-bold uppercase tracking-wider rounded text-xs sm:text-sm flex items-center gap-2 transition-all shadow-lg shadow-green-900/30 cursor-pointer"
                 >
                   <FaWhatsapp size={17} />
