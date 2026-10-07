@@ -1,0 +1,156 @@
+/* ==========================================================================
+   Trinity Media – base layer
+   Tokens (--background, --card, --primary …) live in tokens.css and are copied 1:1 from the React
+   site's index.css (HSL triples).  Elementor Global Colors are re-pointed to the light palette
+   under html.light, so every native widget follows the Light/Dark switch.
+   ========================================================================== */
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+html.dark { color-scheme: dark; }
+html.light { color-scheme: light; }
+
+body.trinity-media {
+	margin: 0;
+	background: hsl(var(--background));
+	color: hsl(var(--foreground));
+	font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
+}
+
+/* Tailwind preflight equivalents for markup produced by Elementor / XPRO */
+*, *::before, *::after { border-color: hsl(var(--border)); }
+.trinity-media img, .trinity-media svg, .trinity-media video { max-width: 100%; }
+.trinity-media a { text-decoration: none; }
+.trinity-media button { font-family: inherit; }
+.trinity-media ::selection { background: hsl(var(--primary) / .3); }
+
+.screen-reader-text { border: 0; clip: rect(1px,1px,1px,1px); clip-path: inset(50%); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; word-wrap: normal !important; }
+.skip-link:focus { clip: auto; clip-path: none; height: auto; width: auto; left: 8px; top: 8px; z-index: 100000; background: hsl(var(--card)); color: hsl(var(--foreground)); padding: 12px 16px; border-radius: 4px; }
+
+.tm-wrap { width: 100%; max-width: 1360px; margin: 0 auto; padding-left: 16px; padding-right: 16px; }
+@media (min-width: 768px) { .tm-wrap { padding-left: 32px; padding-right: 32px; } }
+
+/* ---- Elementor normalisation ------------------------------------------------ */
+.elementor-widget-heading .elementor-heading-title { margin: 0; padding: 0; }
+.elementor-widget-text-editor p { margin: 0; }
+.elementor-widget-text-editor p + p { margin-top: var(--tm-p-gap, 16px); }
+.elementor-widget-text-editor strong { font-weight: 600; color: hsl(var(--foreground)); }
+.elementor-widget-icon-list .elementor-icon-list-item > a, .elementor-widget-icon-list .elementor-icon-list-item { text-decoration: none; }
+.elementor-widget-icon-list .elementor-icon-list-text { line-height: inherit; }
+.elementor-widget-image img { display: block; }
+.e-con { min-width: 0; }
+.e-con > .e-con-inner { min-width: 0; }
+.tm-main { display: block; }
+.tm-main > .elementor { width: 100%; }
+
+/* section markers */
+.tm-section { position: relative; }
+.tm-main section, .tm-main .e-con { box-sizing: border-box; }
+
+/* Elementor "link container" colour reset (container acting as <a>) */
+a.e-con { color: inherit; text-decoration: none; }
+
+/* ---- Eyebrow / badge / dot / generic bits ---------------------------------- */
+.tm-eyebrow .elementor-heading-title { display: block; }
+.tm-eyebrow--lav .elementor-heading-title { color: hsl(var(--primary)); }
+html.dark .tm-eyebrow--lav .elementor-heading-title { color: #d8b4fe; }
+.tm-hl, .tm-hl * { color: hsl(var(--primary)); }
+.tm-dot { width: 10px; height: 10px; min-width: 10px; flex: 0 0 10px; border-radius: 9999px; background: hsl(var(--primary)); padding: 0 !important; --min-height: 10px; --padding-top: 0px; --padding-bottom: 0px; --padding-left: 0px; --padding-right: 0px; }
+
+.tm-badge { align-self: flex-start; width: auto !important; }
+.tm-badge .elementor-icon-list-items { display: flex; }
+.tm-badge .elementor-icon-list-item { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 9999px; background: hsl(var(--primary) / .15); border: 1px solid hsl(var(--primary) / .3); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); box-shadow: 0 1px 2px 0 rgb(0 0 0 / .05); }
+html.dark .tm-badge .elementor-icon-list-item { background: hsl(var(--primary) / .2); border-color: hsl(var(--primary) / .4); }
+html.dark .tm-badge .elementor-icon-list-text { color: #e9d5ff !important; }
+html.dark .tm-badge .elementor-icon-list-icon i { color: #d8b4fe !important; }
+.tm-badge--sm .elementor-icon-list-item { padding: 4px 12px; box-shadow: none; backdrop-filter: none; }
+
+.tm-section-head--narrow { max-width: 48rem; }
+
+/* Buttons – primary look shared by native Elementor buttons */
+.tm-btn .elementor-button { transition: all .3s ease; text-decoration: none; }
+.tm-btn--primary .elementor-button, .tm-cta .elementor-button { box-shadow: 0 10px 15px -3px hsl(var(--primary) / .25), 0 4px 6px -4px hsl(var(--primary) / .25); }
+.tm-btn--primary .elementor-button:hover, .tm-cta .elementor-button:hover { background-color: hsl(var(--primary) / .9); color: #fff; }
+.tm-btn--wa .elementor-button { box-shadow: 0 10px 15px -3px rgb(20 83 45 / .3), 0 4px 6px -4px rgb(20 83 45 / .3); }
+.tm-btn--wa .elementor-button:hover { background-color: #22c55e; color: #fff; }
+.tm-btn--ghost .elementor-button { background: hsl(var(--background) / .5); }
+.tm-btn--ghost .elementor-button:hover { background: hsl(var(--muted) / .4); border-color: hsl(var(--primary)); color: hsl(var(--primary)); }
+.tm-btn--card .elementor-button { background: hsl(var(--card)); border: 1px solid hsl(var(--border)); box-shadow: 0 1px 2px 0 rgb(0 0 0 / .05); }
+.tm-btn--card .elementor-button:hover { border-color: hsl(var(--primary)); }
+.tm-btn--wa-icon .elementor-button-icon { color: #22c55e; }
+.tm-btn--outline .elementor-button { background: hsl(var(--card)); border: 1px solid hsl(var(--border)); color: hsl(var(--foreground)); box-shadow: 0 1px 2px 0 rgb(0 0 0 / .05); }
+.tm-btn--outline .elementor-button:hover { border-color: hsl(var(--primary)); color: hsl(var(--primary)); }
+.tm-btn--white .elementor-button { box-shadow: 0 25px 50px -12px rgb(0 0 0 / .4); }
+.tm-btn--white .elementor-button:hover { background: #f3f4f6; color: #000; }
+.tm-btn--outline-white .elementor-button { box-shadow: 0 25px 50px -12px rgb(0 0 0 / .25); background: transparent; }
+.tm-btn--outline-white .elementor-button:hover { background: #fff; color: hsl(var(--primary)); }
+.tm-btn--block .elementor-button { width: 100%; justify-content: center; }
+.elementor-button .elementor-button-content-wrapper { align-items: center; }
+
+/* ---- Scroll reveal (replaces framer-motion whileInView) --------------------- */
+.tm-rv { opacity: 0; transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); will-change: opacity, transform; }
+.tm-rv-up { transform: translateY(24px); }
+.tm-rv-left { transform: translateX(-40px); transition-duration: .8s; }
+.tm-rv-right { transform: translateX(40px); transition-duration: .8s; }
+.tm-rv-scale { transform: scale(.9); transition-duration: .5s; }
+.tm-rv-pop { transform: translateY(30px) scale(.97); transition-duration: .65s; }
+.tm-rv.is-in { opacity: 1; transform: none; }
+.tm-d1 { transition-delay: .05s; } .tm-d2 { transition-delay: .1s; } .tm-d3 { transition-delay: .15s; } .tm-d4 { transition-delay: .2s; }
+.tm-d5 { transition-delay: .25s; } .tm-d6 { transition-delay: .3s; } .tm-d7 { transition-delay: .35s; } .tm-d8 { transition-delay: .4s; }
+.tm-d9 { transition-delay: .45s; } .tm-d10 { transition-delay: .5s; } .tm-d11 { transition-delay: .55s; }
+.elementor-editor-active .tm-rv, .elementor-editor-preview .tm-rv { opacity: 1 !important; transform: none !important; }
+@media (prefers-reduced-motion: reduce) { .tm-rv { opacity: 1; transform: none; transition: none; } }
+
+/* ---- Custom cursor (desktop) ----------------------------------------------- */
+.tm-cursor { position: fixed; top: 0; left: 0; width: 24px; height: 24px; border-radius: 9999px; pointer-events: none; z-index: 100; background: rgba(123,45,142,.8); mix-blend-mode: difference; transition: transform .2s; display: none; will-change: transform; }
+@media (min-width: 1024px) { .tm-cursor { display: block; } }
+
+/* ---- Marquee, glass, misc keyframes ---------------------------------------- */
+@keyframes tm-marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes tm-bounce-y { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+@keyframes tm-slide-in { from { opacity: 0; transform: translateY(25px); } to { opacity: 1; transform: none; } }
+@keyframes tm-pulse { 0%, 100% { opacity: 1; } 50% { opacity: .5; } }
+
+/* absolute helpers (Elementor offers only one offset per axis) */
+.tm-abs-fill { position: absolute !important; top: 0; right: 0; bottom: 0; left: 0; width: auto !important; height: auto !important; }
+.tm-bgword--services { left: 0 !important; right: 0 !important; }
+.tm-svc-hero__label { right: 24px; }
+.tm-gcard__cap { right: 12px; }
+
+/* widget max-widths (beat Elementor's  .e-con > .elementor-widget { max-width: 100% }) */
+.elementor.elementor .e-con > .elementor-widget.tm-hero__desc, .elementor.elementor .e-con > .elementor-widget.tm-vhero__lead, .e-con.e-con > .e-con-inner > .elementor-widget.tm-hero__desc, .e-con.e-con > .e-con-inner > .elementor-widget.tm-vhero__lead { max-width: 42rem; }
+.elementor.elementor .e-con > .elementor-widget.tm-svc-top__lead { max-width: 48rem; }
+.elementor.elementor .e-con > .elementor-widget.tm-ms-head__note { max-width: 28rem; }
+.elementor.elementor .e-con > .elementor-widget.tm-why-head__note { max-width: 24rem; }
+.elementor.elementor .e-con > .elementor-widget.tm-works-head__note, .elementor.elementor .e-con > .elementor-widget.tm-svc-gallery__note { max-width: 28rem; }
+.elementor.elementor .e-con > .elementor-widget.tm-banner__text { max-width: 48rem; }
+
+/* icon-list with the icon AFTER the text (Elementor has no such option) */
+.tm-iconr .elementor-icon-list-item, .tm-iconr .elementor-icon-list-item > a { flex-direction: row-reverse; gap: 8px; }
+.tm-iconr.tm-ig6 .elementor-icon-list-item, .tm-iconr.tm-ig6 .elementor-icon-list-item > a { gap: 6px; }
+.tm-iconr.tm-ig10 .elementor-icon-list-item, .tm-iconr.tm-ig10 .elementor-icon-list-item > a { gap: 10px; }
+.tm-iconr .elementor-icon-list-icon + .elementor-icon-list-text { padding-inline-start: 0 !important; }
+.tm-iconr .elementor-icon-list-items { display: flex; }
+.tm-hero__count .elementor-heading-title { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important; }
+.tm-btn--wa .elementor-button-icon { font-size: 17px; }
+.elementor-widget-icon .elementor-icon { display: inline-flex; vertical-align: top; line-height: 1; }
+.elementor-widget-icon .elementor-icon-wrapper { line-height: 0; }
+/* Elementor adds a 5px text indent on top of the icon gap; the icon span already carries the gap */
+.elementor-widget-icon-list .elementor-icon-list-text, .elementor-widget-icon-list .elementor-icon-list-icon + .elementor-icon-list-text { padding-inline-start: 0 !important; }
+.tm-iconr .elementor-icon-list-icon { padding: 0 !important; }
+.elementor-widget-icon-list .elementor-icon-list-items { margin: 0; }
+.tm-hero__scroll { left: 50% !important; }
+.tm-textarea { display: inline-block; }
+
+/* 12-column page grids (Tailwind grid-cols-12 + col-span-N) */
+@media (min-width: 1024px) { .tm-s7 { grid-column: span 7; } .tm-s5 { grid-column: span 5; } }
+@media (min-width: 1280px) { .tm-xs8 { grid-column: span 8; } .tm-xs4 { grid-column: span 4; } }
+.elementor-widget-text-editor strong { font-weight: 700; }
+.tm-about__lead strong, .tm-mvv strong, .tm-svc-overview__text strong { font-weight: 600; }
+.tm-svc-overview__text p + p { margin-top: 1.625em; }
+body .elementor-widget.tm-center-head__p, .elementor.elementor .e-con > .elementor-widget.tm-center-head__p { max-width: 42rem; }
+.tm-crumb .elementor-icon-list-items { margin: 0 !important; padding: 0 !important; }
