@@ -4,11 +4,12 @@
  * that Elementor does not ship natively (theme toggle, hero crossfade, mega-menu hover, filters, lightbox,
  * WhatsApp forms, popup, cursor).  No dependencies.
  */
-(function () {
+;(function () {
 	'use strict';
 
 	var doc = document;
 	var root = doc.documentElement;
+	root.classList.add('tm-js'); // reveal-hiding CSS only applies once this script runs
 	var $ = function (s, c) { return (c || doc).querySelector(s); };
 	var $$ = function (s, c) { return Array.prototype.slice.call((c || doc).querySelectorAll(s)); };
 	var on = function (el, ev, fn, opt) { if (el) el.addEventListener(ev, fn, opt); };
@@ -141,7 +142,7 @@
 			// warm the next background
 			var nx = bgs[(cur + 1) % n]; if (nx) { var im = nx.querySelector('img'); if (im) im.loading = 'eager'; }
 		}
-		function start() { stop(); timer = setInterval(function () { if (!paused) show(cur + 1); }, 5000); }
+		function start() { stop(); timer = setInterval(function () { if (!paused) show(cur + 1); }, (window.TrinityMedia && +TrinityMedia.heroInterval) || 3000); }
 		function stop() { clearInterval(timer); }
 
 		on($('.tm-hero__prev', hero), 'click', function (e) { e.preventDefault(); show(cur - 1); start(); });
@@ -374,7 +375,7 @@
 	function initEager() { $$('.tm-logo img, .tm-hero__bgslide.is-active img').forEach(function (i) { i.loading = 'eager'; i.decoding = 'sync'; }); }
 
 	function init() {
-		initEager(); initTheme(); initHeader(); initReveal(); initHero(); initMarquee(); initFilters(); initLightbox(); initForms(); initPopup(); initCursor(); initMisc();
+		[initEager, initTheme, initHeader, initReveal, initHero, initMarquee, initFilters, initLightbox, initForms, initPopup, initCursor, initMisc].forEach(function (fn) { try { fn(); } catch (e) { if (window.console) console.warn('[trinity]', fn.name, e); } });
 	}
 	if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', init); else init();
 }());

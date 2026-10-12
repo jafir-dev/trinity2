@@ -45,6 +45,7 @@ function trinity_enqueue_assets() {
 			'homeUrl'  => home_url( '/' ),
 			'ajaxUrl'  => admin_url( 'admin-ajax.php' ),
 			'whatsapp' => '971526935456',
+			'heroInterval' => (int) apply_filters( 'trinity_hero_interval', 3000 ), // ms between hero slides
 		)
 	);
 }

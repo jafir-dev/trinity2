@@ -283,6 +283,28 @@ function trinity_import_menu( $slug, $def, $refs ) {
  * Main
  * ---------------------------------------------------------------------------------------------- */
 
+/**
+ * The demo is built from Flexbox + Grid Containers. Older Elementor installs (3.x upgraded sites) may have those
+ * experiments off, which renders every document empty. Switch them on (idempotent).
+ */
+function trinity_enable_elementor_features() {
+	$changed = false;
+	foreach ( array( 'container', 'container_grid', 'e_optimized_markup', 'e_font_icon_svg' ) as $feature ) {
+		$key = 'elementor_experiment-' . $feature;
+		if ( 'active' !== get_option( $key ) ) {
+			update_option( $key, 'active' );
+			$changed = true;
+		}
+	}
+	if ( $changed && class_exists( '\Elementor\Plugin' ) ) {
+		try {
+			\Elementor\Plugin::$instance->files_manager->clear_cache();
+		} catch ( \Throwable $e ) { // phpcs:ignore Generic.CodeAnalysis.EmptyStatement.DetectedCatch
+		}
+	}
+}
+add_action( 'admin_init', 'trinity_enable_elementor_features' );
+
 function trinity_run_import( $force = false ) {
 	if ( ! function_exists( 'trinity_elementor_active' ) || ! trinity_elementor_active() ) {
 		return new WP_Error( 'trinity_no_elementor', __( 'Elementor must be active before importing the demo.', 'trinity-media' ) );
@@ -292,6 +314,7 @@ function trinity_run_import( $force = false ) {
 		return new WP_Error( 'trinity_no_manifest', __( 'demo/manifest.json is missing.', 'trinity-media' ) );
 	}
 
+	trinity_enable_elementor_features();
 	@set_time_limit( 600 ); // phpcs:ignore WordPress.PHP.NoSilencedErrors.Discouraged
 	$log = array();
 	$ids = array();
