@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+<defs>
+<linearGradient id="crystalFacet1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFFFFF"/><stop offset="40%" stop-color="#BAE6FD"/><stop offset="100%" stop-color="#0284C7"/></linearGradient>
+<linearGradient id="crystalFacet2" x1="100%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#E0F2FE"/><stop offset="60%" stop-color="#38BDF8"/><stop offset="100%" stop-color="#0369A1"/></linearGradient>
+<linearGradient id="crystalFacet3" x1="50%" y1="0%" x2="50%" y2="100%"><stop offset="0%" stop-color="#F0F9FF"/><stop offset="100%" stop-color="#0284C7"/></linearGradient>
+<linearGradient id="platBase" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#334155"/><stop offset="50%" stop-color="#94A3B8"/><stop offset="100%" stop-color="#1E293B"/></linearGradient>
+</defs>
+<polygon points="100,24 135,70 100,140 65,70" fill="url(#crystalFacet1)" opacity="0.9"/>
+<polygon points="100,24 65,70 100,140" fill="url(#crystalFacet2)" opacity="0.85"/>
+<polygon points="100,24 125,50 100,75 75,50" fill="#FFFFFF" opacity="0.6"/>
+<polygon points="100,75 125,50 135,70" fill="url(#crystalFacet3)" opacity="0.95"/>
+<circle cx="100" cy="85" r="22" fill="#04182b" stroke="#7DD3FC" stroke-width="2"/>
+<path d="M 96 74 L 104 74 L 104 81 L 111 81 L 111 89 L 104 89 L 104 96 L 96 96 L 96 89 L 89 89 L 89 81 L 96 81 Z" fill="url(#crystalFacet1)"/>
+<circle cx="100" cy="24" r="3.5" fill="#FFFFFF"/><circle cx="65" cy="70" r="2" fill="#E0F2FE"/><circle cx="135" cy="70" r="2" fill="#E0F2FE"/>
+<polygon points="68,145 132,145 142,165 58,165" fill="url(#platBase)" stroke="#475569" stroke-width="1"/>
+<polygon points="58,165 142,165 138,172 62,172" fill="#0F172A"/>
+<text x="100" y="159" text-anchor="middle" fill="#E0F2FE" font-size="7.5" font-weight="800" font-family="sans-serif" letter-spacing="1.2">CRYSTAL PARTNER</text>
+</svg>

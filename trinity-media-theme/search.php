@@ -1,0 +1,8 @@
+<?php
+/**
+ * Search results – same layout as the blog index.
+ *
+ * @package trinity-media
+ */
+
+require TRINITY_DIR . '/home.php';

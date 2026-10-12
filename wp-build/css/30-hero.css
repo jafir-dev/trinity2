@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Home hero – crossfade slider (14 slides), content slides, controls
+   ========================================================================== */
+.tm-hero { overflow: hidden; width: 100%; }
+.tm-hero__bg { overflow: hidden; }
+.tm-hero__bgslide { display: none; opacity: 0; transform: scale(1.05); transition: opacity 1s ease-in-out, transform 1s ease-in-out; }
+.tm-hero__bgslide.is-active { display: block; opacity: 1; transform: scale(1); }
+.tm-hero__bgslide.is-leaving { display: block; opacity: 0; transform: scale(.98); }
+.tm-hero__bgslide .elementor-widget-image, .tm-hero__bgslide .elementor-widget-container { position: absolute; inset: 0; width: 100%; height: 100%; }
+.tm-hero__bgslide img { width: 100% !important; height: 100% !important; object-fit: cover; object-position: center; max-width: none; }
+
+/* neutral gradient overlays (light: white wash, dark: black wash) */
+.tm-hero__bg::before { content: ''; position: absolute; inset: 0; z-index: 10; pointer-events: none; background: linear-gradient(to right, rgb(255 255 255 / .58), rgb(255 255 255 / .3), rgb(255 255 255 / .1)); transition: background .3s; opacity: 1; width: auto; height: auto; }
+html.dark .tm-hero__bg::before { background: linear-gradient(to right, rgb(0 0 0 / .6), rgb(0 0 0 / .35), rgb(0 0 0 / .15)); }
+.tm-hero__bg::after { content: ''; position: absolute; inset: 0; z-index: 10; pointer-events: none; background: linear-gradient(to top, hsl(var(--background) / .65), transparent 50%, transparent); width: auto; height: auto; opacity: 1; }
+.tm-hero__bg::before, .tm-hero__bg::after { display: block !important; }
+
+.tm-hero__content { position: relative; z-index: 20; }
+.tm-hero__col { width: 100%; }
+@media (min-width: 1024px) { .tm-hero__col { width: 66.6667% !important; } }
+
+.tm-slide { display: none; flex-direction: column; }
+.tm-slide.is-active { display: flex; animation: tm-slide-in .6s cubic-bezier(.16,1,.3,1) both; }
+.elementor-editor-active .tm-slide { display: flex !important; animation: none; border-bottom: 1px dashed hsl(var(--border)); margin-bottom: 24px; padding-bottom: 24px; }
+.elementor-editor-active .tm-hero__bgslide { display: block; position: relative; height: 120px; opacity: 1; transform: none; }
+
+.tm-hero__badge .elementor-icon-list-item { box-shadow: 0 1px 2px 0 rgb(0 0 0 / .05); }
+html.dark .tm-hero__badge .elementor-icon-list-item { box-shadow: 0 0 15px rgba(182,62,204,.2); }
+.tm-hero__title .elementor-heading-title { text-wrap: pretty; }
+.tm-hero__title .tm-hl { color: hsl(var(--primary)); }
+html.dark .tm-hero__title .tm-hl { color: #fff; filter: drop-shadow(0 10px 8px rgb(0 0 0 / .04)) drop-shadow(0 4px 3px rgb(0 0 0 / .1)); }
+/* intermediate Tailwind sizes: sm (640-767) = 3.75rem, lg (1024-1279) = 5.4rem */
+@media (min-width: 640px) and (max-width: 767px) { .elementor .tm-hero__title .elementor-heading-title { font-size: 60px; } }
+@media (min-width: 1024px) and (max-width: 1279px) { .elementor .tm-hero__title .elementor-heading-title { font-size: 86.4px; } }
+.tm-hero__desc { }
+.tm-hero__desc p { color: hsl(var(--foreground) / .8) !important; }
+@media (min-width: 640px) and (max-width: 767px) { .elementor .tm-hero__desc p { font-size: 16px; } }
+
+.tm-hero__stats { border-top: 1px solid hsl(var(--border)); }
+.tm-hero__sep { width: 1px; height: 28px; background: hsl(var(--border)); display: none; }
+@media (min-width: 640px) { .tm-hero__sep { display: block; } }
+.tm-hero__stat-num .elementor-heading-title { display: block; }
+@media (min-width: 640px) { .elementor .tm-hero__stat-num .elementor-heading-title { font-size: 36px; line-height: 1; } }
+.tm-hero__ctas .elementor-button { transition: all .2s; }
+
+.tm-hero__prev .elementor-icon, .tm-hero__next .elementor-icon { width: 40px; height: 40px; border-radius: 9999px; border: 1px solid hsl(var(--border)); background: hsl(var(--background) / .7); color: hsl(var(--foreground)); display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px 0 rgb(0 0 0 / .05); transition: all .2s; cursor: pointer; padding: 0; }
+.tm-hero__prev .elementor-icon:hover, .tm-hero__next .elementor-icon:hover { background: hsl(var(--primary)); color: #fff; border-color: hsl(var(--primary)); }
+.tm-hero__dot { width: 10px; height: 10px; min-height: 10px; border-radius: 9999px; background: hsl(var(--border) / .8); transition: all .3s; cursor: pointer; flex: 0 0 auto; padding: 0 !important; --min-height: 10px; --padding-top: 0px; --padding-bottom: 0px; --padding-left: 0px; --padding-right: 0px; }
+.tm-hero__dot:hover { background: hsl(var(--primary) / .5); }
+.tm-hero__dot.is-active { width: 24px; background: hsl(var(--primary)); }
+
+.tm-hero__scroll { left: 50%; transform: translateX(-50%); display: none; cursor: pointer; opacity: 0; animation: tm-fade-in 1s 1.2s forwards; }
+@media (min-width: 768px) { .tm-hero__scroll { display: flex; } }
+.tm-hero__arrow { animation: tm-bounce-y 1.5s infinite; }
+@keyframes tm-fade-in { to { opacity: 1; } }
+.elementor-editor-active .tm-hero__scroll { opacity: 1; animation: none; }
